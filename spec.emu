@@ -5,35 +5,145 @@
 <script src="./spec.js"></script>
 <pre class="metadata">
 title: Scopes
-stage: -1
-contributors: Your Name(s) Here
+stage: 3
+contributors: Holger Benl, Simon Zünd
 </pre>
 
-<emu-clause id="sec-demo-clause">
-  <h1>This is an emu-clause</h1>
-  <p>This is an algorithm:</p>
-  <emu-alg>
-    1. Let _proposal_ be *undefined*.
-    1. If IsAccepted(_proposal_) is *true*, then
-      1. Let _stage_ be *0*<sub>ℤ</sub>.
-    1. Else,
-      1. Let _stage_ be *-1*<sub>ℤ</sub>.
-    1. Return ? ToString(_stage_).
-  </emu-alg>
+<emu-clause id="sec-source-map-format">
+  <h1>Additions to the <a href="https://tc39.es/ecma426/#source-map-format" target="_blank" rel="noopener noreferrer">Source map format</a></h1>
+  <p>The source map JSON document contains the following additional fields:</p>
+  <emu-table>
+    <emu-caption>Added source map JSON fields</emu-caption>
+    <table>
+      <tr><th>Field</th><th>Description</th></tr>
+      <tr>
+        <td>`"scopes"`</td>
+        <td>
+          an optional string. The string itself is a comma (`,`) separated list of encoded items. Each items as a list of VLQ encoded unsigned or signed numbers. Clause <emu-xref href="#format"></emu-xref> describes the grammar of the string.
+        </td>
+      </tr>
+      <tr>
+        <td>`"expressions"`</td>
+        <td>
+          an optional list of strings. The list may also contain the value `null`. This is a string table similar to `"names"` but holds JavaScript expressions.
+        </td>
+      </tr>
+    </table>
+  </emu-table>
 </emu-clause>
 
-<emu-clause id="sec-is-accepted" type="abstract operation">
-  <h1>
-      IsAccepted (
-        _proposal_: an ECMAScript language value
-      ): a Boolean
-  </h1>
-  <dl class="header">
-    <dt>description</dt>
-    <dd>Tells you if the proposal was accepted</dd>
-  </dl>
-  <emu-alg>
-    1. If _proposal_ is not a String, or is not accepted, return *false*.
-    1. Return *true*.
-  </emu-alg>
+<emu-clause id="format">
+  <h1>`"scopes"` grammar</h1>
+  <p>The `"scopes"` string must result in a successful parse starting at the |Scopes| goal symbol.</p>
+  <emu-grammar type="definition">
+    Scopes :
+      ItemList
+
+    ItemList :
+      TopLevelItem
+      ItemList `,` TopLevelItem
+
+    TopLevelItem :
+      OriginalScopeTree
+      GeneratedRangeTree
+      UnknownItem
+
+    OriginalScopeTree :
+      OriginalScopeStart OriginalScopeItemList? `,` OriginalScopeEnd
+
+    OriginalScopeItemList :
+      `,` OriginalScopeItem
+      OriginalScopeItemList `,` OriginalScopeItem
+
+    OriginalScopeItem :
+      OriginalScopeVariables
+      OriginalScopeSourceRef
+      OriginalScopeTree
+      UnknownItem
+
+    OriginalScopeStart :
+      `B` Line Column Flags Name? Kind?
+
+    OriginalScopeEnd :
+      `C` Line Column
+
+    OriginalScopeVariables :
+      `D` VlqList
+
+    OriginalScopeSourceRef :
+      `E` SourceRef
+
+    GeneratedRangeTree :
+      GeneratedRangeStart GeneratedRangeItemList? `,` GeneratedRangeEnd
+
+    GeneratedRangeItemList :
+      `,` GeneratedRangeItem
+      GeneratedRangeItemList `,` GeneratedRangeItem
+
+    GeneratedRangeItem :
+      GeneratedRangeBindings
+      SubRangeBinding
+      CallSite
+      GeneratedRangeTree
+      UnknownItem
+
+    GeneratedRangeStart :
+      `F` Flags Column Line? Definition?
+
+    GeneratedRangeEnd :
+      `G` Column Line?
+
+    GeneratedRangeBindings :
+      `H` VlqList
+
+    SubRangeBinding :
+      `I` BindingFromList
+
+    BindingFromList :
+      BindingFrom
+      BindingFromList BindingFrom
+
+    BindingFrom :
+      Line Column Vlq
+
+    CallSite :
+      `J` SourceRef Line Column
+
+    UnknownItem : VlqList
+  </emu-grammar>
+  <p>The fields in the various items are Vlqs:</p>
+  <emu-grammar type="definition" collapsed>
+    Line : Vlq
+    Column : Vlq
+    Flags : Vlq
+    Name : Vlq
+    Kind : Vlq
+    Definition : Vlq
+    SourceRef : Vlq
+  </emu-grammar>
 </emu-clause>
+
+<emu-annex id="sec-missing">
+  <h1>Missing base definitions</h1>
+  <p>These definitions should be part of the actual source map spec.</p>
+  <emu-grammar type="definition">
+    VlqList :
+      Vlq
+      VlqList Vlq
+
+    Vlq ::
+      VlqDigitList
+
+    VlqDigitList ::
+      DigitWithoutContinuationBit
+      DigitWithContinuationBit VlqDigitList
+
+    DigitWithoutContinuationBit :: one of
+      `A` `B` `C` `D` `E` `F` `G` `H` `I` `J` `K` `L` `M` `N` `O` `P` `Q` `R`
+      `S` `T` `U` `V` `W` `X` `Y` `Z` `a` `b` `c` `d` `e` `f`
+
+    DigitWithContinuationBit :: one of
+      `g` `h` `i` `j` `k` `l` `m` `n` `o` `p` `q` `r` `s` `t` `u` `v` `w` `x`
+      `y` `z` `0` `1` `2` `3` `4` `5` `6` `7` `8` `9` `+` `/`
+  </emu-grammar>
+</emu-annex>
