@@ -1,13 +1,14 @@
 <!doctype html>
-<head><meta charset="utf-8"><meta property="og:image" content="https://tc39.es/ecmarkup/ecma-logo.png"><meta property="og:title" content="Scopes"><meta property="og:description" content="This is an emu-clause
-  This is an algorithm:
+<head><meta charset="utf-8"><meta property="og:image" content="https://tc39.es/ecmarkup/ecma-logo.png"><meta property="og:title" content="Scopes"><meta property="og:description" content="Additions to the Source map format
+  The source map JSON document contains the following additional fields:
   
-    1. Let _proposal_ be *undefined*.
-    1. If IsAccepted(_proposal_) is *true*, then
-      1. Let _stage_ be *0*ℤ.
-    1. Else,
-      1. Let _stage_ be *-1*ℤ.
-    1. Return ? ToString(_stage_).">
+    Added source map JSON fields
+    
+      FieldDescription
+      
+        `&quot;scopes&quot;`
+        
+          an optional string. The string itself is a comma (`,`) separated list of encoded">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/base16/solarized-light.min.css"><link rel="stylesheet" href="./spec.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
 <script src="./spec.js"></script>
@@ -1618,7 +1619,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 let sdoMap = JSON.parse(`{}`);
-let biblio = JSON.parse(`{"refsByClause":{"sec-demo-clause":["_ref_0"]},"entries":[{"type":"clause","id":"sec-demo-clause","titleHTML":"This is an emu-clause","number":"1"},{"type":"op","aoid":"IsAccepted","refId":"sec-is-accepted"},{"type":"clause","id":"sec-is-accepted","title":"IsAccepted ( proposal )","titleHTML":"IsAccepted ( <var>proposal</var> )","number":"2","referencingIds":["_ref_0"]},{"type":"clause","id":"sec-copyright-and-software-license","title":"Copyright & Software License","titleHTML":"Copyright &amp; Software License","number":"A"}]}`);
+let biblio = JSON.parse(`{"refsByClause":{"sec-source-map-format":["_ref_0"],"format":["_ref_1","_ref_2","_ref_3","_ref_4","_ref_5","_ref_6","_ref_7","_ref_8","_ref_9","_ref_10","_ref_11","_ref_12","_ref_13","_ref_14","_ref_15","_ref_16","_ref_17","_ref_18","_ref_19","_ref_20","_ref_21","_ref_22","_ref_23","_ref_24","_ref_25","_ref_26","_ref_27","_ref_28","_ref_29","_ref_30","_ref_31","_ref_32","_ref_33","_ref_34","_ref_35","_ref_36","_ref_37","_ref_38","_ref_39","_ref_40","_ref_41","_ref_42","_ref_43","_ref_44","_ref_45","_ref_46","_ref_47","_ref_48","_ref_49","_ref_50","_ref_51","_ref_52","_ref_53","_ref_54","_ref_55","_ref_56","_ref_57","_ref_58","_ref_59","_ref_60","_ref_61","_ref_62","_ref_63"],"sec-missing":["_ref_64","_ref_65","_ref_66","_ref_67","_ref_68","_ref_69","_ref_70"]},"entries":[{"type":"clause","id":"sec-source-map-format","titleHTML":"Additions to the Source map format","number":"1"},{"type":"production","id":"prod-Scopes","name":"Scopes","referencingIds":["_ref_1"]},{"type":"production","id":"prod-ItemList","name":"ItemList","referencingIds":["_ref_2","_ref_4"]},{"type":"production","id":"prod-TopLevelItem","name":"TopLevelItem","referencingIds":["_ref_3","_ref_5"]},{"type":"production","id":"prod-OriginalScopeTree","name":"OriginalScopeTree","referencingIds":["_ref_6","_ref_17"]},{"type":"production","id":"prod-OriginalScopeItemList","name":"OriginalScopeItemList","referencingIds":["_ref_10","_ref_13"]},{"type":"production","id":"prod-OriginalScopeItem","name":"OriginalScopeItem","referencingIds":["_ref_12","_ref_14"]},{"type":"production","id":"prod-OriginalScopeStart","name":"OriginalScopeStart","referencingIds":["_ref_9"]},{"type":"production","id":"prod-OriginalScopeEnd","name":"OriginalScopeEnd","referencingIds":["_ref_11"]},{"type":"production","id":"prod-OriginalScopeVariables","name":"OriginalScopeVariables","referencingIds":["_ref_15"]},{"type":"production","id":"prod-OriginalScopeSourceRef","name":"OriginalScopeSourceRef","referencingIds":["_ref_16"]},{"type":"production","id":"prod-GeneratedRangeTree","name":"GeneratedRangeTree","referencingIds":["_ref_7","_ref_37"]},{"type":"production","id":"prod-GeneratedRangeItemList","name":"GeneratedRangeItemList","referencingIds":["_ref_29","_ref_32"]},{"type":"production","id":"prod-GeneratedRangeItem","name":"GeneratedRangeItem","referencingIds":["_ref_31","_ref_33"]},{"type":"production","id":"prod-GeneratedRangeStart","name":"GeneratedRangeStart","referencingIds":["_ref_28"]},{"type":"production","id":"prod-GeneratedRangeEnd","name":"GeneratedRangeEnd","referencingIds":["_ref_30"]},{"type":"production","id":"prod-GeneratedRangeBindings","name":"GeneratedRangeBindings","referencingIds":["_ref_34"]},{"type":"production","id":"prod-SubRangeBinding","name":"SubRangeBinding","referencingIds":["_ref_35"]},{"type":"production","id":"prod-BindingFromList","name":"BindingFromList","referencingIds":["_ref_46","_ref_48"]},{"type":"production","id":"prod-BindingFrom","name":"BindingFrom","referencingIds":["_ref_47","_ref_49"]},{"type":"production","id":"prod-CallSite","name":"CallSite","referencingIds":["_ref_36"]},{"type":"production","id":"prod-UnknownItem","name":"UnknownItem","referencingIds":["_ref_8","_ref_18","_ref_38"]},{"type":"production","id":"prod-Line","name":"Line","referencingIds":["_ref_19","_ref_24","_ref_41","_ref_44","_ref_50","_ref_54"]},{"type":"production","id":"prod-Column","name":"Column","referencingIds":["_ref_20","_ref_25","_ref_40","_ref_43","_ref_51","_ref_55"]},{"type":"production","id":"prod-Flags","name":"Flags","referencingIds":["_ref_21","_ref_39"]},{"type":"production","id":"prod-Name","name":"Name","referencingIds":["_ref_22"]},{"type":"production","id":"prod-Kind","name":"Kind","referencingIds":["_ref_23"]},{"type":"production","id":"prod-Definition","name":"Definition","referencingIds":["_ref_42"]},{"type":"production","id":"prod-SourceRef","name":"SourceRef","referencingIds":["_ref_27","_ref_53"]},{"type":"clause","id":"format","title":"\\"scopes\\" grammar","titleHTML":"<code>\\"scopes\\"</code> grammar","number":"2","referencingIds":["_ref_0"]},{"type":"production","id":"prod-VlqList","name":"VlqList","referencingIds":["_ref_26","_ref_45","_ref_56","_ref_65"]},{"type":"production","id":"prod-Vlq","name":"Vlq","referencingIds":["_ref_52","_ref_57","_ref_58","_ref_59","_ref_60","_ref_61","_ref_62","_ref_63","_ref_64","_ref_66"]},{"type":"production","id":"prod-VlqDigitList","name":"VlqDigitList","referencingIds":["_ref_67","_ref_70"]},{"type":"production","id":"prod-DigitWithoutContinuationBit","name":"DigitWithoutContinuationBit","referencingIds":["_ref_68"]},{"type":"production","id":"prod-DigitWithContinuationBit","name":"DigitWithContinuationBit","referencingIds":["_ref_69"]},{"type":"clause","id":"sec-missing","titleHTML":"Missing base definitions","number":"A"},{"type":"clause","id":"sec-copyright-and-software-license","title":"Copyright & Software License","titleHTML":"Copyright &amp; Software License","number":"B"}]}`);
 ;let usesMultipage = false</script><style>/* IBM Plex fonts (Latin subset) have been downloaded from Google Fonts and modified to add support back in for the `zero` substitution (slashed zeroes) */
 
 /* https://fonts.googleapis.com/css2?family=IBM%20Plex%20Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap */
@@ -3259,12 +3260,12 @@ emu-intro {
     @media print {
       @page :left {
         @bottom-right {
-          content: '© Ecma International 2024';
+          content: '© Ecma International 2025';
         }
       }
       @page :right {
         @bottom-left {
-          content: '© Ecma International 2024';
+          content: '© Ecma International 2025';
         }
       }
       @page :first {
@@ -3295,23 +3296,277 @@ emu-intro {
 </ul></div><div id="menu-toggle"><svg xmlns="http://www.w3.org/2000/svg" style="width:100%; height:100%; stroke:currentColor" viewBox="0 0 120 120" width="54" height="54">
       <title>Menu</title>
       <path stroke-width="10" stroke-linecap="round" d="M30,60 h60  M30,30 m0,5 h60  M30,90 m0,-5 h60"></path>
-    </svg></div><div id="menu-spacer" class="menu-spacer"></div><div id="menu"><div id="menu-search"><input type="text" id="menu-search-box" placeholder="Search..."><div id="menu-search-results" class="inactive"></div></div><div id="menu-pins"><div class="menu-pane-header">Pins<button class="unpin-all">clear</button></div><ul id="menu-pins-list"></ul></div><div class="menu-pane-header">Table of Contents</div><div id="menu-toc"><ol class="toc"><li><span class="item-toggle-none"></span><a href="#sec-demo-clause" title="This is an emu-clause"><span class="secnum">1</span> This is an emu-clause</a></li><li><span class="item-toggle-none"></span><a href="#sec-is-accepted" title="IsAccepted ( proposal )"><span class="secnum">2</span> IsAccepted ( <var>proposal</var> )</a></li><li><span class="item-toggle-none"></span><a href="#sec-copyright-and-software-license" title="Copyright &amp; Software License"><span class="secnum">A</span> Copyright &amp; Software License</a></li></ol></div></div><div id="spec-container"><h1 class="version">Stage -1 Draft / December 18, 2024</h1><h1 class="title">Scopes</h1>
+    </svg></div><div id="menu-spacer" class="menu-spacer"></div><div id="menu"><div id="menu-search"><input type="text" id="menu-search-box" placeholder="Search..."><div id="menu-search-results" class="inactive"></div></div><div id="menu-pins"><div class="menu-pane-header">Pins<button class="unpin-all">clear</button></div><ul id="menu-pins-list"></ul></div><div class="menu-pane-header">Table of Contents</div><div id="menu-toc"><ol class="toc"><li><span class="item-toggle-none"></span><a href="#sec-source-map-format" title="Additions to the Source map format"><span class="secnum">1</span> Additions to the Source map format</a></li><li><span class="item-toggle-none"></span><a href="#format" title="" scopes"="" grammar"=""><span class="secnum">2</span> <code>"scopes"</code> grammar</a></li><li><span class="item-toggle-none"></span><a href="#sec-missing" title="Missing base definitions"><span class="secnum">A</span> Missing base definitions</a></li><li><span class="item-toggle-none"></span><a href="#sec-copyright-and-software-license" title="Copyright &amp; Software License"><span class="secnum">B</span> Copyright &amp; Software License</a></li></ol></div></div><div id="spec-container"><h1 class="version">Stage 3 Draft / February 5, 2025</h1><h1 class="title">Scopes</h1>
 
-<emu-clause id="sec-demo-clause">
-  <h1><span class="secnum">1</span> This is an emu-clause</h1>
-  <p>This is an algorithm:</p>
-  <emu-alg><ol><li>Let <var>proposal</var> be <emu-val>undefined</emu-val>.</li><li>If <emu-xref aoid="IsAccepted" id="_ref_0"><a href="#sec-is-accepted">IsAccepted</a></emu-xref>(<var>proposal</var>) is <emu-val>true</emu-val>, then<ol><li>Let <var>stage</var> be <emu-val>0</emu-val><sub>ℤ</sub>.</li></ol></li><li>Else,<ol><li>Let <var>stage</var> be <emu-val>-1</emu-val><sub>ℤ</sub>.</li></ol></li><li>Return ?&nbsp;<emu-xref aoid="ToString"><a href="https://tc39.es/ecma262/#sec-tostring">ToString</a></emu-xref>(<var>stage</var>).</li></ol></emu-alg>
+<emu-clause id="sec-source-map-format">
+  <h1><span class="secnum">1</span> Additions to the <a href="https://tc39.es/ecma426/#source-map-format" target="_blank" rel="noopener noreferrer" data-print-href="">Source map format</a></h1>
+  <p>The source map JSON document contains the following additional fields:</p>
+  <emu-table><figure><figcaption>Table 1: Added source map JSON fields</figcaption>
+    
+    <table>
+      <tbody><tr><th>Field</th><th>Description</th></tr>
+      <tr>
+        <td><code>"scopes"</code></td>
+        <td>
+          an optional string. The string itself is a comma (<code>,</code>) separated list of encoded items. Each items as a list of VLQ encoded unsigned or signed numbers. Clause <emu-xref href="#format" id="_ref_0"><a href="#format">2</a></emu-xref> describes the grammar of the string.
+        </td>
+      </tr>
+      <tr>
+        <td><code>"expressions"</code></td>
+        <td>
+          an optional list of strings. The list may also contain the value <code>null</code>. This is a string table similar to <code>"names"</code> but holds JavaScript expressions.
+        </td>
+      </tr>
+    </tbody></table>
+  </figure></emu-table>
 </emu-clause>
 
-<emu-clause id="sec-is-accepted" type="abstract operation" aoid="IsAccepted">
-  <h1><span class="secnum">2</span> IsAccepted ( <var>proposal</var> )</h1>
-  <p>The abstract operation IsAccepted takes argument <var>proposal</var> (an <emu-xref href="#sec-ecmascript-language-types"><a href="https://tc39.es/ecma262/#sec-ecmascript-language-types">ECMAScript language value</a></emu-xref>) and returns a Boolean. Tells you if the proposal was accepted It performs the following steps when called:</p>
-  <emu-alg><ol><li>If <var>proposal</var> <emu-xref href="#sec-ecmascript-language-types-string-type"><a href="https://tc39.es/ecma262/#sec-ecmascript-language-types-string-type">is not a String</a></emu-xref>, or is not accepted, return <emu-val>false</emu-val>.</li><li>Return <emu-val>true</emu-val>.</li></ol></emu-alg>
-</emu-clause><emu-annex id="sec-copyright-and-software-license">
-      <h1><span class="secnum">A</span> Copyright &amp; Software License</h1>
+<emu-clause id="format">
+  <h1><span class="secnum">2</span> <code>"scopes"</code> grammar</h1>
+  <p>The <code>"scopes"</code> string must result in a successful parse starting at the <emu-nt id="_ref_1"><a href="#prod-Scopes">Scopes</a></emu-nt> <emu-xref href="#sec-context-free-grammars"><a href="https://tc39.es/ecma262/#sec-context-free-grammars">goal symbol</a></emu-xref>.</p>
+  <emu-grammar type="definition"><emu-production name="Scopes" id="prod-Scopes">
+    <emu-nt><a href="#prod-Scopes">Scopes</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="stt14ogo">
+        <emu-nt id="_ref_2"><a href="#prod-ItemList">ItemList</a></emu-nt>
+    </emu-rhs>
+</emu-production>
+<emu-production name="ItemList" id="prod-ItemList">
+    <emu-nt><a href="#prod-ItemList">ItemList</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="p5k_yjeg">
+        <emu-nt id="_ref_3"><a href="#prod-TopLevelItem">TopLevelItem</a></emu-nt>
+    </emu-rhs>
+    <emu-rhs a="r4ktoq7-">
+        <emu-nt id="_ref_4"><a href="#prod-ItemList">ItemList</a></emu-nt>
+        <emu-t>,</emu-t>
+        <emu-nt id="_ref_5"><a href="#prod-TopLevelItem">TopLevelItem</a></emu-nt>
+    </emu-rhs>
+</emu-production>
+<emu-production name="TopLevelItem" id="prod-TopLevelItem">
+    <emu-nt><a href="#prod-TopLevelItem">TopLevelItem</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="nvcdgyy3">
+        <emu-nt id="_ref_6"><a href="#prod-OriginalScopeTree">OriginalScopeTree</a></emu-nt>
+    </emu-rhs>
+    <emu-rhs a="szb6oq6w">
+        <emu-nt id="_ref_7"><a href="#prod-GeneratedRangeTree">GeneratedRangeTree</a></emu-nt>
+    </emu-rhs>
+    <emu-rhs a="frkftpyl">
+        <emu-nt id="_ref_8"><a href="#prod-UnknownItem">UnknownItem</a></emu-nt>
+    </emu-rhs>
+</emu-production>
+<emu-production name="OriginalScopeTree" id="prod-OriginalScopeTree">
+    <emu-nt><a href="#prod-OriginalScopeTree">OriginalScopeTree</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="hmvgoyvx">
+        <emu-nt id="_ref_9"><a href="#prod-OriginalScopeStart">OriginalScopeStart</a></emu-nt>
+        <emu-nt optional="" id="_ref_10"><a href="#prod-OriginalScopeItemList">OriginalScopeItemList</a><emu-mods><emu-opt>opt</emu-opt></emu-mods></emu-nt>
+        <emu-t>,</emu-t>
+        <emu-nt id="_ref_11"><a href="#prod-OriginalScopeEnd">OriginalScopeEnd</a></emu-nt>
+    </emu-rhs>
+</emu-production>
+<emu-production name="OriginalScopeItemList" id="prod-OriginalScopeItemList">
+    <emu-nt><a href="#prod-OriginalScopeItemList">OriginalScopeItemList</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="fo9p0ve2">
+        <emu-t>,</emu-t>
+        <emu-nt id="_ref_12"><a href="#prod-OriginalScopeItem">OriginalScopeItem</a></emu-nt>
+    </emu-rhs>
+    <emu-rhs a="wovn_zgp">
+        <emu-nt id="_ref_13"><a href="#prod-OriginalScopeItemList">OriginalScopeItemList</a></emu-nt>
+        <emu-t>,</emu-t>
+        <emu-nt id="_ref_14"><a href="#prod-OriginalScopeItem">OriginalScopeItem</a></emu-nt>
+    </emu-rhs>
+</emu-production>
+<emu-production name="OriginalScopeItem" id="prod-OriginalScopeItem">
+    <emu-nt><a href="#prod-OriginalScopeItem">OriginalScopeItem</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="keybb1zs">
+        <emu-nt id="_ref_15"><a href="#prod-OriginalScopeVariables">OriginalScopeVariables</a></emu-nt>
+    </emu-rhs>
+    <emu-rhs a="aiz9p5et">
+        <emu-nt id="_ref_16"><a href="#prod-OriginalScopeSourceRef">OriginalScopeSourceRef</a></emu-nt>
+    </emu-rhs>
+    <emu-rhs a="nvcdgyy3">
+        <emu-nt id="_ref_17"><a href="#prod-OriginalScopeTree">OriginalScopeTree</a></emu-nt>
+    </emu-rhs>
+    <emu-rhs a="frkftpyl">
+        <emu-nt id="_ref_18"><a href="#prod-UnknownItem">UnknownItem</a></emu-nt>
+    </emu-rhs>
+</emu-production>
+<emu-production name="OriginalScopeStart" id="prod-OriginalScopeStart">
+    <emu-nt><a href="#prod-OriginalScopeStart">OriginalScopeStart</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="yo8gnsqt">
+        <emu-t>B</emu-t>
+        <emu-nt id="_ref_19"><a href="#prod-Line">Line</a></emu-nt>
+        <emu-nt id="_ref_20"><a href="#prod-Column">Column</a></emu-nt>
+        <emu-nt id="_ref_21"><a href="#prod-Flags">Flags</a></emu-nt>
+        <emu-nt optional="" id="_ref_22"><a href="#prod-Name">Name</a><emu-mods><emu-opt>opt</emu-opt></emu-mods></emu-nt>
+        <emu-nt optional="" id="_ref_23"><a href="#prod-Kind">Kind</a><emu-mods><emu-opt>opt</emu-opt></emu-mods></emu-nt>
+    </emu-rhs>
+</emu-production>
+<emu-production name="OriginalScopeEnd" id="prod-OriginalScopeEnd">
+    <emu-nt><a href="#prod-OriginalScopeEnd">OriginalScopeEnd</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="amjrkzn-">
+        <emu-t>C</emu-t>
+        <emu-nt id="_ref_24"><a href="#prod-Line">Line</a></emu-nt>
+        <emu-nt id="_ref_25"><a href="#prod-Column">Column</a></emu-nt>
+    </emu-rhs>
+</emu-production>
+<emu-production name="OriginalScopeVariables" id="prod-OriginalScopeVariables">
+    <emu-nt><a href="#prod-OriginalScopeVariables">OriginalScopeVariables</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="8wd16ck3">
+        <emu-t>D</emu-t>
+        <emu-nt id="_ref_26"><a href="#prod-VlqList">VlqList</a></emu-nt>
+    </emu-rhs>
+</emu-production>
+<emu-production name="OriginalScopeSourceRef" id="prod-OriginalScopeSourceRef">
+    <emu-nt><a href="#prod-OriginalScopeSourceRef">OriginalScopeSourceRef</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="_h60mqpk">
+        <emu-t>E</emu-t>
+        <emu-nt id="_ref_27"><a href="#prod-SourceRef">SourceRef</a></emu-nt>
+    </emu-rhs>
+</emu-production>
+<emu-production name="GeneratedRangeTree" id="prod-GeneratedRangeTree">
+    <emu-nt><a href="#prod-GeneratedRangeTree">GeneratedRangeTree</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="mr6t2xj1">
+        <emu-nt id="_ref_28"><a href="#prod-GeneratedRangeStart">GeneratedRangeStart</a></emu-nt>
+        <emu-nt optional="" id="_ref_29"><a href="#prod-GeneratedRangeItemList">GeneratedRangeItemList</a><emu-mods><emu-opt>opt</emu-opt></emu-mods></emu-nt>
+        <emu-t>,</emu-t>
+        <emu-nt id="_ref_30"><a href="#prod-GeneratedRangeEnd">GeneratedRangeEnd</a></emu-nt>
+    </emu-rhs>
+</emu-production>
+<emu-production name="GeneratedRangeItemList" id="prod-GeneratedRangeItemList">
+    <emu-nt><a href="#prod-GeneratedRangeItemList">GeneratedRangeItemList</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="arxhxpwu">
+        <emu-t>,</emu-t>
+        <emu-nt id="_ref_31"><a href="#prod-GeneratedRangeItem">GeneratedRangeItem</a></emu-nt>
+    </emu-rhs>
+    <emu-rhs a="etadv9ik">
+        <emu-nt id="_ref_32"><a href="#prod-GeneratedRangeItemList">GeneratedRangeItemList</a></emu-nt>
+        <emu-t>,</emu-t>
+        <emu-nt id="_ref_33"><a href="#prod-GeneratedRangeItem">GeneratedRangeItem</a></emu-nt>
+    </emu-rhs>
+</emu-production>
+<emu-production name="GeneratedRangeItem" id="prod-GeneratedRangeItem">
+    <emu-nt><a href="#prod-GeneratedRangeItem">GeneratedRangeItem</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="scpssnbi">
+        <emu-nt id="_ref_34"><a href="#prod-GeneratedRangeBindings">GeneratedRangeBindings</a></emu-nt>
+    </emu-rhs>
+    <emu-rhs a="zeg0dcn_">
+        <emu-nt id="_ref_35"><a href="#prod-SubRangeBinding">SubRangeBinding</a></emu-nt>
+    </emu-rhs>
+    <emu-rhs a="didd3fmk">
+        <emu-nt id="_ref_36"><a href="#prod-CallSite">CallSite</a></emu-nt>
+    </emu-rhs>
+    <emu-rhs a="szb6oq6w">
+        <emu-nt id="_ref_37"><a href="#prod-GeneratedRangeTree">GeneratedRangeTree</a></emu-nt>
+    </emu-rhs>
+    <emu-rhs a="frkftpyl">
+        <emu-nt id="_ref_38"><a href="#prod-UnknownItem">UnknownItem</a></emu-nt>
+    </emu-rhs>
+</emu-production>
+<emu-production name="GeneratedRangeStart" id="prod-GeneratedRangeStart">
+    <emu-nt><a href="#prod-GeneratedRangeStart">GeneratedRangeStart</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="jjji-bz7">
+        <emu-t>F</emu-t>
+        <emu-nt id="_ref_39"><a href="#prod-Flags">Flags</a></emu-nt>
+        <emu-nt id="_ref_40"><a href="#prod-Column">Column</a></emu-nt>
+        <emu-nt optional="" id="_ref_41"><a href="#prod-Line">Line</a><emu-mods><emu-opt>opt</emu-opt></emu-mods></emu-nt>
+        <emu-nt optional="" id="_ref_42"><a href="#prod-Definition">Definition</a><emu-mods><emu-opt>opt</emu-opt></emu-mods></emu-nt>
+    </emu-rhs>
+</emu-production>
+<emu-production name="GeneratedRangeEnd" id="prod-GeneratedRangeEnd">
+    <emu-nt><a href="#prod-GeneratedRangeEnd">GeneratedRangeEnd</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="goqfdnkf">
+        <emu-t>G</emu-t>
+        <emu-nt id="_ref_43"><a href="#prod-Column">Column</a></emu-nt>
+        <emu-nt optional="" id="_ref_44"><a href="#prod-Line">Line</a><emu-mods><emu-opt>opt</emu-opt></emu-mods></emu-nt>
+    </emu-rhs>
+</emu-production>
+<emu-production name="GeneratedRangeBindings" id="prod-GeneratedRangeBindings">
+    <emu-nt><a href="#prod-GeneratedRangeBindings">GeneratedRangeBindings</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="tba2usd3">
+        <emu-t>H</emu-t>
+        <emu-nt id="_ref_45"><a href="#prod-VlqList">VlqList</a></emu-nt>
+    </emu-rhs>
+</emu-production>
+<emu-production name="SubRangeBinding" id="prod-SubRangeBinding">
+    <emu-nt><a href="#prod-SubRangeBinding">SubRangeBinding</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="gku0fhm-">
+        <emu-t>I</emu-t>
+        <emu-nt id="_ref_46"><a href="#prod-BindingFromList">BindingFromList</a></emu-nt>
+    </emu-rhs>
+</emu-production>
+<emu-production name="BindingFromList" id="prod-BindingFromList">
+    <emu-nt><a href="#prod-BindingFromList">BindingFromList</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="sdtljozj">
+        <emu-nt id="_ref_47"><a href="#prod-BindingFrom">BindingFrom</a></emu-nt>
+    </emu-rhs>
+    <emu-rhs a="_zl4a4sm">
+        <emu-nt id="_ref_48"><a href="#prod-BindingFromList">BindingFromList</a></emu-nt>
+        <emu-nt id="_ref_49"><a href="#prod-BindingFrom">BindingFrom</a></emu-nt>
+    </emu-rhs>
+</emu-production>
+<emu-production name="BindingFrom" id="prod-BindingFrom">
+    <emu-nt><a href="#prod-BindingFrom">BindingFrom</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="gz-jg5md">
+        <emu-nt id="_ref_50"><a href="#prod-Line">Line</a></emu-nt>
+        <emu-nt id="_ref_51"><a href="#prod-Column">Column</a></emu-nt>
+        <emu-nt id="_ref_52"><a href="#prod-Vlq">Vlq</a></emu-nt>
+    </emu-rhs>
+</emu-production>
+<emu-production name="CallSite" id="prod-CallSite">
+    <emu-nt><a href="#prod-CallSite">CallSite</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="zpqeh58a">
+        <emu-t>J</emu-t>
+        <emu-nt id="_ref_53"><a href="#prod-SourceRef">SourceRef</a></emu-nt>
+        <emu-nt id="_ref_54"><a href="#prod-Line">Line</a></emu-nt>
+        <emu-nt id="_ref_55"><a href="#prod-Column">Column</a></emu-nt>
+    </emu-rhs>
+</emu-production>
+<emu-production name="UnknownItem" collapsed="" id="prod-UnknownItem">
+    <emu-nt><a href="#prod-UnknownItem">UnknownItem</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="vvg1yf5v"><emu-nt id="_ref_56"><a href="#prod-VlqList">VlqList</a></emu-nt></emu-rhs>
+</emu-production>
+</emu-grammar>
+  <p>The fields in the various items are Vlqs:</p>
+  <emu-grammar type="definition" collapsed=""><emu-production name="Line" collapsed="" id="prod-Line">
+    <emu-nt><a href="#prod-Line">Line</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="aeoihaiw"><emu-nt id="_ref_57"><a href="#prod-Vlq">Vlq</a></emu-nt></emu-rhs>
+</emu-production>
+<emu-production name="Column" collapsed="" id="prod-Column">
+    <emu-nt><a href="#prod-Column">Column</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="aeoihaiw"><emu-nt id="_ref_58"><a href="#prod-Vlq">Vlq</a></emu-nt></emu-rhs>
+</emu-production>
+<emu-production name="Flags" collapsed="" id="prod-Flags">
+    <emu-nt><a href="#prod-Flags">Flags</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="aeoihaiw"><emu-nt id="_ref_59"><a href="#prod-Vlq">Vlq</a></emu-nt></emu-rhs>
+</emu-production>
+<emu-production name="Name" collapsed="" id="prod-Name">
+    <emu-nt><a href="#prod-Name">Name</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="aeoihaiw"><emu-nt id="_ref_60"><a href="#prod-Vlq">Vlq</a></emu-nt></emu-rhs>
+</emu-production>
+<emu-production name="Kind" collapsed="" id="prod-Kind">
+    <emu-nt><a href="#prod-Kind">Kind</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="aeoihaiw"><emu-nt id="_ref_61"><a href="#prod-Vlq">Vlq</a></emu-nt></emu-rhs>
+</emu-production>
+<emu-production name="Definition" collapsed="" id="prod-Definition">
+    <emu-nt><a href="#prod-Definition">Definition</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="aeoihaiw"><emu-nt id="_ref_62"><a href="#prod-Vlq">Vlq</a></emu-nt></emu-rhs>
+</emu-production>
+<emu-production name="SourceRef" collapsed="" id="prod-SourceRef">
+    <emu-nt><a href="#prod-SourceRef">SourceRef</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="aeoihaiw"><emu-nt id="_ref_63"><a href="#prod-Vlq">Vlq</a></emu-nt></emu-rhs>
+</emu-production>
+</emu-grammar>
+</emu-clause>
+
+<emu-annex id="sec-missing">
+  <h1><span class="secnum">A</span> Missing base definitions</h1>
+  <p>These definitions should be part of the actual source map spec.</p>
+  <emu-grammar type="definition"><emu-production name="VlqList" id="prod-VlqList">
+    <emu-nt><a href="#prod-VlqList">VlqList</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="aeoihaiw">
+        <emu-nt id="_ref_64"><a href="#prod-Vlq">Vlq</a></emu-nt>
+    </emu-rhs>
+    <emu-rhs a="yzqihdds">
+        <emu-nt id="_ref_65"><a href="#prod-VlqList">VlqList</a></emu-nt>
+        <emu-nt id="_ref_66"><a href="#prod-Vlq">Vlq</a></emu-nt>
+    </emu-rhs>
+</emu-production>
+<emu-production name="Vlq" type="lexical" id="prod-Vlq">
+    <emu-nt><a href="#prod-Vlq">Vlq</a></emu-nt> <emu-geq>::</emu-geq> <emu-rhs a="8i8v73va">
+        <emu-nt id="_ref_67"><a href="#prod-VlqDigitList">VlqDigitList</a></emu-nt>
+    </emu-rhs>
+</emu-production>
+<emu-production name="VlqDigitList" type="lexical" id="prod-VlqDigitList">
+    <emu-nt><a href="#prod-VlqDigitList">VlqDigitList</a></emu-nt> <emu-geq>::</emu-geq> <emu-rhs a="2ihs_lxk">
+        <emu-nt id="_ref_68"><a href="#prod-DigitWithoutContinuationBit">DigitWithoutContinuationBit</a></emu-nt>
+    </emu-rhs>
+    <emu-rhs a="bmf9pzyv">
+        <emu-nt id="_ref_69"><a href="#prod-DigitWithContinuationBit">DigitWithContinuationBit</a></emu-nt>
+        <emu-nt id="_ref_70"><a href="#prod-VlqDigitList">VlqDigitList</a></emu-nt>
+    </emu-rhs>
+</emu-production>
+<emu-production name="DigitWithoutContinuationBit" type="lexical" oneof="" id="prod-DigitWithoutContinuationBit">
+    <emu-nt><a href="#prod-DigitWithoutContinuationBit">DigitWithoutContinuationBit</a></emu-nt> <emu-geq>::</emu-geq> <emu-oneof>one of</emu-oneof> <emu-rhs><emu-t>A</emu-t> <emu-t>B</emu-t> <emu-t>C</emu-t> <emu-t>D</emu-t> <emu-t>E</emu-t> <emu-t>F</emu-t> <emu-t>G</emu-t> <emu-t>H</emu-t> <emu-t>I</emu-t> <emu-t>J</emu-t> <emu-t>K</emu-t> <emu-t>L</emu-t> <emu-t>M</emu-t> <emu-t>N</emu-t> <emu-t>O</emu-t> <emu-t>P</emu-t> <emu-t>Q</emu-t> <emu-t>R</emu-t> <emu-t>S</emu-t> <emu-t>T</emu-t> <emu-t>U</emu-t> <emu-t>V</emu-t> <emu-t>W</emu-t> <emu-t>X</emu-t> <emu-t>Y</emu-t> <emu-t>Z</emu-t> <emu-t>a</emu-t> <emu-t>b</emu-t> <emu-t>c</emu-t> <emu-t>d</emu-t> <emu-t>e</emu-t> <emu-t>f</emu-t></emu-rhs>
+</emu-production>
+<emu-production name="DigitWithContinuationBit" type="lexical" oneof="" id="prod-DigitWithContinuationBit">
+    <emu-nt><a href="#prod-DigitWithContinuationBit">DigitWithContinuationBit</a></emu-nt> <emu-geq>::</emu-geq> <emu-oneof>one of</emu-oneof> <emu-rhs><emu-t>g</emu-t> <emu-t>h</emu-t> <emu-t>i</emu-t> <emu-t>j</emu-t> <emu-t>k</emu-t> <emu-t>l</emu-t> <emu-t>m</emu-t> <emu-t>n</emu-t> <emu-t>o</emu-t> <emu-t>p</emu-t> <emu-t>q</emu-t> <emu-t>r</emu-t> <emu-t>s</emu-t> <emu-t>t</emu-t> <emu-t>u</emu-t> <emu-t>v</emu-t> <emu-t>w</emu-t> <emu-t>x</emu-t> <emu-t>y</emu-t> <emu-t>z</emu-t> <emu-t>0</emu-t> <emu-t>1</emu-t> <emu-t>2</emu-t> <emu-t>3</emu-t> <emu-t>4</emu-t> <emu-t>5</emu-t> <emu-t>6</emu-t> <emu-t>7</emu-t> <emu-t>8</emu-t> <emu-t>9</emu-t> <emu-t>+</emu-t> <emu-t>/</emu-t></emu-rhs>
+</emu-production>
+</emu-grammar>
+</emu-annex><emu-annex id="sec-copyright-and-software-license">
+      <h1><span class="secnum">B</span> Copyright &amp; Software License</h1>
       
       <h2>Copyright Notice</h2>
-      <p>© 2024 Your Name(s) Here</p>
+      <p>© 2025 Holger Benl, Simon Zünd</p>
 
       <h2>Software License</h2>
       <p>All Software contained in this document ("Software") is protected by copyright and is being made available under the "BSD License", included below. This Software may be subject to third party rights (rights from parties other than Ecma International), including patent rights, and no licenses under such third party rights are granted under this license even if the third party concerned is a member of Ecma International. SEE THE ECMA CODE OF CONDUCT IN PATENT MATTERS AVAILABLE AT <a href="https://ecma-international.org/memento/codeofconduct.htm">https://ecma-international.org/memento/codeofconduct.htm</a> FOR INFORMATION REGARDING THE LICENSING OF PATENT CLAIMS THAT ARE REQUIRED TO IMPLEMENT ECMA INTERNATIONAL STANDARDS.</p>
