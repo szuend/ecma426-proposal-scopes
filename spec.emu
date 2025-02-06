@@ -19,7 +19,7 @@ contributors: Holger Benl, Simon Zünd
       <tr>
         <td>`"scopes"`</td>
         <td>
-          an optional string. The string itself is a comma (`,`) separated list of encoded items. Each items as a list of VLQ encoded unsigned or signed numbers. Clause <emu-xref href="#format"></emu-xref> describes the grammar of the string.
+          an optional string. The string itself is a comma (`,`) separated list of encoded items. Each items as a list of VLQ encoded unsigned or signed numbers. Clause <emu-xref href="#sec-format"></emu-xref> describes the grammar of the string.
         </td>
       </tr>
       <tr>
@@ -32,7 +32,168 @@ contributors: Holger Benl, Simon Zünd
   </emu-table>
 </emu-clause>
 
-<emu-clause id="format">
+<emu-clause id="sec-types">
+  <h1>Data Types</h1>
+  <p>The proposal defines several new types.</p>
+  <emu-clause id="sec-scope-information-record-type">
+    <h1>The Scope Information Record Type</h1>
+    <p>Decoding the `"scopes"` field results in a <dfn>Scope Information Record.</dfn></p>
+    <emu-table id="table-scope-information-record-fields" caption="Scope Information Record Fields">
+      <table>
+        <thead>
+          <tr>
+            <th>Field Name</th>
+            <th>Value</th>
+            <th>Meaning</th>
+          </tr>
+        </thead>
+        <tr>
+          <td>[[OriginalScopes]]</td>
+          <td>a List of Original Scope Tree Records</td>
+          <td>todo</td>
+        </tr>
+        <tr>
+          <td>[[GeneratedRanges]]</td>
+          <td>todo</td>
+          <td>todo</td>
+        </tr>
+      </table>
+    </emu-table>
+  </emu-clause>
+  <emu-clause id="sec-original-scope-tree-record-type">
+    <h1>The Original Scope Tree Record Type</h1>
+    <p>The <dfn variants="Original Scope Tree Records">Original Scope Tree Record</dfn> describes the scope tree for an original (authored) file. It corresponds directly to one entry in the `"sources"` list.</p>
+    <emu-table id="table-original-scope-tree-record-fields" caption="Original Scope Tree Record Fields">
+      <table>
+        <thead>
+          <tr>
+            <th>Field Name</th>
+            <th>Value</th>
+            <th>Meaning</th>
+          </tr>
+        </thead>
+        <tr>
+          <td>[[SourceIndex]]</td>
+          <td>a Number</td>
+          <td>An index into the `"sources"` list of a source map.</td>
+        </tr>
+        <tr>
+          <td>[[Root]]</td>
+          <td>a Original Scope Record</td>
+          <td>The top-level/root scope.</td>
+        </tr>
+      </table>
+    </emu-table>
+  </emu-clause>
+  <emu-clause id="sec-original-scope-record-type">
+    <h1>The Original Scope Record Type</h1>
+    <p>The <dfn variants="Original Scope Records">Original Scope Record</dfn> describes a scope in an original (authored) file.</p>
+    <emu-table id="table-original-scope-record-fields" caption="Original Scope Record Fields">
+      <table>
+        <thead>
+          <tr>
+            <th>Field Name</th>
+            <th>Value</th>
+            <th>Meaning</th>
+          </tr>
+        </thead>
+        <tr>
+          <td>[[StartLine]]</td>
+          <td>a Number</td>
+          <td>The line number where this scope starts.</td>
+        </tr>
+        <tr>
+          <td>[[StartColumn]]</td>
+          <td>a Number</td>
+          <td>The column number where this scope starts (inclusive).</td>
+        </tr>
+        <tr>
+          <td>[[EndLine]]</td>
+          <td>a Number</td>
+          <td>The line number where this scope ends.</td>
+        </tr>
+        <tr>
+          <td>[[EndColumn]]</td>
+          <td>a Number</td>
+          <td>The column number where this scope ends (exclusive).</td>
+        </tr>
+        <tr>
+          <td>[[Children]]</td>
+          <td>a List of Original Scope Records</td>
+          <td>The child scopes of this scope.</td>
+        </tr>
+      </table>
+    </emu-table>
+  </emu-clause>
+</emu-clause>
+
+<emu-clause id="sec-specification-types">
+  <h1>Specification Types</h1>
+  <emu-clause id="sec-decode-state-record-type">
+    <h1>The Decode State Record Specification Type</h1>
+    <p>The <dfn>Decode State Record</dfn> is used to keep track of relative numbers while decoding a Scope Information Record</p>
+    <emu-table id="table-decode-state-record-fields" caption="Decode State Record Fields">
+      <table>
+        <thead>
+          <tr>
+            <th>Field Name</th>
+            <th>Value</th>
+            <th>Meaning</th>
+          </tr>
+        </thead>
+        <tr>
+          <td>[[SourceIndex]]</td>
+          <td>a Number or *null*.</td>
+          <td>Records the last occurrence of |OriginalScopeSourceRef|, if any.</td>
+        </tr>
+        <tr>
+          <td>[[Line]]</td>
+          <td>a Number</td>
+          <td>|Line| in |OriginalScopeStart|, |OriginalScopeEnd|, |GeneratedRangeStart| and |GeneratedRangeEnd| are relative. This field tracks the actual line number.</td>
+        </tr>
+        <tr>
+          <td>[[Column]]</td>
+          <td>a Number</td>
+          <td>|Column| in |GeneratedRangeStart| and |GeneratedRangeEnd| are relative. This field track the actual column number.</td>
+        </tr>
+        <tr>
+          <td>[[NameIndex]]</td>
+          <td>a Number</td>
+          <td>|Name| in |OriginalScopeStart| is relative. This field tracks the absolute name index.</td>
+        </tr>
+        <tr>
+          <td>[[KindIndex]]</td>
+          <td>a Number</td>
+          <td>|Kind| in |OriginalScopeStart| is relative. This field tracks the absolute kind index.</td>
+        </tr>
+      </table>
+    </emu-table>
+  </emu-clause>
+</emu-clause>
+
+<emu-clause id="sec-abstract-operations">
+  <h1>Abstract Operations</h1>
+  <emu-clause id="sec-decode-op" type="abstract operation">
+    <h1>
+      Decode (
+        _scopes_: a |Scopes| Parse Node.
+      ): a Scope Information Record.
+    </h1>
+    <dl class="header">
+      <dt>description</dt>
+      <dd>TODO</dd>
+    </dl>
+    <emu-alg>
+      1. Let _info_ be a new Scope Information Record.
+      1. Set _info_.[[OriginalScopes]] to a new empty List.
+      1. Set _info_.[[GeneratedRanges]] to a new empty List.
+      1. Perform DecodeItem on _scopes_ with argument _info_.
+      1. Return _info_.
+    </emu-alg>
+  </emu-clause>
+</emu-clause>
+
+<emu-clause id="sec-format">
   <h1>`"scopes"` grammar</h1>
   <p>The `"scopes"` string must result in a successful parse starting at the |Scopes| goal symbol.</p>
   <emu-grammar type="definition">
@@ -47,80 +208,187 @@ contributors: Holger Benl, Simon Zünd
       OriginalScopeTree
       GeneratedRangeTree
       UnknownItem
-
-    OriginalScopeTree :
-      OriginalScopeStart OriginalScopeItemList? `,` OriginalScopeEnd
-
-    OriginalScopeItemList :
-      `,` OriginalScopeItem
-      OriginalScopeItemList `,` OriginalScopeItem
-
-    OriginalScopeItem :
-      OriginalScopeVariables
-      OriginalScopeSourceRef
-      OriginalScopeTree
-      UnknownItem
-
-    OriginalScopeStart :
-      `B` Line Column Flags Name? Kind?
-
-    OriginalScopeEnd :
-      `C` Line Column
-
-    OriginalScopeVariables :
-      `D` VlqList
-
-    OriginalScopeSourceRef :
-      `E` SourceRef
-
-    GeneratedRangeTree :
-      GeneratedRangeStart GeneratedRangeItemList? `,` GeneratedRangeEnd
-
-    GeneratedRangeItemList :
-      `,` GeneratedRangeItem
-      GeneratedRangeItemList `,` GeneratedRangeItem
-
-    GeneratedRangeItem :
-      GeneratedRangeBindings
-      SubRangeBinding
-      CallSite
-      GeneratedRangeTree
-      UnknownItem
-
-    GeneratedRangeStart :
-      `F` Flags Column Line? Definition?
-
-    GeneratedRangeEnd :
-      `G` Column Line?
-
-    GeneratedRangeBindings :
-      `H` VlqList
-
-    SubRangeBinding :
-      `I` BindingFromList
-
-    BindingFromList :
-      BindingFrom
-      BindingFromList BindingFrom
-
-    BindingFrom :
-      Line Column Vlq
-
-    CallSite :
-      `J` SourceRef Line Column
-
-    UnknownItem : VlqList
   </emu-grammar>
-  <p>The fields in the various items are Vlqs:</p>
-  <emu-grammar type="definition" collapsed>
-    Line : Vlq
-    Column : Vlq
-    Flags : Vlq
-    Name : Vlq
-    Kind : Vlq
-    Definition : Vlq
-    SourceRef : Vlq
-  </emu-grammar>
+  <emu-clause id="sec-decode-item" type="sdo">
+    <h1>
+      DecodeItem (
+        _info_: a Scope Information Record
+      )
+    </h1>
+    <dl class="header"></dl>
+    <emu-grammar>ItemList : ItemList `,` TopLevelItem</emu-grammar>
+    <emu-alg>
+      1. Perform DecodeItem of |ItemList| with argument _info_.
+      1. Perform DecodeItem of |TopLevelItem| with argument _info_.
+    </emu-alg>
+    <emu-grammar>TopLevelItem : OriginalScopeTree</emu-grammar>
+    <emu-alg>
+      1. Let _state_ be a new Decode State Record with all fields of type Number set to `0` and [[SourceIndex]] set to *null*.
+      1. Let _root_ be DecodeScope of |OriginalScopeTree| with arguments _state_.
+      1. Let _idx_ be _state_.[[SourceIndex]].
+      1. If _idx_ is *null*, set _idx_ to the length of _info_.[[OriginalScopes]].
+      1. Let _scope_ be a new Original Scope Tree Record.
+      1. Set _scope_.[[Root]] to _root_.
+      1. Set _scope_.[[SourceIndex]] to _idx_.
+      1. Append _scope_ to _info_.[[OriginalScopes]].
+    </emu-alg>
+    <emu-grammar>TopLevelItem : GeneratedRangeTree</emu-grammar>
+    <emu-alg>
+      1. Let _range_ be DecodeRange on |GeneratedRangeTree|.
+      1. Append _range_ to _info_.[[GeneratedRanges]].
+    </emu-alg>
+  </emu-clause>
+  <emu-clause id="sec-format-scopes">
+    <h1>Original Scope Format</h1>
+    <emu-grammar type="definition">
+      OriginalScopeTree :
+        OriginalScopeStart OriginalScopeItemList? `,` OriginalScopeEnd
+
+      OriginalScopeItemList :
+        `,` OriginalScopeItem
+        OriginalScopeItemList `,` OriginalScopeItem
+
+      OriginalScopeItem :
+        OriginalScopeVariables
+        OriginalScopeSourceRef
+        OriginalScopeTree
+        UnknownItem
+
+      OriginalScopeStart :
+        `B` Line Column Flags Name? Kind?
+
+      OriginalScopeEnd :
+        `C` Line Column
+
+      OriginalScopeVariables :
+        `D` VlqList
+
+      OriginalScopeSourceRef :
+        `E` SourceRef
+    </emu-grammar>
+    <emu-clause id="sec-decode-scope" type="sdo">
+      <h1>
+        DecodeScope (
+          _state_: a Decode State Record
+        ): a Original Scope Record
+      </h1>
+      <dl class="header"></dl>
+      <emu-grammar>
+        OriginalScopeTree :
+          OriginalScopeStart OriginalScopeItemList? `,` OriginalScopeEnd
+      </emu-grammar>
+      <emu-alg>
+        1. Let _scope_ be a new Original Scope Record.
+        1. Perform DecodeScopeItem of |OriginalScopeStart| with arguments _state_ and _scope_.
+        1. If |OriginalScopeItemList| is present, perform DecodeScopeItem with arguments _state_ and _scope_.
+        1. Perform DecodeScopeItem of |OriginalScopeEnd| with arguments _state_ and _scope_.
+        1. Return _scope_.
+      </emu-alg>
+    </emu-clause>
+    <emu-clause id="sec-decode-scope-item" type="sdo">
+      <h1>
+        DecodeScopeItem (
+          _state_: a Decode State Record
+          _scope_: a Original Scope Record
+        )
+      </h1>
+      <dl class="header"></dl>
+      <emu-grammar>
+        OriginalScopeStart :
+          `B` Line Column Flags Name? Kind?
+      </emu-grammar>
+      <emu-alg>
+        1. Set _state_.[[Line]] to _state_.[[Line]] + DecodeUnsignedVlq(|Line|).
+        1. Set _state_.[[Column]] to DecodeUnsignedVlq(|Column|).
+        1. Set _scope_.[[StartLine]] to _state_.[[Line]].
+        1. Set _scope_.[[StartColumn]] to _state_.[[Column]].
+        1. Let _flags_ be DecodeUnsignedVlq(|Flags|).
+        1. If _flags_ & `0x1` > 0, then
+          1. Assert: |Name| is present.
+          1. Set _state_.[[NameIndex]] to _state_.[[NameIndex]] + DecodeSignedVlq(|Name|).
+          1. Set _scope_.[[Name]] to ResolveName(_state_.[[NameIndex]]).
+        1. If _flags_ & `0x2` > 0, then
+          1. Assert: |Kind| is present.
+          1. Set _state_.[[KindIndex]] to _state_.[[KindIndex]] + DecodeSignedVlq(|Kind|).
+          1. Set _scope_.[[Kind]] to ResolveName(_state_.[[NameIndex]]).
+      </emu-alg>
+      <emu-grammar>
+        OriginalScopeEnd :
+          `C` Line Column
+      </emu-grammar>
+      <emu-alg>
+        1. Set _state_.[[Line]] to _state_.[[Line]] + DecodeUnsignedVlq(|Line|).
+        1. Set _state_.[[Column]] to DecodeUnsignedVlq(|Column|).
+        1. Set _scope_.[[EndLine]] to _state_.[[Line]].
+        1. Set _scope_.[[EndColumn]] to _state_.[[Column]].
+      </emu-alg>
+      <emu-grammar>
+        OriginalScopeItemList :
+          OriginalScopeItemList `,` OriginalScopeItem
+      </emu-grammar>
+      <emu-alg>
+        1. Perform DecodeScopeItem of |OriginalScopeItemList| with arguments _state_ and _scope_.
+        1. Perform DecodeScopeItem of |OriginalScopeItem| with arguments _state_ and _scope_.
+      </emu-alg>
+      <emu-grammar>
+        OriginalScopeItem :
+          OriginalScopeTree
+      </emu-grammar>
+      <emu-alg>
+        1. Let _child_ be DecodeScope of |OriginalScopeTree| with argument _state_.
+        1. Append _child_ to _scope_.[[Children]].
+      </emu-alg>
+      <emu-grammar>
+        OriginalScopeSourceRef :
+          `E` SourceRef
+      </emu-grammar>
+      <emu-alg>
+        1. Set _state_.[[SourceIndex]] to DecodeUnsignedVlq(|SourceRef|).
+      </emu-alg>
+    </emu-clause>
+  </emu-clause>
+  <emu-clause id="sec-format-ranges">
+    <h1>GeneratedRange Format</h1>
+    <emu-grammar type="definition">
+      GeneratedRangeTree :
+        GeneratedRangeStart GeneratedRangeItemList? `,` GeneratedRangeEnd
+
+      GeneratedRangeItemList :
+        `,` GeneratedRangeItem
+        GeneratedRangeItemList `,` GeneratedRangeItem
+
+      GeneratedRangeItem :
+        GeneratedRangeBindings
+        SubRangeBinding
+        CallSite
+        GeneratedRangeTree
+        UnknownItem
+
+      GeneratedRangeStart :
+        `F` Flags Column Line? Definition?
+
+      GeneratedRangeEnd :
+        `G` Column Line?
+
+      GeneratedRangeBindings :
+        `H` VlqList
+
+      SubRangeBinding :
+        `I` BindingFromList
+
+      BindingFromList :
+        BindingFrom
+        BindingFromList BindingFrom
+
+      BindingFrom :
+        Line Column Vlq
+
+      CallSite :
+        `J` SourceRef Line Column
+
+      UnknownItem : VlqList
+    </emu-grammar>
+  </emu-clause>
 </emu-clause>
 
 <emu-annex id="sec-missing">
@@ -145,5 +413,63 @@ contributors: Holger Benl, Simon Zünd
     DigitWithContinuationBit :: one of
       `g` `h` `i` `j` `k` `l` `m` `n` `o` `p` `q` `r` `s` `t` `u` `v` `w` `x`
       `y` `z` `0` `1` `2` `3` `4` `5` `6` `7` `8` `9` `+` `/`
+  </emu-grammar>
+  <emu-annex id="sec-resolve-name-op" type="host-defined abstract operation">
+    <h1>
+      ResolveName(
+        index: a Number
+      ): a String or ~NULL~.
+    </h1>
+    <dl class="header"></dl>
+  </emu-annex>
+  <emu-annex id="sec-decode-unsigned-vlq-op" type="abstract operation">
+    <h1>
+      DecodeUnsignedVlq(
+        _encoded_: a String or a ParseNode
+      ): a Number
+    </h1>
+    <dl class="header"></dl>
+  </emu-annex>
+  <emu-annex id="sec-decode-signed-vlq-op" type="abstract operation">
+    <h1>
+      DecodeSignedVlq(
+        _encoded_: a String or a ParseNode
+      ): a Number
+    </h1>
+    <dl class="header"></dl>
+  </emu-annex>
+</emu-annex>
+
+<emu-annex id="sec-grammar-summary">
+  <h1>Grammar Summary</h1>
+  <emu-prodref name="Scopes"></emu-prodref>
+  <emu-prodref name="ItemList"></emu-prodref>
+  <emu-prodref name="TopLevelItem"></emu-prodref>
+  <emu-prodref name="OriginalScopeTree"></emu-prodref>
+  <emu-prodref name="OriginalScopeStart"></emu-prodref>
+  <emu-prodref name="OriginalScopeEnd"></emu-prodref>
+  <emu-prodref name="OriginalScopeItemList"></emu-prodref>
+  <emu-prodref name="OriginalScopeItem"></emu-prodref>
+  <emu-prodref name="OriginalScopeVariables"></emu-prodref>
+  <emu-prodref name="OriginalScopeSourceRef"></emu-prodref>
+  <emu-prodref name="GeneratedRangeTree"></emu-prodref>
+  <emu-prodref name="GeneratedRangeStart"></emu-prodref>
+  <emu-prodref name="GeneratedRangeEnd"></emu-prodref>
+  <emu-prodref name="GeneratedRangeItemList"></emu-prodref>
+  <emu-prodref name="GeneratedRangeItem"></emu-prodref>
+  <emu-prodref name="GeneratedRangeBindings"></emu-prodref>
+  <emu-prodref name="SubRangeBinding"></emu-prodref>
+  <emu-prodref name="CallSite"></emu-prodref>
+  <emu-prodref name="BindingFromList"></emu-prodref>
+  <emu-prodref name="BindingFrom"></emu-prodref>
+  <emu-prodref name="UnknownItem"></emu-prodref>
+  <emu-grammar type="definition">
+    Line : Vlq
+    Column : Vlq
+    Flags : Vlq
+    Name : Vlq
+    Kind : Vlq
+    Definition : Vlq
+    SourceRef : Vlq
   </emu-grammar>
 </emu-annex>
