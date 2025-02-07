@@ -55,7 +55,7 @@ contributors: Holger Benl, Simon Zünd
         </tr>
         <tr>
           <td>[[GeneratedRanges]]</td>
-          <td>todo</td>
+          <td>a List of Generated Range Records</td>
           <td>todo</td>
         </tr>
       </table>
@@ -180,6 +180,16 @@ contributors: Holger Benl, Simon Zünd
           <td>a Number</td>
           <td>The column number where this range ends (exclusive).</td>
         </tr>
+        <tr>
+          <td>[[Bindings]]</td>
+          <td>a List of Strings</td>
+          <td>A list of JavaScript expressions that when evaluated in this generated range, evaluates to the value of the corresponding variable.</td>
+        </tr>
+        <tr>
+          <td>[[Children]]</td>
+          <td>a List of Generated Range Records</td>
+          <td>The child ranges of this range.</td>
+        </tr>
       </table>
     </emu-table>
   </emu-clause>
@@ -234,6 +244,11 @@ contributors: Holger Benl, Simon Zünd
           <td>[[Definition]]</td>
           <td>a Number</td>
           <td>The definition in |GeneratedRangeStart| is relative. This field tracks the absolute value.</td>
+        </tr>
+        <tr>
+          <td>[[BindingIndex]]</td>
+          <td>a Number</td>
+          <td>The bindings in |GeneratedRangeBindings| are relative. This field tracks the absolute binding expression index.</td>
         </tr>
       </table>
     </emu-table>
@@ -542,6 +557,32 @@ contributors: Holger Benl, Simon Zünd
         1. Set _range_.[[EndLine]] to _state_.[[Line]].
         1. Set _range_.[[EndColumn]] to _state_.[[Column]].
       </emu-alg>
+      <emu-grammar>
+        GeneratedRangeItemList :
+          GeneratedRangeItemList `,` GeneratedRangeItem
+      </emu-grammar>
+      <emu-alg>
+        1. Perform DecodeRangeItem of |GeneratedRangeItemList| with arguments _state_ and _range_.
+        1. Perform DecodeRangeItem of |GeneratedRangeItem| with arguments _state_ and _range_.
+      </emu-alg>
+      <emu-grammar>
+        GeneratedRangeItem :
+          GeneratedRangeTree
+      </emu-grammar>
+      <emu-alg>
+        1. Let _child_ be DecodeRange of |GeneratedRangeTree| with argument _state_.
+        1. Append _child_ to _range_.[[Children]].
+      </emu-alg>
+      <emu-grammar>
+        GeneratedRangeBindings :
+          `H` VlqList
+      </emu-grammar>
+      <emu-alg>
+        1. Let _bindingIndices_ be DecodeSignedVlqList(|VlqList|).
+        1. For each element _index_ of _bindingIndices_, do
+          1. Set _state_.[[BindingIndex]] to _state_.[[BindingIndex]] + _index_.
+          1. Append ResolveExpression(_state_.[[BindingIndex]]) to _range_.[[Bindings]].
+      </emu-alg>
     </emu-clause>
   </emu-clause>
 </emu-clause>
@@ -573,6 +614,15 @@ contributors: Holger Benl, Simon Zünd
   <emu-annex id="sec-resolve-name-op" type="host-defined abstract operation">
     <h1>
       ResolveName (
+        _index_: a Number,
+      ): a String or *null*.
+    </h1>
+    <dl class="header"></dl>
+  </emu-annex>
+
+  <emu-annex id="sec-resolve-expression-op" type="host-defined abstract operation"></emu-annex>
+    <h1>
+      ResolveExpression (
         _index_: a Number,
       ): a String or *null*.
     </h1>
