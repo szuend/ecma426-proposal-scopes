@@ -136,6 +136,11 @@ contributors: Holger Benl, Simon Zünd
           <td>Signifies whether this scope is something that can be called, e.g. a function or method.</td>
         </tr>
         <tr>
+          <td>[[Variables]]</td>
+          <td>a List of Strings</td>
+          <td>The original variable names declared in this scope.</td>
+        </tr>
+        <tr>
           <td>[[Children]]</td>
           <td>a List of Original Scope Records</td>
           <td>The child scopes of this scope.</td>
@@ -184,6 +189,11 @@ contributors: Holger Benl, Simon Zünd
           <td>[[KindIndex]]</td>
           <td>a Number</td>
           <td>|Kind| in |OriginalScopeStart| is relative. This field tracks the absolute kind index.</td>
+        </tr>
+        <tr>
+          <td>[[VariableIndex]]</td>
+          <td>a Number</td>
+          <td>The variables in |OriginalScopeVariables| are relative. This field tracks the absolute variable name index.</td>
         </tr>
       </table>
     </emu-table>
@@ -331,10 +341,14 @@ contributors: Holger Benl, Simon Zünd
           1. Assert: |Name| is present.
           1. Set _state_.[[NameIndex]] to _state_.[[NameIndex]] + DecodeSignedVlq(|Name|).
           1. Set _scope_.[[Name]] to ResolveName(_state_.[[NameIndex]]).
+        1. Else,
+          1. Assert: |Name| is not present.
         1. If _flags_ & `0x2` > 0, then
           1. Assert: |Kind| is present.
           1. Set _state_.[[KindIndex]] to _state_.[[KindIndex]] + DecodeSignedVlq(|Kind|).
           1. Set _scope_.[[Kind]] to ResolveName(_state_.[[NameIndex]]).
+        1. Else,
+          1. Assert: |Kind| is not present.
         1. If _flags_ & `0x4` > 0, set _scope_.[[IsStackFrame]] to *true*.
       </emu-alg>
       <emu-grammar>
@@ -362,6 +376,16 @@ contributors: Holger Benl, Simon Zünd
       <emu-alg>
         1. Let _child_ be DecodeScope of |OriginalScopeTree| with argument _state_.
         1. Append _child_ to _scope_.[[Children]].
+      </emu-alg>
+      <emu-grammar>
+        OriginalScopeVariables :
+          `D` VlqList
+      </emu-grammar>
+      <emu-alg>
+        1. Let _variableIndices_ be DecodeSignedVlqList(|VlqList|).
+        1. For each element _index_ of _variableIndices_, do
+          1. Set _state_.[[VariableIndex]] to _state_.[[VariableIndex]] + _index_.
+          1. Append ResolveName(_state_.[[VariableIndex]]) to _scope_.[[Variables]].
       </emu-alg>
       <emu-grammar>
         OriginalScopeSourceRef :
@@ -446,7 +470,7 @@ contributors: Holger Benl, Simon Zünd
     <h1>
       ResolveName (
         _index_: a Number,
-      ): a String or ~NULL~.
+      ): a String or *null*.
     </h1>
     <dl class="header"></dl>
   </emu-annex>
@@ -465,6 +489,15 @@ contributors: Holger Benl, Simon Zünd
       DecodeSignedVlq (
         _encoded_: a String or a ParseNode,
       ): a Number
+    </h1>
+    <dl class="header"></dl>
+  </emu-annex>
+
+  <emu-annex id="sec-decode-signed-vlq-list-op" type="abstract operation">
+    <h1>
+      DecodeSignedVlqList (
+        _encoded_: a |VlqList| ParseNode,
+      ): a List of Numbers
     </h1>
     <dl class="header"></dl>
   </emu-annex>
