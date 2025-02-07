@@ -118,6 +118,21 @@ contributors: Holger Benl, Simon Zünd
           <td>The column number where this scope ends (exclusive).</td>
         </tr>
         <tr>
+          <td>[[Name]]</td>
+          <td>a String or *null*</td>
+          <td>The original name of this scope. E.g. the original class or function name.</td>
+        </tr>
+        <tr>
+          <td>[[Kind]]</td>
+          <td>a String or *null*</td>
+          <td>Debuggers may use [[Kind]] to label this scope in a scope view. It is purely informative for users.</td>
+        </tr>
+        <tr>
+          <td>[[IsStackFrame]]</td>
+          <td>a Boolean</td>
+          <td>Signifies whether this scope is something that can be called, e.g. a function or method.</td>
+        </tr>
+        <tr>
           <td>[[Children]]</td>
           <td>a List of Original Scope Records</td>
           <td>The child scopes of this scope.</td>
@@ -311,6 +326,7 @@ contributors: Holger Benl, Simon Zünd
           1. Assert: |Kind| is present.
           1. Set _state_.[[KindIndex]] to _state_.[[KindIndex]] + DecodeSignedVlq(|Kind|).
           1. Set _scope_.[[Kind]] to ResolveName(_state_.[[NameIndex]]).
+        1. If _flags_ & `0x4` > 0, set _scope_.[[IsStackFrame]] to *true*.
       </emu-alg>
       <emu-grammar>
         OriginalScopeEnd :
