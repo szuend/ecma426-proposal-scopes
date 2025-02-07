@@ -1618,8 +1618,8 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-let sdoMap = JSON.parse(`{"prod-zsEO5rLq":{"DecodeItem":{"clause":"5.1","ids":["prod-Tcps7azM"]}},"prod-66qtHTZA":{"DecodeItem":{"clause":"5.1","ids":["prod-M5d0i2TB"]}},"prod-OknGdLgC":{"DecodeItem":{"clause":"5.1","ids":["prod-IyDcPlb7"]}},"prod-Lz9Dsa6A":{"DecodeScope":{"clause":"5.2.1","ids":["prod-ZduiLgVD"]}},"prod-GKLQ8LR7":{"DecodeScopeItem":{"clause":"5.2.2","ids":["prod-1QHHB18M"]}},"prod-vRn4r9Ai":{"DecodeScopeItem":{"clause":"5.2.2","ids":["prod-XlwLEr_C"]}},"prod-PParEzAp":{"DecodeScopeItem":{"clause":"5.2.2","ids":["prod-85UsPFzQ"]}},"prod-F4ak9b3c":{"DecodeScopeItem":{"clause":"5.2.2","ids":["prod-cIG_VX1s"]}},"prod-nI8To0lS":{"DecodeScopeItem":{"clause":"5.2.2","ids":["prod-uFvIaFjQ"]}}}`);
-let biblio = JSON.parse(`{"refsByClause":{"sec-source-map-format":["_ref_0"],"sec-scope-information-record-type":["_ref_1"],"sec-original-scope-tree-record-type":["_ref_2","_ref_3"],"sec-original-scope-record-type":["_ref_4","_ref_5"],"sec-decode-state-record-type":["_ref_6","_ref_36","_ref_37","_ref_38","_ref_39","_ref_40","_ref_41","_ref_42","_ref_43","_ref_44","_ref_45","_ref_46","_ref_47","_ref_48"],"sec-decode-op":["_ref_7","_ref_8","_ref_9","_ref_49"],"sec-decode-item":["_ref_10","_ref_11","_ref_12","_ref_13","_ref_14","_ref_58","_ref_59","_ref_60","_ref_61","_ref_62","_ref_63","_ref_64","_ref_65"],"sec-decode-scope":["_ref_15","_ref_16","_ref_17","_ref_18","_ref_19","_ref_20","_ref_85","_ref_86","_ref_87","_ref_88","_ref_89","_ref_90"],"sec-decode-scope-item":["_ref_21","_ref_22","_ref_23","_ref_24","_ref_25","_ref_26","_ref_27","_ref_28","_ref_29","_ref_30","_ref_31","_ref_32","_ref_33","_ref_34","_ref_35","_ref_91","_ref_92","_ref_93","_ref_94","_ref_95","_ref_96","_ref_97","_ref_98","_ref_99","_ref_100","_ref_101","_ref_102","_ref_103","_ref_104","_ref_105","_ref_106","_ref_107","_ref_108","_ref_109","_ref_110","_ref_111","_ref_112","_ref_113","_ref_114"],"sec-format":["_ref_50","_ref_51","_ref_52","_ref_53","_ref_54","_ref_55","_ref_56","_ref_57"],"sec-format-scopes":["_ref_66","_ref_67","_ref_68","_ref_69","_ref_70","_ref_71","_ref_72","_ref_73","_ref_74","_ref_75","_ref_76","_ref_77","_ref_78","_ref_79","_ref_80","_ref_81","_ref_82","_ref_83","_ref_84"],"sec-format-ranges":["_ref_115","_ref_116","_ref_117","_ref_118","_ref_119","_ref_120","_ref_121","_ref_122","_ref_123","_ref_124","_ref_125","_ref_126","_ref_127","_ref_128","_ref_129","_ref_130","_ref_131","_ref_132","_ref_133","_ref_134","_ref_135","_ref_136","_ref_137","_ref_138","_ref_139","_ref_140","_ref_141","_ref_142","_ref_143"],"sec-missing":["_ref_144","_ref_145","_ref_146","_ref_147","_ref_148","_ref_149","_ref_150"],"sec-grammar-summary":["_ref_151","_ref_152","_ref_153","_ref_154","_ref_155","_ref_156","_ref_157"]},"entries":[{"type":"clause","id":"sec-source-map-format","titleHTML":"Additions to the Source map format","number":"1"},{"type":"term","term":"Scope Information Record.","refId":"sec-scope-information-record-type"},{"type":"table","id":"table-scope-information-record-fields","number":2,"caption":"Table 2: Scope Information Record Fields"},{"type":"clause","id":"sec-scope-information-record-type","titleHTML":"The Scope Information Record Type","number":"2.1","referencingIds":["_ref_7","_ref_8"]},{"type":"term","term":"Original Scope Tree Record","refId":"sec-original-scope-tree-record-type"},{"type":"table","id":"table-original-scope-tree-record-fields","number":3,"caption":"Table 3: Original Scope Tree Record Fields"},{"type":"clause","id":"sec-original-scope-tree-record-type","titleHTML":"The Original Scope Tree Record Type","number":"2.2","referencingIds":["_ref_1","_ref_2","_ref_14"]},{"type":"term","term":"Original Scope Record","refId":"sec-original-scope-record-type"},{"type":"table","id":"table-original-scope-record-fields","number":4,"caption":"Table 4: Original Scope Record Fields"},{"type":"clause","id":"sec-original-scope-record-type","titleHTML":"The Original Scope Record Type","number":"2.3","referencingIds":["_ref_3","_ref_4","_ref_5","_ref_16","_ref_17","_ref_22"]},{"type":"clause","id":"sec-types","titleHTML":"Data Types","number":"2"},{"type":"term","term":"Decode State Record","refId":"sec-decode-state-record-type"},{"type":"table","id":"table-decode-state-record-fields","number":5,"caption":"Table 5: Decode State Record Fields"},{"type":"clause","id":"sec-decode-state-record-type","titleHTML":"The Decode State Record Specification Type","number":"3.1","referencingIds":["_ref_6","_ref_12","_ref_15","_ref_21"]},{"type":"clause","id":"sec-specification-types","titleHTML":"Specification Types","number":"3"},{"type":"op","aoid":"Decode","refId":"sec-decode-op"},{"type":"clause","id":"sec-decode-op","title":"Decode ( scopes )","titleHTML":"Decode ( <var>scopes</var> )","number":"4.1"},{"type":"clause","id":"sec-abstract-operations","titleHTML":"Abstract Operations","number":"4"},{"type":"production","id":"prod-Scopes","name":"Scopes","referencingIds":["_ref_49","_ref_50"]},{"type":"production","id":"prod-ItemList","name":"ItemList","referencingIds":["_ref_51","_ref_53","_ref_58","_ref_60"]},{"type":"production","id":"prod-TopLevelItem","name":"TopLevelItem","referencingIds":["_ref_52","_ref_54","_ref_59","_ref_61"]},{"type":"op","aoid":"DecodeItem","refId":"sec-decode-item"},{"type":"clause","id":"sec-decode-item","titleHTML":"DecodeItem","number":"5.1","referencingIds":["_ref_9","_ref_10","_ref_11"]},{"type":"production","id":"prod-OriginalScopeTree","name":"OriginalScopeTree","referencingIds":["_ref_55","_ref_62","_ref_63","_ref_74","_ref_111","_ref_112"]},{"type":"production","id":"prod-OriginalScopeItemList","name":"OriginalScopeItemList","referencingIds":["_ref_67","_ref_70","_ref_86","_ref_89","_ref_107","_ref_109"]},{"type":"production","id":"prod-OriginalScopeItem","name":"OriginalScopeItem","referencingIds":["_ref_69","_ref_71","_ref_108","_ref_110"]},{"type":"production","id":"prod-OriginalScopeStart","name":"OriginalScopeStart","referencingIds":["_ref_38","_ref_46","_ref_48","_ref_66","_ref_85","_ref_88"]},{"type":"production","id":"prod-OriginalScopeEnd","name":"OriginalScopeEnd","referencingIds":["_ref_39","_ref_68","_ref_87","_ref_90"]},{"type":"production","id":"prod-OriginalScopeVariables","name":"OriginalScopeVariables","referencingIds":["_ref_72"]},{"type":"production","id":"prod-OriginalScopeSourceRef","name":"OriginalScopeSourceRef","referencingIds":["_ref_36","_ref_73"]},{"type":"op","aoid":"DecodeScope","refId":"sec-decode-scope"},{"type":"clause","id":"sec-decode-scope","titleHTML":"DecodeScope","number":"5.2.1","referencingIds":["_ref_13","_ref_34"]},{"type":"op","aoid":"DecodeScopeItem","refId":"sec-decode-scope-item"},{"type":"clause","id":"sec-decode-scope-item","titleHTML":"DecodeScopeItem","number":"5.2.2","referencingIds":["_ref_18","_ref_19","_ref_20","_ref_32","_ref_33"]},{"type":"clause","id":"sec-format-scopes","titleHTML":"Original Scope Format","number":"5.2"},{"type":"production","id":"prod-GeneratedRangeTree","name":"GeneratedRangeTree","referencingIds":["_ref_56","_ref_64","_ref_65","_ref_124"]},{"type":"production","id":"prod-GeneratedRangeItemList","name":"GeneratedRangeItemList","referencingIds":["_ref_116","_ref_119"]},{"type":"production","id":"prod-GeneratedRangeItem","name":"GeneratedRangeItem","referencingIds":["_ref_118","_ref_120"]},{"type":"production","id":"prod-GeneratedRangeStart","name":"GeneratedRangeStart","referencingIds":["_ref_40","_ref_43","_ref_115"]},{"type":"production","id":"prod-GeneratedRangeEnd","name":"GeneratedRangeEnd","referencingIds":["_ref_41","_ref_44","_ref_117"]},{"type":"production","id":"prod-GeneratedRangeBindings","name":"GeneratedRangeBindings","referencingIds":["_ref_121"]},{"type":"production","id":"prod-SubRangeBinding","name":"SubRangeBinding","referencingIds":["_ref_122"]},{"type":"production","id":"prod-BindingFromList","name":"BindingFromList","referencingIds":["_ref_133","_ref_135"]},{"type":"production","id":"prod-BindingFrom","name":"BindingFrom","referencingIds":["_ref_134","_ref_136"]},{"type":"production","id":"prod-CallSite","name":"CallSite","referencingIds":["_ref_123"]},{"type":"production","id":"prod-UnknownItem","name":"UnknownItem","referencingIds":["_ref_57","_ref_75","_ref_125"]},{"type":"clause","id":"sec-format-ranges","titleHTML":"GeneratedRange Format","number":"5.3"},{"type":"clause","id":"sec-format","title":"\\"scopes\\" grammar","titleHTML":"<code>\\"scopes\\"</code> grammar","number":"5","referencingIds":["_ref_0"]},{"type":"production","id":"prod-VlqList","name":"VlqList","referencingIds":["_ref_83","_ref_132","_ref_143","_ref_145"]},{"type":"production","id":"prod-Vlq","name":"Vlq","referencingIds":["_ref_139","_ref_144","_ref_146","_ref_151","_ref_152","_ref_153","_ref_154","_ref_155","_ref_156","_ref_157"]},{"type":"production","id":"prod-VlqDigitList","name":"VlqDigitList","referencingIds":["_ref_147","_ref_150"]},{"type":"production","id":"prod-DigitWithoutContinuationBit","name":"DigitWithoutContinuationBit","referencingIds":["_ref_148"]},{"type":"production","id":"prod-DigitWithContinuationBit","name":"DigitWithContinuationBit","referencingIds":["_ref_149"]},{"type":"op","aoid":"ResolveName","refId":"sec-resolve-name-op"},{"type":"clause","id":"sec-resolve-name-op","titleHTML":"ResolveName ( index )","number":"A.1","referencingIds":["_ref_27","_ref_29"]},{"type":"op","aoid":"DecodeUnsignedVlq","refId":"sec-decode-unsigned-vlq-op"},{"type":"clause","id":"sec-decode-unsigned-vlq-op","title":"DecodeUnsignedVlq ( encoded )","titleHTML":"DecodeUnsignedVlq ( <var>encoded</var> )","number":"A.2","referencingIds":["_ref_23","_ref_24","_ref_25","_ref_30","_ref_31","_ref_35"]},{"type":"op","aoid":"DecodeSignedVlq","refId":"sec-decode-signed-vlq-op"},{"type":"clause","id":"sec-decode-signed-vlq-op","title":"DecodeSignedVlq ( encoded )","titleHTML":"DecodeSignedVlq ( <var>encoded</var> )","number":"A.3","referencingIds":["_ref_26","_ref_28"]},{"type":"clause","id":"sec-missing","titleHTML":"Missing base definitions","number":"A"},{"type":"production","id":"prod-Line","name":"Line","referencingIds":["_ref_37","_ref_76","_ref_81","_ref_91","_ref_96","_ref_103","_ref_105","_ref_128","_ref_131","_ref_137","_ref_141"]},{"type":"production","id":"prod-Column","name":"Column","referencingIds":["_ref_42","_ref_77","_ref_82","_ref_92","_ref_97","_ref_104","_ref_106","_ref_127","_ref_130","_ref_138","_ref_142"]},{"type":"production","id":"prod-Flags","name":"Flags","referencingIds":["_ref_78","_ref_93","_ref_98","_ref_126"]},{"type":"production","id":"prod-Name","name":"Name","referencingIds":["_ref_45","_ref_79","_ref_94","_ref_99","_ref_100"]},{"type":"production","id":"prod-Kind","name":"Kind","referencingIds":["_ref_47","_ref_80","_ref_95","_ref_101","_ref_102"]},{"type":"production","id":"prod-Definition","name":"Definition","referencingIds":["_ref_129"]},{"type":"production","id":"prod-SourceRef","name":"SourceRef","referencingIds":["_ref_84","_ref_113","_ref_114","_ref_140"]},{"type":"clause","id":"sec-grammar-summary","titleHTML":"Grammar Summary","number":"B"},{"type":"clause","id":"sec-copyright-and-software-license","title":"Copyright & Software License","titleHTML":"Copyright &amp; Software License","number":"C"}]}`);
+let sdoMap = JSON.parse(`{"prod-zsEO5rLq":{"DecodeItem":{"clause":"5.1","ids":["prod-Tcps7azM"]}},"prod-66qtHTZA":{"DecodeItem":{"clause":"5.1","ids":["prod-M5d0i2TB"]}},"prod-OknGdLgC":{"DecodeItem":{"clause":"5.1","ids":["prod-IyDcPlb7"]}},"prod-Lz9Dsa6A":{"DecodeScope":{"clause":"5.2.1","ids":["prod-ZduiLgVD"]}},"prod-GKLQ8LR7":{"DecodeScopeItem":{"clause":"5.2.2","ids":["prod-1QHHB18M"]}},"prod-vRn4r9Ai":{"DecodeScopeItem":{"clause":"5.2.2","ids":["prod-XlwLEr_C"]}},"prod-PParEzAp":{"DecodeScopeItem":{"clause":"5.2.2","ids":["prod-85UsPFzQ"]}},"prod-F4ak9b3c":{"DecodeScopeItem":{"clause":"5.2.2","ids":["prod-cIG_VX1s"]}},"prod-7momZp9x":{"DecodeScopeItem":{"clause":"5.2.2","ids":["prod-aW3pLeKP"]}},"prod-nI8To0lS":{"DecodeScopeItem":{"clause":"5.2.2","ids":["prod-uFvIaFjQ"]}},"prod-mwpBxBJY":{"DecodeRange":{"clause":"5.3.1","ids":["prod-B_G1Kvqg"]}},"prod-pflIO31T":{"DecodeRangeItem":{"clause":"5.3.2","ids":["prod-xQoQuc17"]}},"prod-ZKEmJUow":{"DecodeRangeItem":{"clause":"5.3.2","ids":["prod-vTOBJ9yU"]}},"prod-gyzGmZFi":{"DecodeRangeItem":{"clause":"5.3.2","ids":["prod-EaAC9Sum"]}},"prod-sP0Lox_e":{"DecodeRangeItem":{"clause":"5.3.2","ids":["prod-O4Qu-TU1"]}},"prod-S7bfJ5UD":{"DecodeRangeItem":{"clause":"5.3.2","ids":["prod-uo7cmv0b"]}}}`);
+let biblio = JSON.parse(`{"refsByClause":{"sec-source-map-format":["_ref_0"],"sec-scope-information-record-type":["_ref_1","_ref_2"],"sec-original-scope-tree-record-type":["_ref_3","_ref_4"],"sec-original-scope-record-type":["_ref_5","_ref_6"],"sec-generated-range-record-type":["_ref_7","_ref_8"],"sec-decode-state-record-type":["_ref_9","_ref_62","_ref_63","_ref_64","_ref_65","_ref_66","_ref_67","_ref_68","_ref_69","_ref_70","_ref_71","_ref_72","_ref_73","_ref_74","_ref_75","_ref_76","_ref_77"],"sec-decode-op":["_ref_10","_ref_11","_ref_12","_ref_78"],"sec-decode-item":["_ref_13","_ref_14","_ref_15","_ref_16","_ref_17","_ref_18","_ref_19","_ref_87","_ref_88","_ref_89","_ref_90","_ref_91","_ref_92","_ref_93","_ref_94"],"sec-decode-scope":["_ref_20","_ref_21","_ref_22","_ref_23","_ref_24","_ref_25","_ref_114","_ref_115","_ref_116","_ref_117","_ref_118","_ref_119"],"sec-decode-scope-item":["_ref_26","_ref_27","_ref_28","_ref_29","_ref_30","_ref_31","_ref_32","_ref_33","_ref_34","_ref_35","_ref_36","_ref_37","_ref_38","_ref_39","_ref_40","_ref_41","_ref_42","_ref_120","_ref_121","_ref_122","_ref_123","_ref_124","_ref_125","_ref_126","_ref_127","_ref_128","_ref_129","_ref_130","_ref_131","_ref_132","_ref_133","_ref_134","_ref_135","_ref_136","_ref_137","_ref_138","_ref_139","_ref_140","_ref_141","_ref_142","_ref_143","_ref_144","_ref_145","_ref_146","_ref_147"],"sec-decode-range":["_ref_43","_ref_44","_ref_45","_ref_46","_ref_47","_ref_48","_ref_177","_ref_178","_ref_179","_ref_180","_ref_181","_ref_182"],"sec-decode-range-item":["_ref_49","_ref_50","_ref_51","_ref_52","_ref_53","_ref_54","_ref_55","_ref_56","_ref_57","_ref_58","_ref_59","_ref_60","_ref_61","_ref_183","_ref_184","_ref_185","_ref_186","_ref_187","_ref_188","_ref_189","_ref_190","_ref_191","_ref_192","_ref_193","_ref_194","_ref_195","_ref_196","_ref_197","_ref_198","_ref_199","_ref_200","_ref_201","_ref_202","_ref_203","_ref_204","_ref_205","_ref_206","_ref_207"],"sec-format":["_ref_79","_ref_80","_ref_81","_ref_82","_ref_83","_ref_84","_ref_85","_ref_86"],"sec-format-scopes":["_ref_95","_ref_96","_ref_97","_ref_98","_ref_99","_ref_100","_ref_101","_ref_102","_ref_103","_ref_104","_ref_105","_ref_106","_ref_107","_ref_108","_ref_109","_ref_110","_ref_111","_ref_112","_ref_113"],"sec-format-ranges":["_ref_148","_ref_149","_ref_150","_ref_151","_ref_152","_ref_153","_ref_154","_ref_155","_ref_156","_ref_157","_ref_158","_ref_159","_ref_160","_ref_161","_ref_162","_ref_163","_ref_164","_ref_165","_ref_166","_ref_167","_ref_168","_ref_169","_ref_170","_ref_171","_ref_172","_ref_173","_ref_174","_ref_175","_ref_176"],"sec-missing":["_ref_208","_ref_209","_ref_210","_ref_211","_ref_212","_ref_213","_ref_214"],"sec-decode-signed-vlq-list-op":["_ref_215"],"sec-grammar-summary":["_ref_216","_ref_217","_ref_218","_ref_219","_ref_220","_ref_221","_ref_222"]},"entries":[{"type":"clause","id":"sec-source-map-format","titleHTML":"Additions to the Source map format","number":"1"},{"type":"term","term":"Scope Information Record.","refId":"sec-scope-information-record-type"},{"type":"table","id":"table-scope-information-record-fields","number":2,"caption":"Table 2: Scope Information Record Fields"},{"type":"clause","id":"sec-scope-information-record-type","titleHTML":"The Scope Information Record Type","number":"2.1","referencingIds":["_ref_10","_ref_11"]},{"type":"term","term":"Original Scope Tree Record","refId":"sec-original-scope-tree-record-type"},{"type":"table","id":"table-original-scope-tree-record-fields","number":3,"caption":"Table 3: Original Scope Tree Record Fields"},{"type":"clause","id":"sec-original-scope-tree-record-type","titleHTML":"The Original Scope Tree Record Type","number":"2.2","referencingIds":["_ref_1","_ref_3","_ref_17"]},{"type":"term","term":"Original Scope Record","refId":"sec-original-scope-record-type"},{"type":"table","id":"table-original-scope-record-fields","number":4,"caption":"Table 4: Original Scope Record Fields"},{"type":"clause","id":"sec-original-scope-record-type","titleHTML":"The Original Scope Record Type","number":"2.3","referencingIds":["_ref_4","_ref_5","_ref_6","_ref_21","_ref_22","_ref_27"]},{"type":"term","term":"Generated Range Record","refId":"sec-generated-range-record-type"},{"type":"table","id":"table-generated-range-record-fields","number":5,"caption":"Table 5: Generated Range Record Fields"},{"type":"clause","id":"sec-generated-range-record-type","titleHTML":"The Generated Range Record Type","number":"2.4","referencingIds":["_ref_2","_ref_7","_ref_8","_ref_44","_ref_45","_ref_50"]},{"type":"clause","id":"sec-types","titleHTML":"Data Types","number":"2"},{"type":"term","term":"Decode State Record","refId":"sec-decode-state-record-type"},{"type":"table","id":"table-decode-state-record-fields","number":6,"caption":"Table 6: Decode State Record Fields"},{"type":"clause","id":"sec-decode-state-record-type","titleHTML":"The Decode State Record Specification Type","number":"3.1","referencingIds":["_ref_9","_ref_15","_ref_18","_ref_20","_ref_26","_ref_43","_ref_49"]},{"type":"clause","id":"sec-specification-types","titleHTML":"Specification Types","number":"3"},{"type":"op","aoid":"Decode","refId":"sec-decode-op"},{"type":"clause","id":"sec-decode-op","title":"Decode ( scopes )","titleHTML":"Decode ( <var>scopes</var> )","number":"4.1"},{"type":"clause","id":"sec-abstract-operations","titleHTML":"Abstract Operations","number":"4"},{"type":"production","id":"prod-Scopes","name":"Scopes","referencingIds":["_ref_78","_ref_79"]},{"type":"production","id":"prod-ItemList","name":"ItemList","referencingIds":["_ref_80","_ref_82","_ref_87","_ref_89"]},{"type":"production","id":"prod-TopLevelItem","name":"TopLevelItem","referencingIds":["_ref_81","_ref_83","_ref_88","_ref_90"]},{"type":"op","aoid":"DecodeItem","refId":"sec-decode-item"},{"type":"clause","id":"sec-decode-item","titleHTML":"DecodeItem","number":"5.1","referencingIds":["_ref_12","_ref_13","_ref_14"]},{"type":"production","id":"prod-OriginalScopeTree","name":"OriginalScopeTree","referencingIds":["_ref_84","_ref_91","_ref_92","_ref_103","_ref_142","_ref_143"]},{"type":"production","id":"prod-OriginalScopeItemList","name":"OriginalScopeItemList","referencingIds":["_ref_96","_ref_99","_ref_115","_ref_118","_ref_138","_ref_140"]},{"type":"production","id":"prod-OriginalScopeItem","name":"OriginalScopeItem","referencingIds":["_ref_98","_ref_100","_ref_139","_ref_141"]},{"type":"production","id":"prod-OriginalScopeStart","name":"OriginalScopeStart","referencingIds":["_ref_64","_ref_72","_ref_74","_ref_95","_ref_114","_ref_117"]},{"type":"production","id":"prod-OriginalScopeEnd","name":"OriginalScopeEnd","referencingIds":["_ref_65","_ref_97","_ref_116","_ref_119"]},{"type":"production","id":"prod-OriginalScopeVariables","name":"OriginalScopeVariables","referencingIds":["_ref_75","_ref_101"]},{"type":"production","id":"prod-OriginalScopeSourceRef","name":"OriginalScopeSourceRef","referencingIds":["_ref_62","_ref_102"]},{"type":"op","aoid":"DecodeScope","refId":"sec-decode-scope"},{"type":"clause","id":"sec-decode-scope","titleHTML":"DecodeScope","number":"5.2.1","referencingIds":["_ref_16","_ref_39"]},{"type":"op","aoid":"DecodeScopeItem","refId":"sec-decode-scope-item"},{"type":"clause","id":"sec-decode-scope-item","titleHTML":"DecodeScopeItem","number":"5.2.2","referencingIds":["_ref_23","_ref_24","_ref_25","_ref_37","_ref_38"]},{"type":"clause","id":"sec-format-scopes","titleHTML":"Original Scope Format","number":"5.2"},{"type":"production","id":"prod-GeneratedRangeTree","name":"GeneratedRangeTree","referencingIds":["_ref_85","_ref_93","_ref_94","_ref_157","_ref_204","_ref_205"]},{"type":"production","id":"prod-GeneratedRangeItemList","name":"GeneratedRangeItemList","referencingIds":["_ref_149","_ref_152","_ref_178","_ref_181","_ref_200","_ref_202"]},{"type":"production","id":"prod-GeneratedRangeItem","name":"GeneratedRangeItem","referencingIds":["_ref_151","_ref_153","_ref_201","_ref_203"]},{"type":"production","id":"prod-GeneratedRangeStart","name":"GeneratedRangeStart","referencingIds":["_ref_66","_ref_69","_ref_76","_ref_148","_ref_177","_ref_180"]},{"type":"production","id":"prod-GeneratedRangeEnd","name":"GeneratedRangeEnd","referencingIds":["_ref_67","_ref_70","_ref_150","_ref_179","_ref_182"]},{"type":"production","id":"prod-GeneratedRangeBindings","name":"GeneratedRangeBindings","referencingIds":["_ref_77","_ref_154"]},{"type":"production","id":"prod-SubRangeBinding","name":"SubRangeBinding","referencingIds":["_ref_155"]},{"type":"production","id":"prod-BindingFromList","name":"BindingFromList","referencingIds":["_ref_166","_ref_168"]},{"type":"production","id":"prod-BindingFrom","name":"BindingFrom","referencingIds":["_ref_167","_ref_169"]},{"type":"production","id":"prod-CallSite","name":"CallSite","referencingIds":["_ref_156"]},{"type":"production","id":"prod-UnknownItem","name":"UnknownItem","referencingIds":["_ref_86","_ref_104","_ref_158"]},{"type":"op","aoid":"DecodeRange","refId":"sec-decode-range"},{"type":"clause","id":"sec-decode-range","titleHTML":"DecodeRange","number":"5.3.1","referencingIds":["_ref_19","_ref_59"]},{"type":"op","aoid":"DecodeRangeItem","refId":"sec-decode-range-item"},{"type":"clause","id":"sec-decode-range-item","titleHTML":"DecodeRangeItem","number":"5.3.2","referencingIds":["_ref_46","_ref_47","_ref_48","_ref_57","_ref_58"]},{"type":"clause","id":"sec-format-ranges","titleHTML":"GeneratedRange Format","number":"5.3"},{"type":"clause","id":"sec-format","title":"\\"scopes\\" grammar","titleHTML":"<code>\\"scopes\\"</code> grammar","number":"5","referencingIds":["_ref_0"]},{"type":"production","id":"prod-VlqList","name":"VlqList","referencingIds":["_ref_112","_ref_144","_ref_145","_ref_165","_ref_176","_ref_206","_ref_207","_ref_209","_ref_215"]},{"type":"production","id":"prod-Vlq","name":"Vlq","referencingIds":["_ref_172","_ref_208","_ref_210","_ref_216","_ref_217","_ref_218","_ref_219","_ref_220","_ref_221","_ref_222"]},{"type":"production","id":"prod-VlqDigitList","name":"VlqDigitList","referencingIds":["_ref_211","_ref_214"]},{"type":"production","id":"prod-DigitWithoutContinuationBit","name":"DigitWithoutContinuationBit","referencingIds":["_ref_212"]},{"type":"production","id":"prod-DigitWithContinuationBit","name":"DigitWithContinuationBit","referencingIds":["_ref_213"]},{"type":"op","aoid":"ResolveName","refId":"sec-resolve-name-op"},{"type":"clause","id":"sec-resolve-name-op","title":"ResolveName ( index )","titleHTML":"ResolveName ( <var>index</var> )","number":"A.1","referencingIds":["_ref_32","_ref_34","_ref_41"]},{"type":"op","aoid":"ResolveExpression","refId":"sec-resolve-expression-op"},{"type":"clause","id":"sec-resolve-expression-op","title":"ResolveExpression ( index )","titleHTML":"ResolveExpression ( <var>index</var> )","number":"A.2","referencingIds":["_ref_61"]},{"type":"op","aoid":"DecodeUnsignedVlq","refId":"sec-decode-unsigned-vlq-op"},{"type":"clause","id":"sec-decode-unsigned-vlq-op","title":"DecodeUnsignedVlq ( encoded )","titleHTML":"DecodeUnsignedVlq ( <var>encoded</var> )","number":"A.3","referencingIds":["_ref_28","_ref_29","_ref_30","_ref_35","_ref_36","_ref_42","_ref_51","_ref_52","_ref_54","_ref_55","_ref_56"]},{"type":"op","aoid":"DecodeSignedVlq","refId":"sec-decode-signed-vlq-op"},{"type":"clause","id":"sec-decode-signed-vlq-op","title":"DecodeSignedVlq ( encoded )","titleHTML":"DecodeSignedVlq ( <var>encoded</var> )","number":"A.4","referencingIds":["_ref_31","_ref_33","_ref_53"]},{"type":"op","aoid":"DecodeSignedVlqList","refId":"sec-decode-signed-vlq-list-op"},{"type":"clause","id":"sec-decode-signed-vlq-list-op","title":"DecodeSignedVlqList ( encoded )","titleHTML":"DecodeSignedVlqList ( <var>encoded</var> )","number":"A.5","referencingIds":["_ref_40","_ref_60"]},{"type":"clause","id":"sec-missing","titleHTML":"Missing base definitions","number":"A"},{"type":"production","id":"prod-Line","name":"Line","referencingIds":["_ref_63","_ref_105","_ref_110","_ref_120","_ref_125","_ref_134","_ref_136","_ref_161","_ref_164","_ref_170","_ref_174","_ref_185","_ref_188","_ref_189","_ref_190","_ref_196","_ref_197","_ref_198"]},{"type":"production","id":"prod-Column","name":"Column","referencingIds":["_ref_68","_ref_106","_ref_111","_ref_121","_ref_126","_ref_135","_ref_137","_ref_160","_ref_163","_ref_171","_ref_175","_ref_184","_ref_194","_ref_195","_ref_199"]},{"type":"production","id":"prod-Flags","name":"Flags","referencingIds":["_ref_107","_ref_122","_ref_127","_ref_159","_ref_183","_ref_187"]},{"type":"production","id":"prod-Name","name":"Name","referencingIds":["_ref_71","_ref_108","_ref_123","_ref_128","_ref_129","_ref_130"]},{"type":"production","id":"prod-Kind","name":"Kind","referencingIds":["_ref_73","_ref_109","_ref_124","_ref_131","_ref_132","_ref_133"]},{"type":"production","id":"prod-Definition","name":"Definition","referencingIds":["_ref_162","_ref_186","_ref_191","_ref_192","_ref_193"]},{"type":"production","id":"prod-SourceRef","name":"SourceRef","referencingIds":["_ref_113","_ref_146","_ref_147","_ref_173"]},{"type":"clause","id":"sec-grammar-summary","titleHTML":"Grammar Summary","number":"B"},{"type":"clause","id":"sec-copyright-and-software-license","title":"Copyright & Software License","titleHTML":"Copyright &amp; Software License","number":"C"}]}`);
 ;let usesMultipage = false</script><style>/* IBM Plex fonts (Latin subset) have been downloaded from Google Fonts and modified to add support back in for the `zero` substitution (slashed zeroes) */
 
 /* https://fonts.googleapis.com/css2?family=IBM%20Plex%20Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap */
@@ -3296,7 +3296,7 @@ emu-intro {
 </ul></div><div id="menu-toggle"><svg xmlns="http://www.w3.org/2000/svg" style="width:100%; height:100%; stroke:currentColor" viewBox="0 0 120 120" width="54" height="54">
       <title>Menu</title>
       <path stroke-width="10" stroke-linecap="round" d="M30,60 h60  M30,30 m0,5 h60  M30,90 m0,-5 h60"></path>
-    </svg></div><div id="menu-spacer" class="menu-spacer"></div><div id="menu"><div id="menu-search"><input type="text" id="menu-search-box" placeholder="Search..."><div id="menu-search-results" class="inactive"></div></div><div id="menu-pins"><div class="menu-pane-header">Pins<button class="unpin-all">clear</button></div><ul id="menu-pins-list"></ul></div><div class="menu-pane-header">Table of Contents</div><div id="menu-toc"><ol class="toc"><li><span class="item-toggle-none"></span><a href="#sec-source-map-format" title="Additions to the Source map format"><span class="secnum">1</span> Additions to the Source map format</a></li><li><span class="item-toggle">+</span><a href="#sec-types" title="Data Types"><span class="secnum">2</span> Data Types</a><ol class="toc"><li><span class="item-toggle-none"></span><a href="#sec-scope-information-record-type" title="The Scope Information Record Type"><span class="secnum">2.1</span> The Scope Information Record Type</a></li><li><span class="item-toggle-none"></span><a href="#sec-original-scope-tree-record-type" title="The Original Scope Tree Record Type"><span class="secnum">2.2</span> The Original Scope Tree Record Type</a></li><li><span class="item-toggle-none"></span><a href="#sec-original-scope-record-type" title="The Original Scope Record Type"><span class="secnum">2.3</span> The Original Scope Record Type</a></li></ol></li><li><span class="item-toggle">+</span><a href="#sec-specification-types" title="Specification Types"><span class="secnum">3</span> Specification Types</a><ol class="toc"><li><span class="item-toggle-none"></span><a href="#sec-decode-state-record-type" title="The Decode State Record Specification Type"><span class="secnum">3.1</span> The Decode State Record Specification Type</a></li></ol></li><li><span class="item-toggle">+</span><a href="#sec-abstract-operations" title="Abstract Operations"><span class="secnum">4</span> Abstract Operations</a><ol class="toc"><li><span class="item-toggle-none"></span><a href="#sec-decode-op" title="Decode ( scopes )"><span class="secnum">4.1</span> Decode ( <var>scopes</var> )</a></li></ol></li><li><span class="item-toggle">+</span><a href="#sec-format" title="" scopes"="" grammar"=""><span class="secnum">5</span> <code>"scopes"</code> grammar</a><ol class="toc"><li><span class="item-toggle-none"></span><a href="#sec-decode-item" title="DecodeItem"><span class="secnum">5.1</span> DecodeItem</a></li><li><span class="item-toggle">+</span><a href="#sec-format-scopes" title="Original Scope Format"><span class="secnum">5.2</span> Original Scope Format</a><ol class="toc"><li><span class="item-toggle-none"></span><a href="#sec-decode-scope" title="DecodeScope"><span class="secnum">5.2.1</span> DecodeScope</a></li><li><span class="item-toggle-none"></span><a href="#sec-decode-scope-item" title="DecodeScopeItem"><span class="secnum">5.2.2</span> DecodeScopeItem</a></li></ol></li><li><span class="item-toggle-none"></span><a href="#sec-format-ranges" title="GeneratedRange Format"><span class="secnum">5.3</span> GeneratedRange Format</a></li></ol></li><li><span class="item-toggle">+</span><a href="#sec-missing" title="Missing base definitions"><span class="secnum">A</span> Missing base definitions</a><ol class="toc"><li><span class="item-toggle-none"></span><a href="#sec-resolve-name-op" title="ResolveName ( index )"><span class="secnum">A.1</span> ResolveName ( index )</a></li><li><span class="item-toggle-none"></span><a href="#sec-decode-unsigned-vlq-op" title="DecodeUnsignedVlq ( encoded )"><span class="secnum">A.2</span> DecodeUnsignedVlq ( <var>encoded</var> )</a></li><li><span class="item-toggle-none"></span><a href="#sec-decode-signed-vlq-op" title="DecodeSignedVlq ( encoded )"><span class="secnum">A.3</span> DecodeSignedVlq ( <var>encoded</var> )</a></li></ol></li><li><span class="item-toggle-none"></span><a href="#sec-grammar-summary" title="Grammar Summary"><span class="secnum">B</span> Grammar Summary</a></li><li><span class="item-toggle-none"></span><a href="#sec-copyright-and-software-license" title="Copyright &amp; Software License"><span class="secnum">C</span> Copyright &amp; Software License</a></li></ol></div></div><div id="spec-container"><h1 class="version">Stage 3 Draft / February 6, 2025</h1><h1 class="title">Scopes</h1>
+    </svg></div><div id="menu-spacer" class="menu-spacer"></div><div id="menu"><div id="menu-search"><input type="text" id="menu-search-box" placeholder="Search..."><div id="menu-search-results" class="inactive"></div></div><div id="menu-pins"><div class="menu-pane-header">Pins<button class="unpin-all">clear</button></div><ul id="menu-pins-list"></ul></div><div class="menu-pane-header">Table of Contents</div><div id="menu-toc"><ol class="toc"><li><span class="item-toggle-none"></span><a href="#sec-source-map-format" title="Additions to the Source map format"><span class="secnum">1</span> Additions to the Source map format</a></li><li><span class="item-toggle">+</span><a href="#sec-types" title="Data Types"><span class="secnum">2</span> Data Types</a><ol class="toc"><li><span class="item-toggle-none"></span><a href="#sec-scope-information-record-type" title="The Scope Information Record Type"><span class="secnum">2.1</span> The Scope Information Record Type</a></li><li><span class="item-toggle-none"></span><a href="#sec-original-scope-tree-record-type" title="The Original Scope Tree Record Type"><span class="secnum">2.2</span> The Original Scope Tree Record Type</a></li><li><span class="item-toggle-none"></span><a href="#sec-original-scope-record-type" title="The Original Scope Record Type"><span class="secnum">2.3</span> The Original Scope Record Type</a></li><li><span class="item-toggle-none"></span><a href="#sec-generated-range-record-type" title="The Generated Range Record Type"><span class="secnum">2.4</span> The Generated Range Record Type</a></li></ol></li><li><span class="item-toggle">+</span><a href="#sec-specification-types" title="Specification Types"><span class="secnum">3</span> Specification Types</a><ol class="toc"><li><span class="item-toggle-none"></span><a href="#sec-decode-state-record-type" title="The Decode State Record Specification Type"><span class="secnum">3.1</span> The Decode State Record Specification Type</a></li></ol></li><li><span class="item-toggle">+</span><a href="#sec-abstract-operations" title="Abstract Operations"><span class="secnum">4</span> Abstract Operations</a><ol class="toc"><li><span class="item-toggle-none"></span><a href="#sec-decode-op" title="Decode ( scopes )"><span class="secnum">4.1</span> Decode ( <var>scopes</var> )</a></li></ol></li><li><span class="item-toggle">+</span><a href="#sec-format" title="" scopes"="" grammar"=""><span class="secnum">5</span> <code>"scopes"</code> grammar</a><ol class="toc"><li><span class="item-toggle-none"></span><a href="#sec-decode-item" title="DecodeItem"><span class="secnum">5.1</span> DecodeItem</a></li><li><span class="item-toggle">+</span><a href="#sec-format-scopes" title="Original Scope Format"><span class="secnum">5.2</span> Original Scope Format</a><ol class="toc"><li><span class="item-toggle-none"></span><a href="#sec-decode-scope" title="DecodeScope"><span class="secnum">5.2.1</span> DecodeScope</a></li><li><span class="item-toggle-none"></span><a href="#sec-decode-scope-item" title="DecodeScopeItem"><span class="secnum">5.2.2</span> DecodeScopeItem</a></li></ol></li><li><span class="item-toggle">+</span><a href="#sec-format-ranges" title="GeneratedRange Format"><span class="secnum">5.3</span> GeneratedRange Format</a><ol class="toc"><li><span class="item-toggle-none"></span><a href="#sec-decode-range" title="DecodeRange"><span class="secnum">5.3.1</span> DecodeRange</a></li><li><span class="item-toggle-none"></span><a href="#sec-decode-range-item" title="DecodeRangeItem"><span class="secnum">5.3.2</span> DecodeRangeItem</a></li></ol></li></ol></li><li><span class="item-toggle">+</span><a href="#sec-missing" title="Missing base definitions"><span class="secnum">A</span> Missing base definitions</a><ol class="toc"><li><span class="item-toggle-none"></span><a href="#sec-resolve-name-op" title="ResolveName ( index )"><span class="secnum">A.1</span> ResolveName ( <var>index</var> )</a></li><li><span class="item-toggle-none"></span><a href="#sec-resolve-expression-op" title="ResolveExpression ( index )"><span class="secnum">A.2</span> ResolveExpression ( <var>index</var> )</a></li><li><span class="item-toggle-none"></span><a href="#sec-decode-unsigned-vlq-op" title="DecodeUnsignedVlq ( encoded )"><span class="secnum">A.3</span> DecodeUnsignedVlq ( <var>encoded</var> )</a></li><li><span class="item-toggle-none"></span><a href="#sec-decode-signed-vlq-op" title="DecodeSignedVlq ( encoded )"><span class="secnum">A.4</span> DecodeSignedVlq ( <var>encoded</var> )</a></li><li><span class="item-toggle-none"></span><a href="#sec-decode-signed-vlq-list-op" title="DecodeSignedVlqList ( encoded )"><span class="secnum">A.5</span> DecodeSignedVlqList ( <var>encoded</var> )</a></li></ol></li><li><span class="item-toggle-none"></span><a href="#sec-grammar-summary" title="Grammar Summary"><span class="secnum">B</span> Grammar Summary</a></li><li><span class="item-toggle-none"></span><a href="#sec-copyright-and-software-license" title="Copyright &amp; Software License"><span class="secnum">C</span> Copyright &amp; Software License</a></li></ol></div></div><div id="spec-container"><h1 class="version">Stage 3 Draft / February 7, 2025</h1><h1 class="title">Scopes</h1>
 
 <emu-clause id="sec-source-map-format">
   <h1><span class="secnum">1</span> Additions to the <a href="https://tc39.es/ecma426/#source-map-format" target="_blank" rel="noopener noreferrer" data-print-href="">Source map format</a></h1>
@@ -3324,6 +3324,7 @@ emu-intro {
 <emu-clause id="sec-types">
   <h1><span class="secnum">2</span> Data Types</h1>
   <p>The proposal defines several new types.</p>
+
   <emu-clause id="sec-scope-information-record-type">
     <h1><span class="secnum">2.1</span> The Scope Information Record Type</h1>
     <p>Decoding the <code>"scopes"</code> field results in a <dfn tabindex="-1">Scope Information Record.</dfn></p>
@@ -3343,16 +3344,17 @@ emu-intro {
         </tr>
         <tr>
           <td><var class="field">[[GeneratedRanges]]</var></td>
-          <td>todo</td>
+          <td>a <emu-xref href="#sec-list-and-record-specification-type"><a href="https://tc39.es/ecma262/#sec-list-and-record-specification-type">List</a></emu-xref> of <emu-xref href="#sec-generated-range-record-type" id="_ref_2"><a href="#sec-generated-range-record-type">Generated Range Records</a></emu-xref></td>
           <td>todo</td>
         </tr>
       </tbody></table>
     </figure></emu-table>
   </emu-clause>
+
   <emu-clause id="sec-original-scope-tree-record-type">
     <h1><span class="secnum">2.2</span> The Original Scope Tree Record Type</h1>
     <p>The <dfn variants="Original Scope Tree Records" tabindex="-1">Original Scope Tree Record</dfn> describes the scope tree for an original (authored) file. It corresponds directly to one entry in the <code>"sources"</code> list.</p>
-    <emu-table id="table-original-scope-tree-record-fields" caption="Original Scope Tree Record Fields"><figure><figcaption>Table 3: <emu-xref href="#sec-original-scope-tree-record-type" id="_ref_2"><a href="#sec-original-scope-tree-record-type">Original Scope Tree Record</a></emu-xref> Fields</figcaption>
+    <emu-table id="table-original-scope-tree-record-fields" caption="Original Scope Tree Record Fields"><figure><figcaption>Table 3: <emu-xref href="#sec-original-scope-tree-record-type" id="_ref_3"><a href="#sec-original-scope-tree-record-type">Original Scope Tree Record</a></emu-xref> Fields</figcaption>
       <table>
         <thead>
           <tr>
@@ -3368,16 +3370,17 @@ emu-intro {
         </tr>
         <tr>
           <td><var class="field">[[Root]]</var></td>
-          <td>a <emu-xref href="#sec-original-scope-record-type" id="_ref_3"><a href="#sec-original-scope-record-type">Original Scope Record</a></emu-xref></td>
+          <td>a <emu-xref href="#sec-original-scope-record-type" id="_ref_4"><a href="#sec-original-scope-record-type">Original Scope Record</a></emu-xref></td>
           <td>The top-level/root scope.</td>
         </tr>
       </tbody></table>
     </figure></emu-table>
   </emu-clause>
+
   <emu-clause id="sec-original-scope-record-type">
     <h1><span class="secnum">2.3</span> The Original Scope Record Type</h1>
     <p>The <dfn variants="Original Scope Records" tabindex="-1">Original Scope Record</dfn> describes a scope in an original (authored) file.</p>
-    <emu-table id="table-original-scope-record-fields" caption="Original Scope Record Fields"><figure><figcaption>Table 4: <emu-xref href="#sec-original-scope-record-type" id="_ref_4"><a href="#sec-original-scope-record-type">Original Scope Record</a></emu-xref> Fields</figcaption>
+    <emu-table id="table-original-scope-record-fields" caption="Original Scope Record Fields"><figure><figcaption>Table 4: <emu-xref href="#sec-original-scope-record-type" id="_ref_5"><a href="#sec-original-scope-record-type">Original Scope Record</a></emu-xref> Fields</figcaption>
       <table>
         <thead>
           <tr>
@@ -3407,9 +3410,74 @@ emu-intro {
           <td>The column number where this scope ends (exclusive).</td>
         </tr>
         <tr>
+          <td><var class="field">[[Name]]</var></td>
+          <td>a String or <emu-val>null</emu-val></td>
+          <td>The original name of this scope. E.g. the original class or function name.</td>
+        </tr>
+        <tr>
+          <td><var class="field">[[Kind]]</var></td>
+          <td>a String or <emu-val>null</emu-val></td>
+          <td>Debuggers may use <var class="field">[[Kind]]</var> to label this scope in a scope view. It is purely informative for users.</td>
+        </tr>
+        <tr>
+          <td><var class="field">[[IsStackFrame]]</var></td>
+          <td>a Boolean</td>
+          <td>Signifies whether this scope is something that can be called, e.g. a function or method.</td>
+        </tr>
+        <tr>
+          <td><var class="field">[[Variables]]</var></td>
+          <td>a <emu-xref href="#sec-list-and-record-specification-type"><a href="https://tc39.es/ecma262/#sec-list-and-record-specification-type">List</a></emu-xref> of Strings</td>
+          <td>The original variable names declared in this scope.</td>
+        </tr>
+        <tr>
           <td><var class="field">[[Children]]</var></td>
-          <td>a <emu-xref href="#sec-list-and-record-specification-type"><a href="https://tc39.es/ecma262/#sec-list-and-record-specification-type">List</a></emu-xref> of <emu-xref href="#sec-original-scope-record-type" id="_ref_5"><a href="#sec-original-scope-record-type">Original Scope Records</a></emu-xref></td>
+          <td>a <emu-xref href="#sec-list-and-record-specification-type"><a href="https://tc39.es/ecma262/#sec-list-and-record-specification-type">List</a></emu-xref> of <emu-xref href="#sec-original-scope-record-type" id="_ref_6"><a href="#sec-original-scope-record-type">Original Scope Records</a></emu-xref></td>
           <td>The child scopes of this scope.</td>
+        </tr>
+      </tbody></table>
+    </figure></emu-table>
+  </emu-clause>
+
+  <emu-clause id="sec-generated-range-record-type">
+    <h1><span class="secnum">2.4</span> The Generated Range Record Type</h1>
+    <p>The <dfn variants="Generated Range Records" tabindex="-1">Generated Range Record</dfn> describes a range in the generated file. The spec uses the name "range" instead of "scope" because ranges may not correspond to lexical scopes in the generated language.</p>
+    <emu-table id="table-generated-range-record-fields" caption="Generated Range Record Fields"><figure><figcaption>Table 5: <emu-xref href="#sec-generated-range-record-type" id="_ref_7"><a href="#sec-generated-range-record-type">Generated Range Record</a></emu-xref> Fields</figcaption>
+      <table>
+        <thead>
+          <tr>
+            <th>Field Name</th>
+            <th>Value</th>
+            <th>Meaning</th>
+          </tr>
+        </thead>
+        <tbody><tr></tr>
+        <tr><td><var class="field">[[StartLine]]</var></td>
+          <td>a Number</td>
+          <td>The line number where this range starts.</td></tr>
+        <tr>
+          <td><var class="field">[[StartColumn]]</var></td>
+          <td>a Number</td>
+          <td>The column number where this range starts (inclusive).</td>
+        </tr>
+        <tr>
+          <td><var class="field">[[EndLine]]</var></td>
+          <td>a Number</td>
+          <td>The line number where this range ends.</td>
+        </tr>
+        <tr>
+          <td><var class="field">[[EndColumn]]</var></td>
+          <td>a Number</td>
+          <td>The column number where this range ends (exclusive).</td>
+        </tr>
+        <tr>
+          <td><var class="field">[[Bindings]]</var></td>
+          <td>a <emu-xref href="#sec-list-and-record-specification-type"><a href="https://tc39.es/ecma262/#sec-list-and-record-specification-type">List</a></emu-xref> of Strings</td>
+          <td>A list of JavaScript expressions that when evaluated in this generated range, evaluates to the value of the corresponding variable.</td>
+        </tr>
+        <tr>
+          <td><var class="field">[[Children]]</var></td>
+          <td>a <emu-xref href="#sec-list-and-record-specification-type"><a href="https://tc39.es/ecma262/#sec-list-and-record-specification-type">List</a></emu-xref> of <emu-xref href="#sec-generated-range-record-type" id="_ref_8"><a href="#sec-generated-range-record-type">Generated Range Records</a></emu-xref></td>
+          <td>The child ranges of this range.</td>
         </tr>
       </tbody></table>
     </figure></emu-table>
@@ -3418,10 +3486,11 @@ emu-intro {
 
 <emu-clause id="sec-specification-types">
   <h1><span class="secnum">3</span> Specification Types</h1>
+
   <emu-clause id="sec-decode-state-record-type">
     <h1><span class="secnum">3.1</span> The Decode State Record Specification Type</h1>
     <p>The <dfn tabindex="-1">Decode State Record</dfn> is used to keep track of relative numbers while decoding a Scope Information <emu-xref href="#sec-list-and-record-specification-type"><a href="https://tc39.es/ecma262/#sec-list-and-record-specification-type">Record</a></emu-xref></p>
-    <emu-table id="table-decode-state-record-fields" caption="Decode State Record Fields"><figure><figcaption>Table 5: <emu-xref href="#sec-decode-state-record-type" id="_ref_6"><a href="#sec-decode-state-record-type">Decode State Record</a></emu-xref> Fields</figcaption>
+    <emu-table id="table-decode-state-record-fields" caption="Decode State Record Fields"><figure><figcaption>Table 6: <emu-xref href="#sec-decode-state-record-type" id="_ref_9"><a href="#sec-decode-state-record-type">Decode State Record</a></emu-xref> Fields</figcaption>
       <table>
         <thead>
           <tr>
@@ -3433,27 +3502,42 @@ emu-intro {
         <tbody><tr>
           <td><var class="field">[[SourceIndex]]</var></td>
           <td>a Number or <emu-val>null</emu-val>.</td>
-          <td><emu-xref href="#sec-list-and-record-specification-type"><a href="https://tc39.es/ecma262/#sec-list-and-record-specification-type">Records</a></emu-xref> the last occurrence of <emu-nt id="_ref_36"><a href="#prod-OriginalScopeSourceRef">OriginalScopeSourceRef</a></emu-nt>, if any.</td>
+          <td><emu-xref href="#sec-list-and-record-specification-type"><a href="https://tc39.es/ecma262/#sec-list-and-record-specification-type">Records</a></emu-xref> the last occurrence of <emu-nt id="_ref_62"><a href="#prod-OriginalScopeSourceRef">OriginalScopeSourceRef</a></emu-nt>, if any.</td>
         </tr>
         <tr>
           <td><var class="field">[[Line]]</var></td>
           <td>a Number</td>
-          <td><emu-nt id="_ref_37"><a href="#prod-Line">Line</a></emu-nt> in <emu-nt id="_ref_38"><a href="#prod-OriginalScopeStart">OriginalScopeStart</a></emu-nt>, <emu-nt id="_ref_39"><a href="#prod-OriginalScopeEnd">OriginalScopeEnd</a></emu-nt>, <emu-nt id="_ref_40"><a href="#prod-GeneratedRangeStart">GeneratedRangeStart</a></emu-nt> and <emu-nt id="_ref_41"><a href="#prod-GeneratedRangeEnd">GeneratedRangeEnd</a></emu-nt> are relative. This field tracks the actual line number.</td>
+          <td><emu-nt id="_ref_63"><a href="#prod-Line">Line</a></emu-nt> in <emu-nt id="_ref_64"><a href="#prod-OriginalScopeStart">OriginalScopeStart</a></emu-nt>, <emu-nt id="_ref_65"><a href="#prod-OriginalScopeEnd">OriginalScopeEnd</a></emu-nt>, <emu-nt id="_ref_66"><a href="#prod-GeneratedRangeStart">GeneratedRangeStart</a></emu-nt> and <emu-nt id="_ref_67"><a href="#prod-GeneratedRangeEnd">GeneratedRangeEnd</a></emu-nt> are relative. This field tracks the actual line number.</td>
         </tr>
         <tr>
           <td><var class="field">[[Column]]</var></td>
           <td>a Number</td>
-          <td><emu-nt id="_ref_42"><a href="#prod-Column">Column</a></emu-nt> in <emu-nt id="_ref_43"><a href="#prod-GeneratedRangeStart">GeneratedRangeStart</a></emu-nt> and <emu-nt id="_ref_44"><a href="#prod-GeneratedRangeEnd">GeneratedRangeEnd</a></emu-nt> are relative. This field track the actual column number.</td>
+          <td><emu-nt id="_ref_68"><a href="#prod-Column">Column</a></emu-nt> in <emu-nt id="_ref_69"><a href="#prod-GeneratedRangeStart">GeneratedRangeStart</a></emu-nt> and <emu-nt id="_ref_70"><a href="#prod-GeneratedRangeEnd">GeneratedRangeEnd</a></emu-nt> are relative. This field track the actual column number.</td>
         </tr>
         <tr>
           <td><var class="field">[[NameIndex]]</var></td>
           <td>a Number</td>
-          <td><emu-nt id="_ref_45"><a href="#prod-Name">Name</a></emu-nt> in <emu-nt id="_ref_46"><a href="#prod-OriginalScopeStart">OriginalScopeStart</a></emu-nt> is relative. This field tracks the absolute name index.</td>
+          <td><emu-nt id="_ref_71"><a href="#prod-Name">Name</a></emu-nt> in <emu-nt id="_ref_72"><a href="#prod-OriginalScopeStart">OriginalScopeStart</a></emu-nt> is relative. This field tracks the absolute name index.</td>
         </tr>
         <tr>
           <td><var class="field">[[KindIndex]]</var></td>
           <td>a Number</td>
-          <td><emu-nt id="_ref_47"><a href="#prod-Kind">Kind</a></emu-nt> in <emu-nt id="_ref_48"><a href="#prod-OriginalScopeStart">OriginalScopeStart</a></emu-nt> is relative. This field tracks the absolute kind index.</td>
+          <td><emu-nt id="_ref_73"><a href="#prod-Kind">Kind</a></emu-nt> in <emu-nt id="_ref_74"><a href="#prod-OriginalScopeStart">OriginalScopeStart</a></emu-nt> is relative. This field tracks the absolute kind index.</td>
+        </tr>
+        <tr>
+          <td><var class="field">[[VariableIndex]]</var></td>
+          <td>a Number</td>
+          <td>The variables in <emu-nt id="_ref_75"><a href="#prod-OriginalScopeVariables">OriginalScopeVariables</a></emu-nt> are relative. This field tracks the absolute variable name index.</td>
+        </tr>
+        <tr>
+          <td><var class="field">[[Definition]]</var></td>
+          <td>a Number</td>
+          <td>The definition in <emu-nt id="_ref_76"><a href="#prod-GeneratedRangeStart">GeneratedRangeStart</a></emu-nt> is relative. This field tracks the absolute value.</td>
+        </tr>
+        <tr>
+          <td><var class="field">[[BindingIndex]]</var></td>
+          <td>a Number</td>
+          <td>The bindings in <emu-nt id="_ref_77"><a href="#prod-GeneratedRangeBindings">GeneratedRangeBindings</a></emu-nt> are relative. This field tracks the absolute binding expression index.</td>
         </tr>
       </tbody></table>
     </figure></emu-table>
@@ -3462,289 +3546,369 @@ emu-intro {
 
 <emu-clause id="sec-abstract-operations">
   <h1><span class="secnum">4</span> Abstract Operations</h1>
+
   <emu-clause id="sec-decode-op" type="abstract operation" aoid="Decode">
     <h1><span class="secnum">4.1</span> Decode ( <var>scopes</var> )</h1>
-    <p>The abstract operation Decode takes argument <var>scopes</var> (a <emu-nt id="_ref_49"><a href="#prod-Scopes">Scopes</a></emu-nt> <emu-xref href="#sec-syntactic-grammar"><a href="https://tc39.es/ecma262/#sec-syntactic-grammar">Parse Node</a></emu-xref>.) and returns a <emu-xref href="#sec-scope-information-record-type" id="_ref_7"><a href="#sec-scope-information-record-type">Scope Information Record.</a></emu-xref>. TODO It performs the following steps when called:</p>
-    <emu-alg><ol><li>Let <var>info</var> be a new <emu-xref href="#sec-scope-information-record-type" id="_ref_8"><a href="#sec-scope-information-record-type">Scope Information Record.</a></emu-xref></li><li>Set <var>info</var>.<var class="field">[[OriginalScopes]]</var> to a new empty <emu-xref href="#sec-list-and-record-specification-type"><a href="https://tc39.es/ecma262/#sec-list-and-record-specification-type">List</a></emu-xref>.</li><li>Set <var>info</var>.<var class="field">[[GeneratedRanges]]</var> to a new empty <emu-xref href="#sec-list-and-record-specification-type"><a href="https://tc39.es/ecma262/#sec-list-and-record-specification-type">List</a></emu-xref>.</li><li>Perform <emu-xref aoid="DecodeItem" id="_ref_9"><a href="#sec-decode-item">DecodeItem</a></emu-xref> on <var>scopes</var> with argument <var>info</var>.</li><li>Return <var>info</var>.</li></ol></emu-alg>
+    <p>The abstract operation Decode takes argument <var>scopes</var> (a <emu-nt id="_ref_78"><a href="#prod-Scopes">Scopes</a></emu-nt> <emu-xref href="#sec-syntactic-grammar"><a href="https://tc39.es/ecma262/#sec-syntactic-grammar">Parse Node</a></emu-xref>.) and returns a <emu-xref href="#sec-scope-information-record-type" id="_ref_10"><a href="#sec-scope-information-record-type">Scope Information Record.</a></emu-xref>. TODO It performs the following steps when called:</p>
+    <emu-alg><ol><li>Let <var>info</var> be a new <emu-xref href="#sec-scope-information-record-type" id="_ref_11"><a href="#sec-scope-information-record-type">Scope Information Record.</a></emu-xref></li><li>Set <var>info</var>.<var class="field">[[OriginalScopes]]</var> to a new empty <emu-xref href="#sec-list-and-record-specification-type"><a href="https://tc39.es/ecma262/#sec-list-and-record-specification-type">List</a></emu-xref>.</li><li>Set <var>info</var>.<var class="field">[[GeneratedRanges]]</var> to a new empty <emu-xref href="#sec-list-and-record-specification-type"><a href="https://tc39.es/ecma262/#sec-list-and-record-specification-type">List</a></emu-xref>.</li><li>Perform <emu-xref aoid="DecodeItem" id="_ref_12"><a href="#sec-decode-item">DecodeItem</a></emu-xref> on <var>scopes</var> with argument <var>info</var>.</li><li>Return <var>info</var>.</li></ol></emu-alg>
   </emu-clause>
 </emu-clause>
 
 <emu-clause id="sec-format">
   <h1><span class="secnum">5</span> <code>"scopes"</code> grammar</h1>
-  <p>The <code>"scopes"</code> string must result in a successful parse starting at the <emu-nt id="_ref_50"><a href="#prod-Scopes">Scopes</a></emu-nt> <emu-xref href="#sec-context-free-grammars"><a href="https://tc39.es/ecma262/#sec-context-free-grammars">goal symbol</a></emu-xref>.</p>
+  <p>The <code>"scopes"</code> string must result in a successful parse starting at the <emu-nt id="_ref_79"><a href="#prod-Scopes">Scopes</a></emu-nt> <emu-xref href="#sec-context-free-grammars"><a href="https://tc39.es/ecma262/#sec-context-free-grammars">goal symbol</a></emu-xref>.</p>
   <emu-grammar type="definition"><emu-production name="Scopes" id="prod-Scopes">
     <emu-nt><a href="#prod-Scopes">Scopes</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="stt14ogo">
-        <emu-nt id="_ref_51"><a href="#prod-ItemList">ItemList</a></emu-nt>
+        <emu-nt id="_ref_80"><a href="#prod-ItemList">ItemList</a></emu-nt>
     </emu-rhs>
 </emu-production>
 <emu-production name="ItemList" id="prod-ItemList">
     <emu-nt><a href="#prod-ItemList">ItemList</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="p5k_yjeg">
-        <emu-nt id="_ref_52"><a href="#prod-TopLevelItem">TopLevelItem</a></emu-nt>
+        <emu-nt id="_ref_81"><a href="#prod-TopLevelItem">TopLevelItem</a></emu-nt>
     </emu-rhs>
     <emu-rhs a="r4ktoq7-" id="prod-zsEO5rLq">
-        <emu-nt id="_ref_53"><a href="#prod-ItemList">ItemList</a></emu-nt>
+        <emu-nt id="_ref_82"><a href="#prod-ItemList">ItemList</a></emu-nt>
         <emu-t>,</emu-t>
-        <emu-nt id="_ref_54"><a href="#prod-TopLevelItem">TopLevelItem</a></emu-nt>
+        <emu-nt id="_ref_83"><a href="#prod-TopLevelItem">TopLevelItem</a></emu-nt>
     </emu-rhs>
 </emu-production>
 <emu-production name="TopLevelItem" id="prod-TopLevelItem">
     <emu-nt><a href="#prod-TopLevelItem">TopLevelItem</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="nvcdgyy3" id="prod-66qtHTZA">
-        <emu-nt id="_ref_55"><a href="#prod-OriginalScopeTree">OriginalScopeTree</a></emu-nt>
+        <emu-nt id="_ref_84"><a href="#prod-OriginalScopeTree">OriginalScopeTree</a></emu-nt>
     </emu-rhs>
     <emu-rhs a="szb6oq6w" id="prod-OknGdLgC">
-        <emu-nt id="_ref_56"><a href="#prod-GeneratedRangeTree">GeneratedRangeTree</a></emu-nt>
+        <emu-nt id="_ref_85"><a href="#prod-GeneratedRangeTree">GeneratedRangeTree</a></emu-nt>
     </emu-rhs>
     <emu-rhs a="frkftpyl">
-        <emu-nt id="_ref_57"><a href="#prod-UnknownItem">UnknownItem</a></emu-nt>
+        <emu-nt id="_ref_86"><a href="#prod-UnknownItem">UnknownItem</a></emu-nt>
     </emu-rhs>
 </emu-production>
 </emu-grammar>
+
   <emu-clause id="sec-decode-item" type="sdo" aoid="DecodeItem">
     <h1><span class="secnum">5.1</span> DecodeItem</h1>
     <p>The <emu-xref href="#sec-algorithm-conventions-syntax-directed-operations"><a href="https://tc39.es/ecma262/#sec-algorithm-conventions-syntax-directed-operations">syntax-directed operation</a></emu-xref> DecodeItem takes argument <var>info</var> (a Scope Information <emu-xref href="#sec-list-and-record-specification-type"><a href="https://tc39.es/ecma262/#sec-list-and-record-specification-type">Record</a></emu-xref>). It is defined piecewise over the following productions:</p>
     <emu-grammar><emu-production name="ItemList" collapsed="">
     <emu-nt><a href="#prod-ItemList">ItemList</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="r4ktoq7-" id="prod-Tcps7azM">
-        <emu-nt id="_ref_58"><a href="#prod-ItemList">ItemList</a></emu-nt>
+        <emu-nt id="_ref_87"><a href="#prod-ItemList">ItemList</a></emu-nt>
         <emu-t>,</emu-t>
-        <emu-nt id="_ref_59"><a href="#prod-TopLevelItem">TopLevelItem</a></emu-nt>
+        <emu-nt id="_ref_88"><a href="#prod-TopLevelItem">TopLevelItem</a></emu-nt>
     </emu-rhs>
 </emu-production>
 </emu-grammar>
-    <emu-alg><ol><li>Perform <emu-xref aoid="DecodeItem" id="_ref_10"><a href="#sec-decode-item">DecodeItem</a></emu-xref> of <emu-nt id="_ref_60"><a href="#prod-ItemList">ItemList</a></emu-nt> with argument <var>info</var>.</li><li>Perform <emu-xref aoid="DecodeItem" id="_ref_11"><a href="#sec-decode-item">DecodeItem</a></emu-xref> of <emu-nt id="_ref_61"><a href="#prod-TopLevelItem">TopLevelItem</a></emu-nt> with argument <var>info</var>.</li></ol></emu-alg>
+    <emu-alg><ol><li>Perform <emu-xref aoid="DecodeItem" id="_ref_13"><a href="#sec-decode-item">DecodeItem</a></emu-xref> of <emu-nt id="_ref_89"><a href="#prod-ItemList">ItemList</a></emu-nt> with argument <var>info</var>.</li><li>Perform <emu-xref aoid="DecodeItem" id="_ref_14"><a href="#sec-decode-item">DecodeItem</a></emu-xref> of <emu-nt id="_ref_90"><a href="#prod-TopLevelItem">TopLevelItem</a></emu-nt> with argument <var>info</var>.</li></ol></emu-alg>
     <emu-grammar><emu-production name="TopLevelItem" collapsed="">
-    <emu-nt><a href="#prod-TopLevelItem">TopLevelItem</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="nvcdgyy3" id="prod-M5d0i2TB"><emu-nt id="_ref_62"><a href="#prod-OriginalScopeTree">OriginalScopeTree</a></emu-nt></emu-rhs>
+    <emu-nt><a href="#prod-TopLevelItem">TopLevelItem</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="nvcdgyy3" id="prod-M5d0i2TB"><emu-nt id="_ref_91"><a href="#prod-OriginalScopeTree">OriginalScopeTree</a></emu-nt></emu-rhs>
 </emu-production>
 </emu-grammar>
-    <emu-alg><ol><li>Let <var>state</var> be a new <emu-xref href="#sec-decode-state-record-type" id="_ref_12"><a href="#sec-decode-state-record-type">Decode State Record</a></emu-xref> with all fields of type Number set to <code>0</code> and <var class="field">[[SourceIndex]]</var> set to <emu-val>null</emu-val>.</li><li>Let <var>root</var> be <emu-xref aoid="DecodeScope" id="_ref_13"><a href="#sec-decode-scope">DecodeScope</a></emu-xref> of <emu-nt id="_ref_63"><a href="#prod-OriginalScopeTree">OriginalScopeTree</a></emu-nt> with arguments <var>state</var>.</li><li>Let <var>idx</var> be <var>state</var>.<var class="field">[[SourceIndex]]</var>.</li><li>If <var>idx</var> is <emu-val>null</emu-val>, set <var>idx</var> to the length of <var>info</var>.<var class="field">[[OriginalScopes]]</var>.</li><li>Let <var>scope</var> be a new <emu-xref href="#sec-original-scope-tree-record-type" id="_ref_14"><a href="#sec-original-scope-tree-record-type">Original Scope Tree Record</a></emu-xref>.</li><li>Set <var>scope</var>.<var class="field">[[Root]]</var> to <var>root</var>.</li><li>Set <var>scope</var>.<var class="field">[[SourceIndex]]</var> to <var>idx</var>.</li><li>Append <var>scope</var> to <var>info</var>.<var class="field">[[OriginalScopes]]</var>.</li></ol></emu-alg>
+    <emu-alg><ol><li>Let <var>state</var> be a new <emu-xref href="#sec-decode-state-record-type" id="_ref_15"><a href="#sec-decode-state-record-type">Decode State Record</a></emu-xref> with all fields of type Number set to <code>0</code> and <var class="field">[[SourceIndex]]</var> set to <emu-val>null</emu-val>.</li><li>Let <var>root</var> be <emu-xref aoid="DecodeScope" id="_ref_16"><a href="#sec-decode-scope">DecodeScope</a></emu-xref> of <emu-nt id="_ref_92"><a href="#prod-OriginalScopeTree">OriginalScopeTree</a></emu-nt> with arguments <var>state</var>.</li><li>Let <var>idx</var> be <var>state</var>.<var class="field">[[SourceIndex]]</var>.</li><li>If <var>idx</var> is <emu-val>null</emu-val>, set <var>idx</var> to the length of <var>info</var>.<var class="field">[[OriginalScopes]]</var>.</li><li>Let <var>scope</var> be a new <emu-xref href="#sec-original-scope-tree-record-type" id="_ref_17"><a href="#sec-original-scope-tree-record-type">Original Scope Tree Record</a></emu-xref>.</li><li>Set <var>scope</var>.<var class="field">[[Root]]</var> to <var>root</var>.</li><li>Set <var>scope</var>.<var class="field">[[SourceIndex]]</var> to <var>idx</var>.</li><li>Append <var>scope</var> to <var>info</var>.<var class="field">[[OriginalScopes]]</var>.</li></ol></emu-alg>
     <emu-grammar><emu-production name="TopLevelItem" collapsed="">
-    <emu-nt><a href="#prod-TopLevelItem">TopLevelItem</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="szb6oq6w" id="prod-IyDcPlb7"><emu-nt id="_ref_64"><a href="#prod-GeneratedRangeTree">GeneratedRangeTree</a></emu-nt></emu-rhs>
+    <emu-nt><a href="#prod-TopLevelItem">TopLevelItem</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="szb6oq6w" id="prod-IyDcPlb7"><emu-nt id="_ref_93"><a href="#prod-GeneratedRangeTree">GeneratedRangeTree</a></emu-nt></emu-rhs>
 </emu-production>
 </emu-grammar>
-    <emu-alg><ol><li>Let <var>range</var> be DecodeRange on <emu-nt id="_ref_65"><a href="#prod-GeneratedRangeTree">GeneratedRangeTree</a></emu-nt>.</li><li>Append <var>range</var> to <var>info</var>.<var class="field">[[GeneratedRanges]]</var>.</li></ol></emu-alg>
+    <emu-alg><ol><li>Let <var>state</var> be a new <emu-xref href="#sec-decode-state-record-type" id="_ref_18"><a href="#sec-decode-state-record-type">Decode State Record</a></emu-xref> with all fields of type Number set to <code>0</code> and <var class="field">[[SourceIndex]]</var> set to <emu-val>null</emu-val>.</li><li>Let <var>range</var> be <emu-xref aoid="DecodeRange" id="_ref_19"><a href="#sec-decode-range">DecodeRange</a></emu-xref> on <emu-nt id="_ref_94"><a href="#prod-GeneratedRangeTree">GeneratedRangeTree</a></emu-nt> with arguments <var>state</var>.</li><li>Append <var>range</var> to <var>info</var>.<var class="field">[[GeneratedRanges]]</var>.</li></ol></emu-alg>
   </emu-clause>
+
   <emu-clause id="sec-format-scopes">
     <h1><span class="secnum">5.2</span> Original Scope Format</h1>
     <emu-grammar type="definition"><emu-production name="OriginalScopeTree" id="prod-OriginalScopeTree">
     <emu-nt><a href="#prod-OriginalScopeTree">OriginalScopeTree</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="hmvgoyvx" id="prod-Lz9Dsa6A">
-        <emu-nt id="_ref_66"><a href="#prod-OriginalScopeStart">OriginalScopeStart</a></emu-nt>
-        <emu-nt optional="" id="_ref_67"><a href="#prod-OriginalScopeItemList">OriginalScopeItemList</a><emu-mods><emu-opt>opt</emu-opt></emu-mods></emu-nt>
+        <emu-nt id="_ref_95"><a href="#prod-OriginalScopeStart">OriginalScopeStart</a></emu-nt>
+        <emu-nt optional="" id="_ref_96"><a href="#prod-OriginalScopeItemList">OriginalScopeItemList</a><emu-mods><emu-opt>opt</emu-opt></emu-mods></emu-nt>
         <emu-t>,</emu-t>
-        <emu-nt id="_ref_68"><a href="#prod-OriginalScopeEnd">OriginalScopeEnd</a></emu-nt>
+        <emu-nt id="_ref_97"><a href="#prod-OriginalScopeEnd">OriginalScopeEnd</a></emu-nt>
     </emu-rhs>
 </emu-production>
 <emu-production name="OriginalScopeItemList" id="prod-OriginalScopeItemList">
     <emu-nt><a href="#prod-OriginalScopeItemList">OriginalScopeItemList</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="fo9p0ve2">
         <emu-t>,</emu-t>
-        <emu-nt id="_ref_69"><a href="#prod-OriginalScopeItem">OriginalScopeItem</a></emu-nt>
+        <emu-nt id="_ref_98"><a href="#prod-OriginalScopeItem">OriginalScopeItem</a></emu-nt>
     </emu-rhs>
     <emu-rhs a="wovn_zgp" id="prod-PParEzAp">
-        <emu-nt id="_ref_70"><a href="#prod-OriginalScopeItemList">OriginalScopeItemList</a></emu-nt>
+        <emu-nt id="_ref_99"><a href="#prod-OriginalScopeItemList">OriginalScopeItemList</a></emu-nt>
         <emu-t>,</emu-t>
-        <emu-nt id="_ref_71"><a href="#prod-OriginalScopeItem">OriginalScopeItem</a></emu-nt>
+        <emu-nt id="_ref_100"><a href="#prod-OriginalScopeItem">OriginalScopeItem</a></emu-nt>
     </emu-rhs>
 </emu-production>
 <emu-production name="OriginalScopeItem" id="prod-OriginalScopeItem">
     <emu-nt><a href="#prod-OriginalScopeItem">OriginalScopeItem</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="keybb1zs">
-        <emu-nt id="_ref_72"><a href="#prod-OriginalScopeVariables">OriginalScopeVariables</a></emu-nt>
+        <emu-nt id="_ref_101"><a href="#prod-OriginalScopeVariables">OriginalScopeVariables</a></emu-nt>
     </emu-rhs>
     <emu-rhs a="aiz9p5et">
-        <emu-nt id="_ref_73"><a href="#prod-OriginalScopeSourceRef">OriginalScopeSourceRef</a></emu-nt>
+        <emu-nt id="_ref_102"><a href="#prod-OriginalScopeSourceRef">OriginalScopeSourceRef</a></emu-nt>
     </emu-rhs>
     <emu-rhs a="nvcdgyy3" id="prod-F4ak9b3c">
-        <emu-nt id="_ref_74"><a href="#prod-OriginalScopeTree">OriginalScopeTree</a></emu-nt>
+        <emu-nt id="_ref_103"><a href="#prod-OriginalScopeTree">OriginalScopeTree</a></emu-nt>
     </emu-rhs>
     <emu-rhs a="frkftpyl">
-        <emu-nt id="_ref_75"><a href="#prod-UnknownItem">UnknownItem</a></emu-nt>
+        <emu-nt id="_ref_104"><a href="#prod-UnknownItem">UnknownItem</a></emu-nt>
     </emu-rhs>
 </emu-production>
 <emu-production name="OriginalScopeStart" id="prod-OriginalScopeStart">
     <emu-nt><a href="#prod-OriginalScopeStart">OriginalScopeStart</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="yo8gnsqt" id="prod-GKLQ8LR7">
         <emu-t>B</emu-t>
-        <emu-nt id="_ref_76"><a href="#prod-Line">Line</a></emu-nt>
-        <emu-nt id="_ref_77"><a href="#prod-Column">Column</a></emu-nt>
-        <emu-nt id="_ref_78"><a href="#prod-Flags">Flags</a></emu-nt>
-        <emu-nt optional="" id="_ref_79"><a href="#prod-Name">Name</a><emu-mods><emu-opt>opt</emu-opt></emu-mods></emu-nt>
-        <emu-nt optional="" id="_ref_80"><a href="#prod-Kind">Kind</a><emu-mods><emu-opt>opt</emu-opt></emu-mods></emu-nt>
+        <emu-nt id="_ref_105"><a href="#prod-Line">Line</a></emu-nt>
+        <emu-nt id="_ref_106"><a href="#prod-Column">Column</a></emu-nt>
+        <emu-nt id="_ref_107"><a href="#prod-Flags">Flags</a></emu-nt>
+        <emu-nt optional="" id="_ref_108"><a href="#prod-Name">Name</a><emu-mods><emu-opt>opt</emu-opt></emu-mods></emu-nt>
+        <emu-nt optional="" id="_ref_109"><a href="#prod-Kind">Kind</a><emu-mods><emu-opt>opt</emu-opt></emu-mods></emu-nt>
     </emu-rhs>
 </emu-production>
 <emu-production name="OriginalScopeEnd" id="prod-OriginalScopeEnd">
     <emu-nt><a href="#prod-OriginalScopeEnd">OriginalScopeEnd</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="amjrkzn-" id="prod-vRn4r9Ai">
         <emu-t>C</emu-t>
-        <emu-nt id="_ref_81"><a href="#prod-Line">Line</a></emu-nt>
-        <emu-nt id="_ref_82"><a href="#prod-Column">Column</a></emu-nt>
+        <emu-nt id="_ref_110"><a href="#prod-Line">Line</a></emu-nt>
+        <emu-nt id="_ref_111"><a href="#prod-Column">Column</a></emu-nt>
     </emu-rhs>
 </emu-production>
 <emu-production name="OriginalScopeVariables" id="prod-OriginalScopeVariables">
-    <emu-nt><a href="#prod-OriginalScopeVariables">OriginalScopeVariables</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="8wd16ck3">
+    <emu-nt><a href="#prod-OriginalScopeVariables">OriginalScopeVariables</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="8wd16ck3" id="prod-7momZp9x">
         <emu-t>D</emu-t>
-        <emu-nt id="_ref_83"><a href="#prod-VlqList">VlqList</a></emu-nt>
+        <emu-nt id="_ref_112"><a href="#prod-VlqList">VlqList</a></emu-nt>
     </emu-rhs>
 </emu-production>
 <emu-production name="OriginalScopeSourceRef" id="prod-OriginalScopeSourceRef">
     <emu-nt><a href="#prod-OriginalScopeSourceRef">OriginalScopeSourceRef</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="_h60mqpk" id="prod-nI8To0lS">
         <emu-t>E</emu-t>
-        <emu-nt id="_ref_84"><a href="#prod-SourceRef">SourceRef</a></emu-nt>
-    </emu-rhs>
-</emu-production>
-</emu-grammar>
-    <emu-clause id="sec-decode-scope" type="sdo" aoid="DecodeScope">
-      <h1><span class="secnum">5.2.1</span> DecodeScope</h1>
-      <p>The <emu-xref href="#sec-algorithm-conventions-syntax-directed-operations"><a href="https://tc39.es/ecma262/#sec-algorithm-conventions-syntax-directed-operations">syntax-directed operation</a></emu-xref> DecodeScope takes argument <var>state</var> (a <emu-xref href="#sec-decode-state-record-type" id="_ref_15"><a href="#sec-decode-state-record-type">Decode State Record</a></emu-xref>) and returns a <emu-xref href="#sec-original-scope-record-type" id="_ref_16"><a href="#sec-original-scope-record-type">Original Scope Record</a></emu-xref>. It is defined piecewise over the following productions:</p>
-      <emu-grammar><emu-production name="OriginalScopeTree">
-    <emu-nt><a href="#prod-OriginalScopeTree">OriginalScopeTree</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="hmvgoyvx" id="prod-ZduiLgVD">
-        <emu-nt id="_ref_85"><a href="#prod-OriginalScopeStart">OriginalScopeStart</a></emu-nt>
-        <emu-nt optional="" id="_ref_86"><a href="#prod-OriginalScopeItemList">OriginalScopeItemList</a><emu-mods><emu-opt>opt</emu-opt></emu-mods></emu-nt>
-        <emu-t>,</emu-t>
-        <emu-nt id="_ref_87"><a href="#prod-OriginalScopeEnd">OriginalScopeEnd</a></emu-nt>
-    </emu-rhs>
-</emu-production>
-</emu-grammar>
-      <emu-alg><ol><li>Let <var>scope</var> be a new <emu-xref href="#sec-original-scope-record-type" id="_ref_17"><a href="#sec-original-scope-record-type">Original Scope Record</a></emu-xref>.</li><li>Perform <emu-xref aoid="DecodeScopeItem" id="_ref_18"><a href="#sec-decode-scope-item">DecodeScopeItem</a></emu-xref> of <emu-nt id="_ref_88"><a href="#prod-OriginalScopeStart">OriginalScopeStart</a></emu-nt> with arguments <var>state</var> and <var>scope</var>.</li><li>If <emu-nt id="_ref_89"><a href="#prod-OriginalScopeItemList">OriginalScopeItemList</a></emu-nt> is present, perform <emu-xref aoid="DecodeScopeItem" id="_ref_19"><a href="#sec-decode-scope-item">DecodeScopeItem</a></emu-xref> with arguments <var>state</var> and <var>scope</var>.</li><li>Perform <emu-xref aoid="DecodeScopeItem" id="_ref_20"><a href="#sec-decode-scope-item">DecodeScopeItem</a></emu-xref> of <emu-nt id="_ref_90"><a href="#prod-OriginalScopeEnd">OriginalScopeEnd</a></emu-nt> with arguments <var>state</var> and <var>scope</var>.</li><li>Return <var>scope</var>.</li></ol></emu-alg>
-    </emu-clause>
-    <emu-clause id="sec-decode-scope-item" type="sdo" aoid="DecodeScopeItem">
-      <h1><span class="secnum">5.2.2</span> DecodeScopeItem</h1>
-      <p>The <emu-xref href="#sec-algorithm-conventions-syntax-directed-operations"><a href="https://tc39.es/ecma262/#sec-algorithm-conventions-syntax-directed-operations">syntax-directed operation</a></emu-xref> DecodeScopeItem takes arguments <var>state</var> (a <emu-xref href="#sec-decode-state-record-type" id="_ref_21"><a href="#sec-decode-state-record-type">Decode State Record</a></emu-xref>) and <var>scope</var> (a <emu-xref href="#sec-original-scope-record-type" id="_ref_22"><a href="#sec-original-scope-record-type">Original Scope Record</a></emu-xref>). It is defined piecewise over the following productions:</p>
-      <emu-grammar><emu-production name="OriginalScopeStart">
-    <emu-nt><a href="#prod-OriginalScopeStart">OriginalScopeStart</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="yo8gnsqt" id="prod-1QHHB18M">
-        <emu-t>B</emu-t>
-        <emu-nt id="_ref_91"><a href="#prod-Line">Line</a></emu-nt>
-        <emu-nt id="_ref_92"><a href="#prod-Column">Column</a></emu-nt>
-        <emu-nt id="_ref_93"><a href="#prod-Flags">Flags</a></emu-nt>
-        <emu-nt optional="" id="_ref_94"><a href="#prod-Name">Name</a><emu-mods><emu-opt>opt</emu-opt></emu-mods></emu-nt>
-        <emu-nt optional="" id="_ref_95"><a href="#prod-Kind">Kind</a><emu-mods><emu-opt>opt</emu-opt></emu-mods></emu-nt>
-    </emu-rhs>
-</emu-production>
-</emu-grammar>
-      <emu-alg><ol><li>Set <var>state</var>.<var class="field">[[Line]]</var> to <var>state</var>.<var class="field">[[Line]]</var> + <emu-xref aoid="DecodeUnsignedVlq" id="_ref_23"><a href="#sec-decode-unsigned-vlq-op">DecodeUnsignedVlq</a></emu-xref>(<emu-nt id="_ref_96"><a href="#prod-Line">Line</a></emu-nt>).</li><li>Set <var>state</var>.<var class="field">[[Column]]</var> to <emu-xref aoid="DecodeUnsignedVlq" id="_ref_24"><a href="#sec-decode-unsigned-vlq-op">DecodeUnsignedVlq</a></emu-xref>(<emu-nt id="_ref_97"><a href="#prod-Column">Column</a></emu-nt>).</li><li>Set <var>scope</var>.<var class="field">[[StartLine]]</var> to <var>state</var>.<var class="field">[[Line]]</var>.</li><li>Set <var>scope</var>.<var class="field">[[StartColumn]]</var> to <var>state</var>.<var class="field">[[Column]]</var>.</li><li>Let <var>flags</var> be <emu-xref aoid="DecodeUnsignedVlq" id="_ref_25"><a href="#sec-decode-unsigned-vlq-op">DecodeUnsignedVlq</a></emu-xref>(<emu-nt id="_ref_98"><a href="#prod-Flags">Flags</a></emu-nt>).</li><li>If <var>flags</var> &amp; <code>0x1</code> &gt; 0, then<ol><li><emu-xref href="#assert"><a href="https://tc39.es/ecma262/#assert">Assert</a></emu-xref>: <emu-nt id="_ref_99"><a href="#prod-Name">Name</a></emu-nt> is present.</li><li>Set <var>state</var>.<var class="field">[[NameIndex]]</var> to <var>state</var>.<var class="field">[[NameIndex]]</var> + <emu-xref aoid="DecodeSignedVlq" id="_ref_26"><a href="#sec-decode-signed-vlq-op">DecodeSignedVlq</a></emu-xref>(<emu-nt id="_ref_100"><a href="#prod-Name">Name</a></emu-nt>).</li><li>Set <var>scope</var>.<var class="field">[[Name]]</var> to <emu-xref aoid="ResolveName" id="_ref_27"><a href="#sec-resolve-name-op">ResolveName</a></emu-xref>(<var>state</var>.<var class="field">[[NameIndex]]</var>).</li></ol></li><li>If <var>flags</var> &amp; <code>0x2</code> &gt; 0, then<ol><li><emu-xref href="#assert"><a href="https://tc39.es/ecma262/#assert">Assert</a></emu-xref>: <emu-nt id="_ref_101"><a href="#prod-Kind">Kind</a></emu-nt> is present.</li><li>Set <var>state</var>.<var class="field">[[KindIndex]]</var> to <var>state</var>.<var class="field">[[KindIndex]]</var> + <emu-xref aoid="DecodeSignedVlq" id="_ref_28"><a href="#sec-decode-signed-vlq-op">DecodeSignedVlq</a></emu-xref>(<emu-nt id="_ref_102"><a href="#prod-Kind">Kind</a></emu-nt>).</li><li>Set <var>scope</var>.<var class="field">[[Kind]]</var> to <emu-xref aoid="ResolveName" id="_ref_29"><a href="#sec-resolve-name-op">ResolveName</a></emu-xref>(<var>state</var>.<var class="field">[[NameIndex]]</var>).</li></ol></li></ol></emu-alg>
-      <emu-grammar><emu-production name="OriginalScopeEnd">
-    <emu-nt><a href="#prod-OriginalScopeEnd">OriginalScopeEnd</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="amjrkzn-" id="prod-XlwLEr_C">
-        <emu-t>C</emu-t>
-        <emu-nt id="_ref_103"><a href="#prod-Line">Line</a></emu-nt>
-        <emu-nt id="_ref_104"><a href="#prod-Column">Column</a></emu-nt>
-    </emu-rhs>
-</emu-production>
-</emu-grammar>
-      <emu-alg><ol><li>Set <var>state</var>.<var class="field">[[Line]]</var> to <var>state</var>.<var class="field">[[Line]]</var> + <emu-xref aoid="DecodeUnsignedVlq" id="_ref_30"><a href="#sec-decode-unsigned-vlq-op">DecodeUnsignedVlq</a></emu-xref>(<emu-nt id="_ref_105"><a href="#prod-Line">Line</a></emu-nt>).</li><li>Set <var>state</var>.<var class="field">[[Column]]</var> to <emu-xref aoid="DecodeUnsignedVlq" id="_ref_31"><a href="#sec-decode-unsigned-vlq-op">DecodeUnsignedVlq</a></emu-xref>(<emu-nt id="_ref_106"><a href="#prod-Column">Column</a></emu-nt>).</li><li>Set <var>scope</var>.<var class="field">[[EndLine]]</var> to <var>state</var>.<var class="field">[[Line]]</var>.</li><li>Set <var>scope</var>.<var class="field">[[EndColumn]]</var> to <var>state</var>.<var class="field">[[Column]]</var>.</li></ol></emu-alg>
-      <emu-grammar><emu-production name="OriginalScopeItemList">
-    <emu-nt><a href="#prod-OriginalScopeItemList">OriginalScopeItemList</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="wovn_zgp" id="prod-85UsPFzQ">
-        <emu-nt id="_ref_107"><a href="#prod-OriginalScopeItemList">OriginalScopeItemList</a></emu-nt>
-        <emu-t>,</emu-t>
-        <emu-nt id="_ref_108"><a href="#prod-OriginalScopeItem">OriginalScopeItem</a></emu-nt>
-    </emu-rhs>
-</emu-production>
-</emu-grammar>
-      <emu-alg><ol><li>Perform <emu-xref aoid="DecodeScopeItem" id="_ref_32"><a href="#sec-decode-scope-item">DecodeScopeItem</a></emu-xref> of <emu-nt id="_ref_109"><a href="#prod-OriginalScopeItemList">OriginalScopeItemList</a></emu-nt> with arguments <var>state</var> and <var>scope</var>.</li><li>Perform <emu-xref aoid="DecodeScopeItem" id="_ref_33"><a href="#sec-decode-scope-item">DecodeScopeItem</a></emu-xref> of <emu-nt id="_ref_110"><a href="#prod-OriginalScopeItem">OriginalScopeItem</a></emu-nt> with arguments <var>state</var> and <var>scope</var>.</li></ol></emu-alg>
-      <emu-grammar><emu-production name="OriginalScopeItem">
-    <emu-nt><a href="#prod-OriginalScopeItem">OriginalScopeItem</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="nvcdgyy3" id="prod-cIG_VX1s">
-        <emu-nt id="_ref_111"><a href="#prod-OriginalScopeTree">OriginalScopeTree</a></emu-nt>
-    </emu-rhs>
-</emu-production>
-</emu-grammar>
-      <emu-alg><ol><li>Let <var>child</var> be <emu-xref aoid="DecodeScope" id="_ref_34"><a href="#sec-decode-scope">DecodeScope</a></emu-xref> of <emu-nt id="_ref_112"><a href="#prod-OriginalScopeTree">OriginalScopeTree</a></emu-nt> with argument <var>state</var>.</li><li>Append <var>child</var> to <var>scope</var>.<var class="field">[[Children]]</var>.</li></ol></emu-alg>
-      <emu-grammar><emu-production name="OriginalScopeSourceRef">
-    <emu-nt><a href="#prod-OriginalScopeSourceRef">OriginalScopeSourceRef</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="_h60mqpk" id="prod-uFvIaFjQ">
-        <emu-t>E</emu-t>
         <emu-nt id="_ref_113"><a href="#prod-SourceRef">SourceRef</a></emu-nt>
     </emu-rhs>
 </emu-production>
 </emu-grammar>
-      <emu-alg><ol><li>Set <var>state</var>.<var class="field">[[SourceIndex]]</var> to <emu-xref aoid="DecodeUnsignedVlq" id="_ref_35"><a href="#sec-decode-unsigned-vlq-op">DecodeUnsignedVlq</a></emu-xref>(<emu-nt id="_ref_114"><a href="#prod-SourceRef">SourceRef</a></emu-nt>).</li></ol></emu-alg>
+
+    <emu-clause id="sec-decode-scope" type="sdo" aoid="DecodeScope">
+      <h1><span class="secnum">5.2.1</span> DecodeScope</h1>
+      <p>The <emu-xref href="#sec-algorithm-conventions-syntax-directed-operations"><a href="https://tc39.es/ecma262/#sec-algorithm-conventions-syntax-directed-operations">syntax-directed operation</a></emu-xref> DecodeScope takes argument <var>state</var> (a <emu-xref href="#sec-decode-state-record-type" id="_ref_20"><a href="#sec-decode-state-record-type">Decode State Record</a></emu-xref>) and returns a <emu-xref href="#sec-original-scope-record-type" id="_ref_21"><a href="#sec-original-scope-record-type">Original Scope Record</a></emu-xref>. It is defined piecewise over the following productions:</p>
+      <emu-grammar><emu-production name="OriginalScopeTree">
+    <emu-nt><a href="#prod-OriginalScopeTree">OriginalScopeTree</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="hmvgoyvx" id="prod-ZduiLgVD">
+        <emu-nt id="_ref_114"><a href="#prod-OriginalScopeStart">OriginalScopeStart</a></emu-nt>
+        <emu-nt optional="" id="_ref_115"><a href="#prod-OriginalScopeItemList">OriginalScopeItemList</a><emu-mods><emu-opt>opt</emu-opt></emu-mods></emu-nt>
+        <emu-t>,</emu-t>
+        <emu-nt id="_ref_116"><a href="#prod-OriginalScopeEnd">OriginalScopeEnd</a></emu-nt>
+    </emu-rhs>
+</emu-production>
+</emu-grammar>
+      <emu-alg><ol><li>Let <var>scope</var> be a new <emu-xref href="#sec-original-scope-record-type" id="_ref_22"><a href="#sec-original-scope-record-type">Original Scope Record</a></emu-xref>.</li><li>Perform <emu-xref aoid="DecodeScopeItem" id="_ref_23"><a href="#sec-decode-scope-item">DecodeScopeItem</a></emu-xref> of <emu-nt id="_ref_117"><a href="#prod-OriginalScopeStart">OriginalScopeStart</a></emu-nt> with arguments <var>state</var> and <var>scope</var>.</li><li>If <emu-nt id="_ref_118"><a href="#prod-OriginalScopeItemList">OriginalScopeItemList</a></emu-nt> is present, perform <emu-xref aoid="DecodeScopeItem" id="_ref_24"><a href="#sec-decode-scope-item">DecodeScopeItem</a></emu-xref> with arguments <var>state</var> and <var>scope</var>.</li><li>Perform <emu-xref aoid="DecodeScopeItem" id="_ref_25"><a href="#sec-decode-scope-item">DecodeScopeItem</a></emu-xref> of <emu-nt id="_ref_119"><a href="#prod-OriginalScopeEnd">OriginalScopeEnd</a></emu-nt> with arguments <var>state</var> and <var>scope</var>.</li><li>Return <var>scope</var>.</li></ol></emu-alg>
+    </emu-clause>
+
+    <emu-clause id="sec-decode-scope-item" type="sdo" aoid="DecodeScopeItem">
+      <h1><span class="secnum">5.2.2</span> DecodeScopeItem</h1>
+      <p>The <emu-xref href="#sec-algorithm-conventions-syntax-directed-operations"><a href="https://tc39.es/ecma262/#sec-algorithm-conventions-syntax-directed-operations">syntax-directed operation</a></emu-xref> DecodeScopeItem takes arguments <var>state</var> (a <emu-xref href="#sec-decode-state-record-type" id="_ref_26"><a href="#sec-decode-state-record-type">Decode State Record</a></emu-xref>) and <var>scope</var> (a <emu-xref href="#sec-original-scope-record-type" id="_ref_27"><a href="#sec-original-scope-record-type">Original Scope Record</a></emu-xref>). It is defined piecewise over the following productions:</p>
+      <emu-grammar><emu-production name="OriginalScopeStart">
+    <emu-nt><a href="#prod-OriginalScopeStart">OriginalScopeStart</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="yo8gnsqt" id="prod-1QHHB18M">
+        <emu-t>B</emu-t>
+        <emu-nt id="_ref_120"><a href="#prod-Line">Line</a></emu-nt>
+        <emu-nt id="_ref_121"><a href="#prod-Column">Column</a></emu-nt>
+        <emu-nt id="_ref_122"><a href="#prod-Flags">Flags</a></emu-nt>
+        <emu-nt optional="" id="_ref_123"><a href="#prod-Name">Name</a><emu-mods><emu-opt>opt</emu-opt></emu-mods></emu-nt>
+        <emu-nt optional="" id="_ref_124"><a href="#prod-Kind">Kind</a><emu-mods><emu-opt>opt</emu-opt></emu-mods></emu-nt>
+    </emu-rhs>
+</emu-production>
+</emu-grammar>
+      <emu-alg><ol><li>Set <var>state</var>.<var class="field">[[Line]]</var> to <var>state</var>.<var class="field">[[Line]]</var> + <emu-xref aoid="DecodeUnsignedVlq" id="_ref_28"><a href="#sec-decode-unsigned-vlq-op">DecodeUnsignedVlq</a></emu-xref>(<emu-nt id="_ref_125"><a href="#prod-Line">Line</a></emu-nt>).</li><li>Set <var>state</var>.<var class="field">[[Column]]</var> to <emu-xref aoid="DecodeUnsignedVlq" id="_ref_29"><a href="#sec-decode-unsigned-vlq-op">DecodeUnsignedVlq</a></emu-xref>(<emu-nt id="_ref_126"><a href="#prod-Column">Column</a></emu-nt>).</li><li>Set <var>scope</var>.<var class="field">[[StartLine]]</var> to <var>state</var>.<var class="field">[[Line]]</var>.</li><li>Set <var>scope</var>.<var class="field">[[StartColumn]]</var> to <var>state</var>.<var class="field">[[Column]]</var>.</li><li>Let <var>flags</var> be <emu-xref aoid="DecodeUnsignedVlq" id="_ref_30"><a href="#sec-decode-unsigned-vlq-op">DecodeUnsignedVlq</a></emu-xref>(<emu-nt id="_ref_127"><a href="#prod-Flags">Flags</a></emu-nt>).</li><li>If <var>flags</var> &amp; 0x1 &gt; 0, then<ol><li><emu-xref href="#assert"><a href="https://tc39.es/ecma262/#assert">Assert</a></emu-xref>: <emu-nt id="_ref_128"><a href="#prod-Name">Name</a></emu-nt> is present.</li><li>Set <var>state</var>.<var class="field">[[NameIndex]]</var> to <var>state</var>.<var class="field">[[NameIndex]]</var> + <emu-xref aoid="DecodeSignedVlq" id="_ref_31"><a href="#sec-decode-signed-vlq-op">DecodeSignedVlq</a></emu-xref>(<emu-nt id="_ref_129"><a href="#prod-Name">Name</a></emu-nt>).</li><li>Set <var>scope</var>.<var class="field">[[Name]]</var> to <emu-xref aoid="ResolveName" id="_ref_32"><a href="#sec-resolve-name-op">ResolveName</a></emu-xref>(<var>state</var>.<var class="field">[[NameIndex]]</var>).</li></ol></li><li>Else,<ol><li><emu-xref href="#assert"><a href="https://tc39.es/ecma262/#assert">Assert</a></emu-xref>: <emu-nt id="_ref_130"><a href="#prod-Name">Name</a></emu-nt> is not present.</li></ol></li><li>If <var>flags</var> &amp; 0x2 &gt; 0, then<ol><li><emu-xref href="#assert"><a href="https://tc39.es/ecma262/#assert">Assert</a></emu-xref>: <emu-nt id="_ref_131"><a href="#prod-Kind">Kind</a></emu-nt> is present.</li><li>Set <var>state</var>.<var class="field">[[KindIndex]]</var> to <var>state</var>.<var class="field">[[KindIndex]]</var> + <emu-xref aoid="DecodeSignedVlq" id="_ref_33"><a href="#sec-decode-signed-vlq-op">DecodeSignedVlq</a></emu-xref>(<emu-nt id="_ref_132"><a href="#prod-Kind">Kind</a></emu-nt>).</li><li>Set <var>scope</var>.<var class="field">[[Kind]]</var> to <emu-xref aoid="ResolveName" id="_ref_34"><a href="#sec-resolve-name-op">ResolveName</a></emu-xref>(<var>state</var>.<var class="field">[[NameIndex]]</var>).</li></ol></li><li>Else,<ol><li><emu-xref href="#assert"><a href="https://tc39.es/ecma262/#assert">Assert</a></emu-xref>: <emu-nt id="_ref_133"><a href="#prod-Kind">Kind</a></emu-nt> is not present.</li></ol></li><li>If <var>flags</var> &amp; 0x4 &gt; 0, set <var>scope</var>.<var class="field">[[IsStackFrame]]</var> to <emu-val>true</emu-val>.</li></ol></emu-alg>
+      <emu-grammar><emu-production name="OriginalScopeEnd">
+    <emu-nt><a href="#prod-OriginalScopeEnd">OriginalScopeEnd</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="amjrkzn-" id="prod-XlwLEr_C">
+        <emu-t>C</emu-t>
+        <emu-nt id="_ref_134"><a href="#prod-Line">Line</a></emu-nt>
+        <emu-nt id="_ref_135"><a href="#prod-Column">Column</a></emu-nt>
+    </emu-rhs>
+</emu-production>
+</emu-grammar>
+      <emu-alg><ol><li>Set <var>state</var>.<var class="field">[[Line]]</var> to <var>state</var>.<var class="field">[[Line]]</var> + <emu-xref aoid="DecodeUnsignedVlq" id="_ref_35"><a href="#sec-decode-unsigned-vlq-op">DecodeUnsignedVlq</a></emu-xref>(<emu-nt id="_ref_136"><a href="#prod-Line">Line</a></emu-nt>).</li><li>Set <var>state</var>.<var class="field">[[Column]]</var> to <emu-xref aoid="DecodeUnsignedVlq" id="_ref_36"><a href="#sec-decode-unsigned-vlq-op">DecodeUnsignedVlq</a></emu-xref>(<emu-nt id="_ref_137"><a href="#prod-Column">Column</a></emu-nt>).</li><li>Set <var>scope</var>.<var class="field">[[EndLine]]</var> to <var>state</var>.<var class="field">[[Line]]</var>.</li><li>Set <var>scope</var>.<var class="field">[[EndColumn]]</var> to <var>state</var>.<var class="field">[[Column]]</var>.</li></ol></emu-alg>
+      <emu-grammar><emu-production name="OriginalScopeItemList">
+    <emu-nt><a href="#prod-OriginalScopeItemList">OriginalScopeItemList</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="wovn_zgp" id="prod-85UsPFzQ">
+        <emu-nt id="_ref_138"><a href="#prod-OriginalScopeItemList">OriginalScopeItemList</a></emu-nt>
+        <emu-t>,</emu-t>
+        <emu-nt id="_ref_139"><a href="#prod-OriginalScopeItem">OriginalScopeItem</a></emu-nt>
+    </emu-rhs>
+</emu-production>
+</emu-grammar>
+      <emu-alg><ol><li>Perform <emu-xref aoid="DecodeScopeItem" id="_ref_37"><a href="#sec-decode-scope-item">DecodeScopeItem</a></emu-xref> of <emu-nt id="_ref_140"><a href="#prod-OriginalScopeItemList">OriginalScopeItemList</a></emu-nt> with arguments <var>state</var> and <var>scope</var>.</li><li>Perform <emu-xref aoid="DecodeScopeItem" id="_ref_38"><a href="#sec-decode-scope-item">DecodeScopeItem</a></emu-xref> of <emu-nt id="_ref_141"><a href="#prod-OriginalScopeItem">OriginalScopeItem</a></emu-nt> with arguments <var>state</var> and <var>scope</var>.</li></ol></emu-alg>
+      <emu-grammar><emu-production name="OriginalScopeItem">
+    <emu-nt><a href="#prod-OriginalScopeItem">OriginalScopeItem</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="nvcdgyy3" id="prod-cIG_VX1s">
+        <emu-nt id="_ref_142"><a href="#prod-OriginalScopeTree">OriginalScopeTree</a></emu-nt>
+    </emu-rhs>
+</emu-production>
+</emu-grammar>
+      <emu-alg><ol><li>Let <var>child</var> be <emu-xref aoid="DecodeScope" id="_ref_39"><a href="#sec-decode-scope">DecodeScope</a></emu-xref> of <emu-nt id="_ref_143"><a href="#prod-OriginalScopeTree">OriginalScopeTree</a></emu-nt> with argument <var>state</var>.</li><li>Append <var>child</var> to <var>scope</var>.<var class="field">[[Children]]</var>.</li></ol></emu-alg>
+      <emu-grammar><emu-production name="OriginalScopeVariables">
+    <emu-nt><a href="#prod-OriginalScopeVariables">OriginalScopeVariables</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="8wd16ck3" id="prod-aW3pLeKP">
+        <emu-t>D</emu-t>
+        <emu-nt id="_ref_144"><a href="#prod-VlqList">VlqList</a></emu-nt>
+    </emu-rhs>
+</emu-production>
+</emu-grammar>
+      <emu-alg><ol><li>Let <var>variableIndices</var> be <emu-xref aoid="DecodeSignedVlqList" id="_ref_40"><a href="#sec-decode-signed-vlq-list-op">DecodeSignedVlqList</a></emu-xref>(<emu-nt id="_ref_145"><a href="#prod-VlqList">VlqList</a></emu-nt>).</li><li>For each element <var>index</var> of <var>variableIndices</var>, do<ol><li>Set <var>state</var>.<var class="field">[[VariableIndex]]</var> to <var>state</var>.<var class="field">[[VariableIndex]]</var> + <var>index</var>.</li><li>Append <emu-xref aoid="ResolveName" id="_ref_41"><a href="#sec-resolve-name-op">ResolveName</a></emu-xref>(<var>state</var>.<var class="field">[[VariableIndex]]</var>) to <var>scope</var>.<var class="field">[[Variables]]</var>.</li></ol></li></ol></emu-alg>
+      <emu-grammar><emu-production name="OriginalScopeSourceRef">
+    <emu-nt><a href="#prod-OriginalScopeSourceRef">OriginalScopeSourceRef</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="_h60mqpk" id="prod-uFvIaFjQ">
+        <emu-t>E</emu-t>
+        <emu-nt id="_ref_146"><a href="#prod-SourceRef">SourceRef</a></emu-nt>
+    </emu-rhs>
+</emu-production>
+</emu-grammar>
+      <emu-alg><ol><li>Set <var>state</var>.<var class="field">[[SourceIndex]]</var> to <emu-xref aoid="DecodeUnsignedVlq" id="_ref_42"><a href="#sec-decode-unsigned-vlq-op">DecodeUnsignedVlq</a></emu-xref>(<emu-nt id="_ref_147"><a href="#prod-SourceRef">SourceRef</a></emu-nt>).</li></ol></emu-alg>
     </emu-clause>
   </emu-clause>
+
   <emu-clause id="sec-format-ranges">
     <h1><span class="secnum">5.3</span> GeneratedRange Format</h1>
     <emu-grammar type="definition"><emu-production name="GeneratedRangeTree" id="prod-GeneratedRangeTree">
-    <emu-nt><a href="#prod-GeneratedRangeTree">GeneratedRangeTree</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="mr6t2xj1">
-        <emu-nt id="_ref_115"><a href="#prod-GeneratedRangeStart">GeneratedRangeStart</a></emu-nt>
-        <emu-nt optional="" id="_ref_116"><a href="#prod-GeneratedRangeItemList">GeneratedRangeItemList</a><emu-mods><emu-opt>opt</emu-opt></emu-mods></emu-nt>
+    <emu-nt><a href="#prod-GeneratedRangeTree">GeneratedRangeTree</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="mr6t2xj1" id="prod-mwpBxBJY">
+        <emu-nt id="_ref_148"><a href="#prod-GeneratedRangeStart">GeneratedRangeStart</a></emu-nt>
+        <emu-nt optional="" id="_ref_149"><a href="#prod-GeneratedRangeItemList">GeneratedRangeItemList</a><emu-mods><emu-opt>opt</emu-opt></emu-mods></emu-nt>
         <emu-t>,</emu-t>
-        <emu-nt id="_ref_117"><a href="#prod-GeneratedRangeEnd">GeneratedRangeEnd</a></emu-nt>
+        <emu-nt id="_ref_150"><a href="#prod-GeneratedRangeEnd">GeneratedRangeEnd</a></emu-nt>
     </emu-rhs>
 </emu-production>
 <emu-production name="GeneratedRangeItemList" id="prod-GeneratedRangeItemList">
     <emu-nt><a href="#prod-GeneratedRangeItemList">GeneratedRangeItemList</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="arxhxpwu">
         <emu-t>,</emu-t>
-        <emu-nt id="_ref_118"><a href="#prod-GeneratedRangeItem">GeneratedRangeItem</a></emu-nt>
+        <emu-nt id="_ref_151"><a href="#prod-GeneratedRangeItem">GeneratedRangeItem</a></emu-nt>
     </emu-rhs>
-    <emu-rhs a="etadv9ik">
-        <emu-nt id="_ref_119"><a href="#prod-GeneratedRangeItemList">GeneratedRangeItemList</a></emu-nt>
+    <emu-rhs a="etadv9ik" id="prod-gyzGmZFi">
+        <emu-nt id="_ref_152"><a href="#prod-GeneratedRangeItemList">GeneratedRangeItemList</a></emu-nt>
         <emu-t>,</emu-t>
-        <emu-nt id="_ref_120"><a href="#prod-GeneratedRangeItem">GeneratedRangeItem</a></emu-nt>
+        <emu-nt id="_ref_153"><a href="#prod-GeneratedRangeItem">GeneratedRangeItem</a></emu-nt>
     </emu-rhs>
 </emu-production>
 <emu-production name="GeneratedRangeItem" id="prod-GeneratedRangeItem">
     <emu-nt><a href="#prod-GeneratedRangeItem">GeneratedRangeItem</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="scpssnbi">
-        <emu-nt id="_ref_121"><a href="#prod-GeneratedRangeBindings">GeneratedRangeBindings</a></emu-nt>
+        <emu-nt id="_ref_154"><a href="#prod-GeneratedRangeBindings">GeneratedRangeBindings</a></emu-nt>
     </emu-rhs>
     <emu-rhs a="zeg0dcn_">
-        <emu-nt id="_ref_122"><a href="#prod-SubRangeBinding">SubRangeBinding</a></emu-nt>
+        <emu-nt id="_ref_155"><a href="#prod-SubRangeBinding">SubRangeBinding</a></emu-nt>
     </emu-rhs>
     <emu-rhs a="didd3fmk">
-        <emu-nt id="_ref_123"><a href="#prod-CallSite">CallSite</a></emu-nt>
+        <emu-nt id="_ref_156"><a href="#prod-CallSite">CallSite</a></emu-nt>
     </emu-rhs>
-    <emu-rhs a="szb6oq6w">
-        <emu-nt id="_ref_124"><a href="#prod-GeneratedRangeTree">GeneratedRangeTree</a></emu-nt>
+    <emu-rhs a="szb6oq6w" id="prod-sP0Lox_e">
+        <emu-nt id="_ref_157"><a href="#prod-GeneratedRangeTree">GeneratedRangeTree</a></emu-nt>
     </emu-rhs>
     <emu-rhs a="frkftpyl">
-        <emu-nt id="_ref_125"><a href="#prod-UnknownItem">UnknownItem</a></emu-nt>
+        <emu-nt id="_ref_158"><a href="#prod-UnknownItem">UnknownItem</a></emu-nt>
     </emu-rhs>
 </emu-production>
 <emu-production name="GeneratedRangeStart" id="prod-GeneratedRangeStart">
-    <emu-nt><a href="#prod-GeneratedRangeStart">GeneratedRangeStart</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="jjji-bz7">
+    <emu-nt><a href="#prod-GeneratedRangeStart">GeneratedRangeStart</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="jjji-bz7" id="prod-pflIO31T">
         <emu-t>F</emu-t>
-        <emu-nt id="_ref_126"><a href="#prod-Flags">Flags</a></emu-nt>
-        <emu-nt id="_ref_127"><a href="#prod-Column">Column</a></emu-nt>
-        <emu-nt optional="" id="_ref_128"><a href="#prod-Line">Line</a><emu-mods><emu-opt>opt</emu-opt></emu-mods></emu-nt>
-        <emu-nt optional="" id="_ref_129"><a href="#prod-Definition">Definition</a><emu-mods><emu-opt>opt</emu-opt></emu-mods></emu-nt>
+        <emu-nt id="_ref_159"><a href="#prod-Flags">Flags</a></emu-nt>
+        <emu-nt id="_ref_160"><a href="#prod-Column">Column</a></emu-nt>
+        <emu-nt optional="" id="_ref_161"><a href="#prod-Line">Line</a><emu-mods><emu-opt>opt</emu-opt></emu-mods></emu-nt>
+        <emu-nt optional="" id="_ref_162"><a href="#prod-Definition">Definition</a><emu-mods><emu-opt>opt</emu-opt></emu-mods></emu-nt>
     </emu-rhs>
 </emu-production>
 <emu-production name="GeneratedRangeEnd" id="prod-GeneratedRangeEnd">
-    <emu-nt><a href="#prod-GeneratedRangeEnd">GeneratedRangeEnd</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="goqfdnkf">
+    <emu-nt><a href="#prod-GeneratedRangeEnd">GeneratedRangeEnd</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="goqfdnkf" id="prod-ZKEmJUow">
         <emu-t>G</emu-t>
-        <emu-nt id="_ref_130"><a href="#prod-Column">Column</a></emu-nt>
-        <emu-nt optional="" id="_ref_131"><a href="#prod-Line">Line</a><emu-mods><emu-opt>opt</emu-opt></emu-mods></emu-nt>
+        <emu-nt id="_ref_163"><a href="#prod-Column">Column</a></emu-nt>
+        <emu-nt optional="" id="_ref_164"><a href="#prod-Line">Line</a><emu-mods><emu-opt>opt</emu-opt></emu-mods></emu-nt>
     </emu-rhs>
 </emu-production>
 <emu-production name="GeneratedRangeBindings" id="prod-GeneratedRangeBindings">
-    <emu-nt><a href="#prod-GeneratedRangeBindings">GeneratedRangeBindings</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="tba2usd3">
+    <emu-nt><a href="#prod-GeneratedRangeBindings">GeneratedRangeBindings</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="tba2usd3" id="prod-S7bfJ5UD">
         <emu-t>H</emu-t>
-        <emu-nt id="_ref_132"><a href="#prod-VlqList">VlqList</a></emu-nt>
+        <emu-nt id="_ref_165"><a href="#prod-VlqList">VlqList</a></emu-nt>
     </emu-rhs>
 </emu-production>
 <emu-production name="SubRangeBinding" id="prod-SubRangeBinding">
     <emu-nt><a href="#prod-SubRangeBinding">SubRangeBinding</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="gku0fhm-">
         <emu-t>I</emu-t>
-        <emu-nt id="_ref_133"><a href="#prod-BindingFromList">BindingFromList</a></emu-nt>
+        <emu-nt id="_ref_166"><a href="#prod-BindingFromList">BindingFromList</a></emu-nt>
     </emu-rhs>
 </emu-production>
 <emu-production name="BindingFromList" id="prod-BindingFromList">
     <emu-nt><a href="#prod-BindingFromList">BindingFromList</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="sdtljozj">
-        <emu-nt id="_ref_134"><a href="#prod-BindingFrom">BindingFrom</a></emu-nt>
+        <emu-nt id="_ref_167"><a href="#prod-BindingFrom">BindingFrom</a></emu-nt>
     </emu-rhs>
     <emu-rhs a="_zl4a4sm">
-        <emu-nt id="_ref_135"><a href="#prod-BindingFromList">BindingFromList</a></emu-nt>
-        <emu-nt id="_ref_136"><a href="#prod-BindingFrom">BindingFrom</a></emu-nt>
+        <emu-nt id="_ref_168"><a href="#prod-BindingFromList">BindingFromList</a></emu-nt>
+        <emu-nt id="_ref_169"><a href="#prod-BindingFrom">BindingFrom</a></emu-nt>
     </emu-rhs>
 </emu-production>
 <emu-production name="BindingFrom" id="prod-BindingFrom">
     <emu-nt><a href="#prod-BindingFrom">BindingFrom</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="gz-jg5md">
-        <emu-nt id="_ref_137"><a href="#prod-Line">Line</a></emu-nt>
-        <emu-nt id="_ref_138"><a href="#prod-Column">Column</a></emu-nt>
-        <emu-nt id="_ref_139"><a href="#prod-Vlq">Vlq</a></emu-nt>
+        <emu-nt id="_ref_170"><a href="#prod-Line">Line</a></emu-nt>
+        <emu-nt id="_ref_171"><a href="#prod-Column">Column</a></emu-nt>
+        <emu-nt id="_ref_172"><a href="#prod-Vlq">Vlq</a></emu-nt>
     </emu-rhs>
 </emu-production>
 <emu-production name="CallSite" id="prod-CallSite">
     <emu-nt><a href="#prod-CallSite">CallSite</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="zpqeh58a">
         <emu-t>J</emu-t>
-        <emu-nt id="_ref_140"><a href="#prod-SourceRef">SourceRef</a></emu-nt>
-        <emu-nt id="_ref_141"><a href="#prod-Line">Line</a></emu-nt>
-        <emu-nt id="_ref_142"><a href="#prod-Column">Column</a></emu-nt>
+        <emu-nt id="_ref_173"><a href="#prod-SourceRef">SourceRef</a></emu-nt>
+        <emu-nt id="_ref_174"><a href="#prod-Line">Line</a></emu-nt>
+        <emu-nt id="_ref_175"><a href="#prod-Column">Column</a></emu-nt>
     </emu-rhs>
 </emu-production>
-<emu-production name="UnknownItem" collapsed="" id="prod-UnknownItem">
-    <emu-nt><a href="#prod-UnknownItem">UnknownItem</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="vvg1yf5v"><emu-nt id="_ref_143"><a href="#prod-VlqList">VlqList</a></emu-nt></emu-rhs>
+<emu-production name="UnknownItem" id="prod-UnknownItem">
+    <emu-nt><a href="#prod-UnknownItem">UnknownItem</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="vvg1yf5v">
+        <emu-nt id="_ref_176"><a href="#prod-VlqList">VlqList</a></emu-nt>
+    </emu-rhs>
 </emu-production>
 </emu-grammar>
+
+    <emu-clause id="sec-decode-range" type="sdo" aoid="DecodeRange">
+      <h1><span class="secnum">5.3.1</span> DecodeRange</h1>
+      <p>The <emu-xref href="#sec-algorithm-conventions-syntax-directed-operations"><a href="https://tc39.es/ecma262/#sec-algorithm-conventions-syntax-directed-operations">syntax-directed operation</a></emu-xref> DecodeRange takes argument <var>state</var> (a <emu-xref href="#sec-decode-state-record-type" id="_ref_43"><a href="#sec-decode-state-record-type">Decode State Record</a></emu-xref>) and returns a <emu-xref href="#sec-generated-range-record-type" id="_ref_44"><a href="#sec-generated-range-record-type">Generated Range Record</a></emu-xref>. It is defined piecewise over the following productions:</p>
+      <emu-grammar><emu-production name="GeneratedRangeTree">
+    <emu-nt><a href="#prod-GeneratedRangeTree">GeneratedRangeTree</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="mr6t2xj1" id="prod-B_G1Kvqg">
+        <emu-nt id="_ref_177"><a href="#prod-GeneratedRangeStart">GeneratedRangeStart</a></emu-nt>
+        <emu-nt optional="" id="_ref_178"><a href="#prod-GeneratedRangeItemList">GeneratedRangeItemList</a><emu-mods><emu-opt>opt</emu-opt></emu-mods></emu-nt>
+        <emu-t>,</emu-t>
+        <emu-nt id="_ref_179"><a href="#prod-GeneratedRangeEnd">GeneratedRangeEnd</a></emu-nt>
+    </emu-rhs>
+</emu-production>
+</emu-grammar>
+      <emu-alg><ol><li>Let <var>range</var> be a new <emu-xref href="#sec-generated-range-record-type" id="_ref_45"><a href="#sec-generated-range-record-type">Generated Range Record</a></emu-xref>.</li><li>Perform <emu-xref aoid="DecodeRangeItem" id="_ref_46"><a href="#sec-decode-range-item">DecodeRangeItem</a></emu-xref> of <emu-nt id="_ref_180"><a href="#prod-GeneratedRangeStart">GeneratedRangeStart</a></emu-nt> with arguments <var>state</var> and _range.</li><li>If <emu-nt id="_ref_181"><a href="#prod-GeneratedRangeItemList">GeneratedRangeItemList</a></emu-nt> is present, perform <emu-xref aoid="DecodeRangeItem" id="_ref_47"><a href="#sec-decode-range-item">DecodeRangeItem</a></emu-xref> with arguments <var>state</var> and <var>range</var>.</li><li>Perform <emu-xref aoid="DecodeRangeItem" id="_ref_48"><a href="#sec-decode-range-item">DecodeRangeItem</a></emu-xref> of <emu-nt id="_ref_182"><a href="#prod-GeneratedRangeEnd">GeneratedRangeEnd</a></emu-nt> with arguments <var>state</var> and <var>range</var>.</li><li>Return <var>range</var>.</li></ol></emu-alg>
+    </emu-clause>
+
+    <emu-clause id="sec-decode-range-item" type="sdo" aoid="DecodeRangeItem">
+      <h1><span class="secnum">5.3.2</span> DecodeRangeItem</h1>
+      <p>The <emu-xref href="#sec-algorithm-conventions-syntax-directed-operations"><a href="https://tc39.es/ecma262/#sec-algorithm-conventions-syntax-directed-operations">syntax-directed operation</a></emu-xref> DecodeRangeItem takes arguments <var>state</var> (a <emu-xref href="#sec-decode-state-record-type" id="_ref_49"><a href="#sec-decode-state-record-type">Decode State Record</a></emu-xref>) and <var>range</var> (a <emu-xref href="#sec-generated-range-record-type" id="_ref_50"><a href="#sec-generated-range-record-type">Generated Range Record</a></emu-xref>). It is defined piecewise over the following productions:</p>
+      <emu-grammar><emu-production name="GeneratedRangeStart">
+    <emu-nt><a href="#prod-GeneratedRangeStart">GeneratedRangeStart</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="jjji-bz7" id="prod-xQoQuc17">
+        <emu-t>F</emu-t>
+        <emu-nt id="_ref_183"><a href="#prod-Flags">Flags</a></emu-nt>
+        <emu-nt id="_ref_184"><a href="#prod-Column">Column</a></emu-nt>
+        <emu-nt optional="" id="_ref_185"><a href="#prod-Line">Line</a><emu-mods><emu-opt>opt</emu-opt></emu-mods></emu-nt>
+        <emu-nt optional="" id="_ref_186"><a href="#prod-Definition">Definition</a><emu-mods><emu-opt>opt</emu-opt></emu-mods></emu-nt>
+    </emu-rhs>
+</emu-production>
+</emu-grammar>
+      <emu-alg><ol><li>Let <var>flags</var> be <emu-xref aoid="DecodeUnsignedVlq" id="_ref_51"><a href="#sec-decode-unsigned-vlq-op">DecodeUnsignedVlq</a></emu-xref>(<emu-nt id="_ref_187"><a href="#prod-Flags">Flags</a></emu-nt>).</li><li>If <var>flags</var> &amp; 0x1 &gt; 0, then<ol><li><emu-xref href="#assert"><a href="https://tc39.es/ecma262/#assert">Assert</a></emu-xref>: <emu-nt id="_ref_188"><a href="#prod-Line">Line</a></emu-nt> is present.</li><li>Set <var>state</var>.<var class="field">[[Line]]</var> to <var>state</var>.<var class="field">[[Line]]</var> + <emu-xref aoid="DecodeUnsignedVlq" id="_ref_52"><a href="#sec-decode-unsigned-vlq-op">DecodeUnsignedVlq</a></emu-xref>(<emu-nt id="_ref_189"><a href="#prod-Line">Line</a></emu-nt>).</li><li>Set <var>state</var>.<var class="field">[[Column]]</var> to 0.</li></ol></li><li>Else,<ol><li><emu-xref href="#assert"><a href="https://tc39.es/ecma262/#assert">Assert</a></emu-xref>: <emu-nt id="_ref_190"><a href="#prod-Line">Line</a></emu-nt> is not present.</li></ol></li><li>If _flags &amp; 0x2 &gt; 0, then<ol><li><emu-xref href="#assert"><a href="https://tc39.es/ecma262/#assert">Assert</a></emu-xref>: <emu-nt id="_ref_191"><a href="#prod-Definition">Definition</a></emu-nt> is present.</li><li>Set <var>state</var>.<var class="field">[[Definition]]</var> to <var>state</var>.<var class="field">[[Definition]]</var> + <emu-xref aoid="DecodeSignedVlq" id="_ref_53"><a href="#sec-decode-signed-vlq-op">DecodeSignedVlq</a></emu-xref>(<emu-nt id="_ref_192"><a href="#prod-Definition">Definition</a></emu-nt>).</li></ol></li><li>Else,<ol><li><emu-xref href="#assert"><a href="https://tc39.es/ecma262/#assert">Assert</a></emu-xref>: <emu-nt id="_ref_193"><a href="#prod-Definition">Definition</a></emu-nt> is not present.</li></ol></li><li>Set <var>state</var>.<var class="field">[[Column]]</var> to <var>state</var>.<var class="field">[[Column]]</var> + <emu-xref aoid="DecodeUnsignedVlq" id="_ref_54"><a href="#sec-decode-unsigned-vlq-op">DecodeUnsignedVlq</a></emu-xref>(<emu-nt id="_ref_194"><a href="#prod-Column">Column</a></emu-nt>).</li><li>Set <var>range</var>.<var class="field">[[StartLine]]</var> to <var>state</var>.<var class="field">[[Line]]</var>.</li><li>Set <var>range</var>.<var class="field">[[StartColumn]]</var> to <var>state</var>.<var class="field">[[Column]]</var>.</li></ol></emu-alg>
+      <emu-grammar><emu-production name="GeneratedRangeEnd">
+    <emu-nt><a href="#prod-GeneratedRangeEnd">GeneratedRangeEnd</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="goqfdnkf" id="prod-vTOBJ9yU">
+        <emu-t>G</emu-t>
+        <emu-nt id="_ref_195"><a href="#prod-Column">Column</a></emu-nt>
+        <emu-nt optional="" id="_ref_196"><a href="#prod-Line">Line</a><emu-mods><emu-opt>opt</emu-opt></emu-mods></emu-nt>
+    </emu-rhs>
+</emu-production>
+</emu-grammar>
+      <emu-alg><ol><li>If <emu-nt id="_ref_197"><a href="#prod-Line">Line</a></emu-nt> is present, then<ol><li>Set <var>state</var>.<var class="field">[[Line]]</var> to <var>state</var>.<var class="field">[[Line]]</var> + <emu-xref aoid="DecodeUnsignedVlq" id="_ref_55"><a href="#sec-decode-unsigned-vlq-op">DecodeUnsignedVlq</a></emu-xref>(<emu-nt id="_ref_198"><a href="#prod-Line">Line</a></emu-nt>).</li><li>Set <var>state</var>.<var class="field">[[Column]]</var> to 0.</li></ol></li><li>Set <var>state</var>.<var class="field">[[Column]]</var> to <var>state</var>.<var class="field">[[Column]]</var> + <emu-xref aoid="DecodeUnsignedVlq" id="_ref_56"><a href="#sec-decode-unsigned-vlq-op">DecodeUnsignedVlq</a></emu-xref>(<emu-nt id="_ref_199"><a href="#prod-Column">Column</a></emu-nt>).</li><li>Set <var>range</var>.<var class="field">[[EndLine]]</var> to <var>state</var>.<var class="field">[[Line]]</var>.</li><li>Set <var>range</var>.<var class="field">[[EndColumn]]</var> to <var>state</var>.<var class="field">[[Column]]</var>.</li></ol></emu-alg>
+      <emu-grammar><emu-production name="GeneratedRangeItemList">
+    <emu-nt><a href="#prod-GeneratedRangeItemList">GeneratedRangeItemList</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="etadv9ik" id="prod-EaAC9Sum">
+        <emu-nt id="_ref_200"><a href="#prod-GeneratedRangeItemList">GeneratedRangeItemList</a></emu-nt>
+        <emu-t>,</emu-t>
+        <emu-nt id="_ref_201"><a href="#prod-GeneratedRangeItem">GeneratedRangeItem</a></emu-nt>
+    </emu-rhs>
+</emu-production>
+</emu-grammar>
+      <emu-alg><ol><li>Perform <emu-xref aoid="DecodeRangeItem" id="_ref_57"><a href="#sec-decode-range-item">DecodeRangeItem</a></emu-xref> of <emu-nt id="_ref_202"><a href="#prod-GeneratedRangeItemList">GeneratedRangeItemList</a></emu-nt> with arguments <var>state</var> and <var>range</var>.</li><li>Perform <emu-xref aoid="DecodeRangeItem" id="_ref_58"><a href="#sec-decode-range-item">DecodeRangeItem</a></emu-xref> of <emu-nt id="_ref_203"><a href="#prod-GeneratedRangeItem">GeneratedRangeItem</a></emu-nt> with arguments <var>state</var> and <var>range</var>.</li></ol></emu-alg>
+      <emu-grammar><emu-production name="GeneratedRangeItem">
+    <emu-nt><a href="#prod-GeneratedRangeItem">GeneratedRangeItem</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="szb6oq6w" id="prod-O4Qu-TU1">
+        <emu-nt id="_ref_204"><a href="#prod-GeneratedRangeTree">GeneratedRangeTree</a></emu-nt>
+    </emu-rhs>
+</emu-production>
+</emu-grammar>
+      <emu-alg><ol><li>Let <var>child</var> be <emu-xref aoid="DecodeRange" id="_ref_59"><a href="#sec-decode-range">DecodeRange</a></emu-xref> of <emu-nt id="_ref_205"><a href="#prod-GeneratedRangeTree">GeneratedRangeTree</a></emu-nt> with argument <var>state</var>.</li><li>Append <var>child</var> to <var>range</var>.<var class="field">[[Children]]</var>.</li></ol></emu-alg>
+      <emu-grammar><emu-production name="GeneratedRangeBindings">
+    <emu-nt><a href="#prod-GeneratedRangeBindings">GeneratedRangeBindings</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="tba2usd3" id="prod-uo7cmv0b">
+        <emu-t>H</emu-t>
+        <emu-nt id="_ref_206"><a href="#prod-VlqList">VlqList</a></emu-nt>
+    </emu-rhs>
+</emu-production>
+</emu-grammar>
+      <emu-alg><ol><li>Let <var>bindingIndices</var> be <emu-xref aoid="DecodeSignedVlqList" id="_ref_60"><a href="#sec-decode-signed-vlq-list-op">DecodeSignedVlqList</a></emu-xref>(<emu-nt id="_ref_207"><a href="#prod-VlqList">VlqList</a></emu-nt>).</li><li>For each element <var>index</var> of <var>bindingIndices</var>, do<ol><li>Set <var>state</var>.<var class="field">[[BindingIndex]]</var> to <var>state</var>.<var class="field">[[BindingIndex]]</var> + <var>index</var>.</li><li>Append <emu-xref aoid="ResolveExpression" id="_ref_61"><a href="#sec-resolve-expression-op">ResolveExpression</a></emu-xref>(<var>state</var>.<var class="field">[[BindingIndex]]</var>) to <var>range</var>.<var class="field">[[Bindings]]</var>.</li></ol></li></ol></emu-alg>
+    </emu-clause>
   </emu-clause>
 </emu-clause>
 
@@ -3753,25 +3917,25 @@ emu-intro {
   <p>These definitions should be part of the actual source map spec.</p>
   <emu-grammar type="definition"><emu-production name="VlqList" id="prod-VlqList">
     <emu-nt><a href="#prod-VlqList">VlqList</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="aeoihaiw">
-        <emu-nt id="_ref_144"><a href="#prod-Vlq">Vlq</a></emu-nt>
+        <emu-nt id="_ref_208"><a href="#prod-Vlq">Vlq</a></emu-nt>
     </emu-rhs>
     <emu-rhs a="yzqihdds">
-        <emu-nt id="_ref_145"><a href="#prod-VlqList">VlqList</a></emu-nt>
-        <emu-nt id="_ref_146"><a href="#prod-Vlq">Vlq</a></emu-nt>
+        <emu-nt id="_ref_209"><a href="#prod-VlqList">VlqList</a></emu-nt>
+        <emu-nt id="_ref_210"><a href="#prod-Vlq">Vlq</a></emu-nt>
     </emu-rhs>
 </emu-production>
 <emu-production name="Vlq" type="lexical" id="prod-Vlq">
     <emu-nt><a href="#prod-Vlq">Vlq</a></emu-nt> <emu-geq>::</emu-geq> <emu-rhs a="8i8v73va">
-        <emu-nt id="_ref_147"><a href="#prod-VlqDigitList">VlqDigitList</a></emu-nt>
+        <emu-nt id="_ref_211"><a href="#prod-VlqDigitList">VlqDigitList</a></emu-nt>
     </emu-rhs>
 </emu-production>
 <emu-production name="VlqDigitList" type="lexical" id="prod-VlqDigitList">
     <emu-nt><a href="#prod-VlqDigitList">VlqDigitList</a></emu-nt> <emu-geq>::</emu-geq> <emu-rhs a="2ihs_lxk">
-        <emu-nt id="_ref_148"><a href="#prod-DigitWithoutContinuationBit">DigitWithoutContinuationBit</a></emu-nt>
+        <emu-nt id="_ref_212"><a href="#prod-DigitWithoutContinuationBit">DigitWithoutContinuationBit</a></emu-nt>
     </emu-rhs>
     <emu-rhs a="bmf9pzyv">
-        <emu-nt id="_ref_149"><a href="#prod-DigitWithContinuationBit">DigitWithContinuationBit</a></emu-nt>
-        <emu-nt id="_ref_150"><a href="#prod-VlqDigitList">VlqDigitList</a></emu-nt>
+        <emu-nt id="_ref_213"><a href="#prod-DigitWithContinuationBit">DigitWithContinuationBit</a></emu-nt>
+        <emu-nt id="_ref_214"><a href="#prod-VlqDigitList">VlqDigitList</a></emu-nt>
     </emu-rhs>
 </emu-production>
 <emu-production name="DigitWithoutContinuationBit" type="lexical" oneof="" id="prod-DigitWithoutContinuationBit">
@@ -3781,17 +3945,30 @@ emu-intro {
     <emu-nt><a href="#prod-DigitWithContinuationBit">DigitWithContinuationBit</a></emu-nt> <emu-geq>::</emu-geq> <emu-oneof>one of</emu-oneof> <emu-rhs><emu-t>g</emu-t> <emu-t>h</emu-t> <emu-t>i</emu-t> <emu-t>j</emu-t> <emu-t>k</emu-t> <emu-t>l</emu-t> <emu-t>m</emu-t> <emu-t>n</emu-t> <emu-t>o</emu-t> <emu-t>p</emu-t> <emu-t>q</emu-t> <emu-t>r</emu-t> <emu-t>s</emu-t> <emu-t>t</emu-t> <emu-t>u</emu-t> <emu-t>v</emu-t> <emu-t>w</emu-t> <emu-t>x</emu-t> <emu-t>y</emu-t> <emu-t>z</emu-t> <emu-t>0</emu-t> <emu-t>1</emu-t> <emu-t>2</emu-t> <emu-t>3</emu-t> <emu-t>4</emu-t> <emu-t>5</emu-t> <emu-t>6</emu-t> <emu-t>7</emu-t> <emu-t>8</emu-t> <emu-t>9</emu-t> <emu-t>+</emu-t> <emu-t>/</emu-t></emu-rhs>
 </emu-production>
 </emu-grammar>
+
   <emu-annex id="sec-resolve-name-op" type="host-defined abstract operation" aoid="ResolveName">
-    <h1><span class="secnum">A.1</span> ResolveName ( index )</h1>
-    <p>The <emu-xref href="#host-defined"><a href="https://tc39.es/ecma262/#host-defined">host-defined</a></emu-xref> abstract operation ResolveName takes argument index (a Number) and returns a String or <emu-const>NULL</emu-const>..</p>
+    <h1><span class="secnum">A.1</span> ResolveName ( <var>index</var> )</h1>
+    <p>The <emu-xref href="#host-defined"><a href="https://tc39.es/ecma262/#host-defined">host-defined</a></emu-xref> abstract operation ResolveName takes argument <var>index</var> (a Number) and returns a String or <emu-val>null</emu-val>..</p>
   </emu-annex>
+
+  <emu-annex id="sec-resolve-expression-op" type="host-defined abstract operation" aoid="ResolveExpression">
+    <h1><span class="secnum">A.2</span> ResolveExpression ( <var>index</var> )</h1>
+    <p>The <emu-xref href="#host-defined"><a href="https://tc39.es/ecma262/#host-defined">host-defined</a></emu-xref> abstract operation ResolveExpression takes argument <var>index</var> (a Number) and returns a String or <emu-val>null</emu-val>..</p>
+  </emu-annex>
+
   <emu-annex id="sec-decode-unsigned-vlq-op" type="abstract operation" aoid="DecodeUnsignedVlq">
-    <h1><span class="secnum">A.2</span> DecodeUnsignedVlq ( <var>encoded</var> )</h1>
+    <h1><span class="secnum">A.3</span> DecodeUnsignedVlq ( <var>encoded</var> )</h1>
     <p>The abstract operation DecodeUnsignedVlq takes argument <var>encoded</var> (a String or a ParseNode) and returns a Number.</p>
   </emu-annex>
+
   <emu-annex id="sec-decode-signed-vlq-op" type="abstract operation" aoid="DecodeSignedVlq">
-    <h1><span class="secnum">A.3</span> DecodeSignedVlq ( <var>encoded</var> )</h1>
+    <h1><span class="secnum">A.4</span> DecodeSignedVlq ( <var>encoded</var> )</h1>
     <p>The abstract operation DecodeSignedVlq takes argument <var>encoded</var> (a String or a ParseNode) and returns a Number.</p>
+  </emu-annex>
+
+  <emu-annex id="sec-decode-signed-vlq-list-op" type="abstract operation" aoid="DecodeSignedVlqList">
+    <h1><span class="secnum">A.5</span> DecodeSignedVlqList ( <var>encoded</var> )</h1>
+    <p>The abstract operation DecodeSignedVlqList takes argument <var>encoded</var> (a <emu-nt id="_ref_215"><a href="#prod-VlqList">VlqList</a></emu-nt> ParseNode) and returns a <emu-xref href="#sec-list-and-record-specification-type"><a href="https://tc39.es/ecma262/#sec-list-and-record-specification-type">List</a></emu-xref> of Numbers.</p>
   </emu-annex>
 </emu-annex>
 
@@ -3874,7 +4051,7 @@ emu-intro {
     </emu-rhs>
 </emu-production>
   <emu-production name="OriginalScopeVariables">
-    <emu-nt><a href="#prod-OriginalScopeVariables">OriginalScopeVariables</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="8wd16ck3">
+    <emu-nt><a href="#prod-OriginalScopeVariables">OriginalScopeVariables</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="8wd16ck3" id="prod-7momZp9x">
         <emu-t>D</emu-t>
         <emu-nt><a href="#prod-VlqList">VlqList</a></emu-nt>
     </emu-rhs>
@@ -3886,7 +4063,7 @@ emu-intro {
     </emu-rhs>
 </emu-production>
   <emu-production name="GeneratedRangeTree">
-    <emu-nt><a href="#prod-GeneratedRangeTree">GeneratedRangeTree</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="mr6t2xj1">
+    <emu-nt><a href="#prod-GeneratedRangeTree">GeneratedRangeTree</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="mr6t2xj1" id="prod-mwpBxBJY">
         <emu-nt><a href="#prod-GeneratedRangeStart">GeneratedRangeStart</a></emu-nt>
         <emu-nt optional=""><a href="#prod-GeneratedRangeItemList">GeneratedRangeItemList</a><emu-mods><emu-opt>opt</emu-opt></emu-mods></emu-nt>
         <emu-t>,</emu-t>
@@ -3894,7 +4071,7 @@ emu-intro {
     </emu-rhs>
 </emu-production>
   <emu-production name="GeneratedRangeStart">
-    <emu-nt><a href="#prod-GeneratedRangeStart">GeneratedRangeStart</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="jjji-bz7">
+    <emu-nt><a href="#prod-GeneratedRangeStart">GeneratedRangeStart</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="jjji-bz7" id="prod-pflIO31T">
         <emu-t>F</emu-t>
         <emu-nt><a href="#prod-Flags">Flags</a></emu-nt>
         <emu-nt><a href="#prod-Column">Column</a></emu-nt>
@@ -3903,7 +4080,7 @@ emu-intro {
     </emu-rhs>
 </emu-production>
   <emu-production name="GeneratedRangeEnd">
-    <emu-nt><a href="#prod-GeneratedRangeEnd">GeneratedRangeEnd</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="goqfdnkf">
+    <emu-nt><a href="#prod-GeneratedRangeEnd">GeneratedRangeEnd</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="goqfdnkf" id="prod-ZKEmJUow">
         <emu-t>G</emu-t>
         <emu-nt><a href="#prod-Column">Column</a></emu-nt>
         <emu-nt optional=""><a href="#prod-Line">Line</a><emu-mods><emu-opt>opt</emu-opt></emu-mods></emu-nt>
@@ -3914,7 +4091,7 @@ emu-intro {
         <emu-t>,</emu-t>
         <emu-nt><a href="#prod-GeneratedRangeItem">GeneratedRangeItem</a></emu-nt>
     </emu-rhs>
-    <emu-rhs a="etadv9ik">
+    <emu-rhs a="etadv9ik" id="prod-gyzGmZFi">
         <emu-nt><a href="#prod-GeneratedRangeItemList">GeneratedRangeItemList</a></emu-nt>
         <emu-t>,</emu-t>
         <emu-nt><a href="#prod-GeneratedRangeItem">GeneratedRangeItem</a></emu-nt>
@@ -3930,7 +4107,7 @@ emu-intro {
     <emu-rhs a="didd3fmk">
         <emu-nt><a href="#prod-CallSite">CallSite</a></emu-nt>
     </emu-rhs>
-    <emu-rhs a="szb6oq6w">
+    <emu-rhs a="szb6oq6w" id="prod-sP0Lox_e">
         <emu-nt><a href="#prod-GeneratedRangeTree">GeneratedRangeTree</a></emu-nt>
     </emu-rhs>
     <emu-rhs a="frkftpyl">
@@ -3938,7 +4115,7 @@ emu-intro {
     </emu-rhs>
 </emu-production>
   <emu-production name="GeneratedRangeBindings">
-    <emu-nt><a href="#prod-GeneratedRangeBindings">GeneratedRangeBindings</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="tba2usd3">
+    <emu-nt><a href="#prod-GeneratedRangeBindings">GeneratedRangeBindings</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="tba2usd3" id="prod-S7bfJ5UD">
         <emu-t>H</emu-t>
         <emu-nt><a href="#prod-VlqList">VlqList</a></emu-nt>
     </emu-rhs>
@@ -3973,29 +4150,31 @@ emu-intro {
         <emu-nt><a href="#prod-Vlq">Vlq</a></emu-nt>
     </emu-rhs>
 </emu-production>
-  <emu-production name="UnknownItem" collapsed="">
-    <emu-nt><a href="#prod-UnknownItem">UnknownItem</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="vvg1yf5v"><emu-nt><a href="#prod-VlqList">VlqList</a></emu-nt></emu-rhs>
+  <emu-production name="UnknownItem">
+    <emu-nt><a href="#prod-UnknownItem">UnknownItem</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="vvg1yf5v">
+        <emu-nt><a href="#prod-VlqList">VlqList</a></emu-nt>
+    </emu-rhs>
 </emu-production>
-  <emu-grammar type="definition"><emu-production name="Line" collapsed="" id="prod-Line">
-    <emu-nt><a href="#prod-Line">Line</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="aeoihaiw"><emu-nt id="_ref_151"><a href="#prod-Vlq">Vlq</a></emu-nt></emu-rhs>
+  <emu-grammar type="definition" collapsed=""><emu-production name="Line" collapsed="" id="prod-Line">
+    <emu-nt><a href="#prod-Line">Line</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="aeoihaiw"><emu-nt id="_ref_216"><a href="#prod-Vlq">Vlq</a></emu-nt></emu-rhs>
 </emu-production>
 <emu-production name="Column" collapsed="" id="prod-Column">
-    <emu-nt><a href="#prod-Column">Column</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="aeoihaiw"><emu-nt id="_ref_152"><a href="#prod-Vlq">Vlq</a></emu-nt></emu-rhs>
+    <emu-nt><a href="#prod-Column">Column</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="aeoihaiw"><emu-nt id="_ref_217"><a href="#prod-Vlq">Vlq</a></emu-nt></emu-rhs>
 </emu-production>
 <emu-production name="Flags" collapsed="" id="prod-Flags">
-    <emu-nt><a href="#prod-Flags">Flags</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="aeoihaiw"><emu-nt id="_ref_153"><a href="#prod-Vlq">Vlq</a></emu-nt></emu-rhs>
+    <emu-nt><a href="#prod-Flags">Flags</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="aeoihaiw"><emu-nt id="_ref_218"><a href="#prod-Vlq">Vlq</a></emu-nt></emu-rhs>
 </emu-production>
 <emu-production name="Name" collapsed="" id="prod-Name">
-    <emu-nt><a href="#prod-Name">Name</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="aeoihaiw"><emu-nt id="_ref_154"><a href="#prod-Vlq">Vlq</a></emu-nt></emu-rhs>
+    <emu-nt><a href="#prod-Name">Name</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="aeoihaiw"><emu-nt id="_ref_219"><a href="#prod-Vlq">Vlq</a></emu-nt></emu-rhs>
 </emu-production>
 <emu-production name="Kind" collapsed="" id="prod-Kind">
-    <emu-nt><a href="#prod-Kind">Kind</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="aeoihaiw"><emu-nt id="_ref_155"><a href="#prod-Vlq">Vlq</a></emu-nt></emu-rhs>
+    <emu-nt><a href="#prod-Kind">Kind</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="aeoihaiw"><emu-nt id="_ref_220"><a href="#prod-Vlq">Vlq</a></emu-nt></emu-rhs>
 </emu-production>
 <emu-production name="Definition" collapsed="" id="prod-Definition">
-    <emu-nt><a href="#prod-Definition">Definition</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="aeoihaiw"><emu-nt id="_ref_156"><a href="#prod-Vlq">Vlq</a></emu-nt></emu-rhs>
+    <emu-nt><a href="#prod-Definition">Definition</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="aeoihaiw"><emu-nt id="_ref_221"><a href="#prod-Vlq">Vlq</a></emu-nt></emu-rhs>
 </emu-production>
 <emu-production name="SourceRef" collapsed="" id="prod-SourceRef">
-    <emu-nt><a href="#prod-SourceRef">SourceRef</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="aeoihaiw"><emu-nt id="_ref_157"><a href="#prod-Vlq">Vlq</a></emu-nt></emu-rhs>
+    <emu-nt><a href="#prod-SourceRef">SourceRef</a></emu-nt> <emu-geq>:</emu-geq> <emu-rhs a="aeoihaiw"><emu-nt id="_ref_222"><a href="#prod-Vlq">Vlq</a></emu-nt></emu-rhs>
 </emu-production>
 </emu-grammar>
 </emu-annex><emu-annex id="sec-copyright-and-software-license">
@@ -4017,4 +4196,5 @@ emu-intro {
 
 <p>THIS SOFTWARE IS PROVIDED BY THE ECMA INTERNATIONAL "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL ECMA INTERNATIONAL BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
 
-    </emu-annex></div></body>
+    </emu-annex>
+</div></body>
