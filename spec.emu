@@ -148,6 +148,41 @@ contributors: Holger Benl, Simon Zünd
       </table>
     </emu-table>
   </emu-clause>
+
+  <emu-clause id="sec-generated-range-record-type">
+    <h1>The Generated Range Record Type</h1>
+    <p>The <dfn variants="Generated Range Records">Generated Range Record</dfn> describes a range in the generated file. The spec uses the name "range" instead of "scope" because ranges may not correspond to lexical scopes in the generated language.</p>
+    <emu-table id="table-generated-range-record-fields" caption="Generated Range Record Fields">
+      <table>
+        <thead>
+          <tr>
+            <th>Field Name</th>
+            <th>Value</th>
+            <th>Meaning</th>
+          </tr>
+        </thead>
+        <tr></tr>
+        <tr><td>[[StartLine]]</td>
+          <td>a Number</td>
+          <td>The line number where this range starts.</td></tr>
+        <tr>
+          <td>[[StartColumn]]</td>
+          <td>a Number</td>
+          <td>The column number where this range starts (inclusive).</td>
+        </tr>
+        <tr>
+          <td>[[EndLine]]</td>
+          <td>a Number</td>
+          <td>The line number where this range ends.</td>
+        </tr>
+        <tr>
+          <td>[[EndColumn]]</td>
+          <td>a Number</td>
+          <td>The column number where this range ends (exclusive).</td>
+        </tr>
+      </table>
+    </emu-table>
+  </emu-clause>
 </emu-clause>
 
 <emu-clause id="sec-specification-types">
@@ -194,6 +229,11 @@ contributors: Holger Benl, Simon Zünd
           <td>[[VariableIndex]]</td>
           <td>a Number</td>
           <td>The variables in |OriginalScopeVariables| are relative. This field tracks the absolute variable name index.</td>
+        </tr>
+        <tr>
+          <td>[[Definition]]</td>
+          <td>a Number</td>
+          <td>The definition in |GeneratedRangeStart| is relative. This field tracks the absolute value.</td>
         </tr>
       </table>
     </emu-table>
@@ -265,7 +305,8 @@ contributors: Holger Benl, Simon Zünd
     </emu-alg>
     <emu-grammar>TopLevelItem : GeneratedRangeTree</emu-grammar>
     <emu-alg>
-      1. Let _range_ be DecodeRange on |GeneratedRangeTree|.
+      1. Let _state_ be a new Decode State Record with all fields of type Number set to `0` and [[SourceIndex]] set to *null*.
+      1. Let _range_ be DecodeRange on |GeneratedRangeTree| with arguments _state_.
       1. Append _range_ to _info_.[[GeneratedRanges]].
     </emu-alg>
   </emu-clause>
@@ -337,19 +378,19 @@ contributors: Holger Benl, Simon Zünd
         1. Set _scope_.[[StartLine]] to _state_.[[Line]].
         1. Set _scope_.[[StartColumn]] to _state_.[[Column]].
         1. Let _flags_ be DecodeUnsignedVlq(|Flags|).
-        1. If _flags_ & `0x1` > 0, then
+        1. If _flags_ & 0x1 > 0, then
           1. Assert: |Name| is present.
           1. Set _state_.[[NameIndex]] to _state_.[[NameIndex]] + DecodeSignedVlq(|Name|).
           1. Set _scope_.[[Name]] to ResolveName(_state_.[[NameIndex]]).
         1. Else,
           1. Assert: |Name| is not present.
-        1. If _flags_ & `0x2` > 0, then
+        1. If _flags_ & 0x2 > 0, then
           1. Assert: |Kind| is present.
           1. Set _state_.[[KindIndex]] to _state_.[[KindIndex]] + DecodeSignedVlq(|Kind|).
           1. Set _scope_.[[Kind]] to ResolveName(_state_.[[NameIndex]]).
         1. Else,
           1. Assert: |Kind| is not present.
-        1. If _flags_ & `0x4` > 0, set _scope_.[[IsStackFrame]] to *true*.
+        1. If _flags_ & 0x4 > 0, set _scope_.[[IsStackFrame]] to *true*.
       </emu-alg>
       <emu-grammar>
         OriginalScopeEnd :
@@ -439,6 +480,69 @@ contributors: Holger Benl, Simon Zünd
       UnknownItem :
         VlqList
     </emu-grammar>
+
+    <emu-clause id="sec-decode-range" type="sdo">
+      <h1>
+        DecodeRange (
+          _state_: a Decode State Record,
+        ): a Generated Range Record
+      </h1>
+      <dl class="header"></dl>
+      <emu-grammar>
+        GeneratedRangeTree :
+          GeneratedRangeStart GeneratedRangeItemList? `,` GeneratedRangeEnd
+      </emu-grammar>
+      <emu-alg>
+        1. Let _range_ be a new Generated Range Record.
+        1. Perform DecodeRangeItem of |GeneratedRangeStart| with arguments _state_ and _range.
+        1. If |GeneratedRangeItemList| is present, perform DecodeRangeItem with arguments _state_ and _range_.
+        1. Perform DecodeRangeItem of |GeneratedRangeEnd| with arguments _state_ and _range_.
+        1. Return _range_.
+      </emu-alg>
+    </emu-clause>
+
+    <emu-clause id="sec-decode-range-item" type="sdo">
+      <h1>
+        DecodeRangeItem (
+          _state_: a Decode State Record,
+          _range_: a Generated Range Record,
+        )
+      </h1>
+      <dl class="header"></dl>
+      <emu-grammar>
+        GeneratedRangeStart :
+          `F` Flags Column Line? Definition?
+      </emu-grammar>
+      <emu-alg>
+        1. Let _flags_ be DecodeUnsignedVlq(|Flags|).
+        1. If _flags_ & 0x1 > 0, then
+          1. Assert: |Line| is present.
+          1. Set _state_.[[Line]] to _state_.[[Line]] + DecodeUnsignedVlq(|Line|).
+          1. Set _state_.[[Column]] to 0.
+        1. Else,
+          1. Assert: |Line| is not present.
+        1. If _flags & 0x2 > 0, then
+          1. Assert: |Definition| is present.
+          1. Set _state_.[[Definition]] to _state_.[[Definition]] + DecodeSignedVlq(|Definition|).
+        1. Else,
+          1. Assert: |Definition| is not present.
+        1. Set _state_.[[Column]] to _state_.[[Column]] + DecodeUnsignedVlq(|Column|).
+        1. Set _range_.[[StartLine]] to _state_.[[Line]].
+        1. Set _range_.[[StartColumn]] to _state_.[[Column]].
+      </emu-alg>
+      <emu-grammar>
+        GeneratedRangeEnd :
+          `G` Column Line?
+      </emu-grammar>
+      <emu-alg>
+        1. If |Line| is present, then
+          1. Set _state_.[[Line]] to _state_.[[Line]] + DecodeUnsignedVlq(|Line|).
+          1. Set _state_.[[Column]] to 0.
+        1. Set _state_.[[Column]] to _state_.[[Column]] + DecodeUnsignedVlq(|Column|).
+        1. Set _range_.[[EndLine]] to _state_.[[Line]].
+        1. Set _range_.[[EndColumn]] to _state_.[[Column]].
+      </emu-alg>
+    </emu-clause>
   </emu-clause>
 </emu-clause>
 
