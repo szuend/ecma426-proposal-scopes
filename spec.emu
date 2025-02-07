@@ -620,7 +620,7 @@ contributors: Holger Benl, Simon Zünd
     <dl class="header"></dl>
   </emu-annex>
 
-  <emu-annex id="sec-resolve-expression-op" type="host-defined abstract operation"></emu-annex>
+  <emu-annex id="sec-resolve-expression-op" type="host-defined abstract operation">
     <h1>
       ResolveExpression (
         _index_: a Number,
