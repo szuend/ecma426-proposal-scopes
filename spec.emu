@@ -463,7 +463,7 @@ contributors: Holger Benl, Simon Zünd
   <emu-prodref name="BindingFromList"></emu-prodref>
   <emu-prodref name="BindingFrom"></emu-prodref>
   <emu-prodref name="UnknownItem"></emu-prodref>
-  <emu-grammar type="definition">
+  <emu-grammar type="definition" collapsed>
     Line : Vlq
     Column : Vlq
     Flags : Vlq
