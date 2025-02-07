@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <meta charset="utf8">
 <link rel="stylesheet" href="./spec.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -35,6 +35,7 @@ contributors: Holger Benl, Simon Zünd
 <emu-clause id="sec-types">
   <h1>Data Types</h1>
   <p>The proposal defines several new types.</p>
+
   <emu-clause id="sec-scope-information-record-type">
     <h1>The Scope Information Record Type</h1>
     <p>Decoding the `"scopes"` field results in a <dfn>Scope Information Record.</dfn></p>
@@ -60,6 +61,7 @@ contributors: Holger Benl, Simon Zünd
       </table>
     </emu-table>
   </emu-clause>
+
   <emu-clause id="sec-original-scope-tree-record-type">
     <h1>The Original Scope Tree Record Type</h1>
     <p>The <dfn variants="Original Scope Tree Records">Original Scope Tree Record</dfn> describes the scope tree for an original (authored) file. It corresponds directly to one entry in the `"sources"` list.</p>
@@ -85,6 +87,7 @@ contributors: Holger Benl, Simon Zünd
       </table>
     </emu-table>
   </emu-clause>
+
   <emu-clause id="sec-original-scope-record-type">
     <h1>The Original Scope Record Type</h1>
     <p>The <dfn variants="Original Scope Records">Original Scope Record</dfn> describes a scope in an original (authored) file.</p>
@@ -144,6 +147,7 @@ contributors: Holger Benl, Simon Zünd
 
 <emu-clause id="sec-specification-types">
   <h1>Specification Types</h1>
+
   <emu-clause id="sec-decode-state-record-type">
     <h1>The Decode State Record Specification Type</h1>
     <p>The <dfn>Decode State Record</dfn> is used to keep track of relative numbers while decoding a Scope Information Record</p>
@@ -188,10 +192,11 @@ contributors: Holger Benl, Simon Zünd
 
 <emu-clause id="sec-abstract-operations">
   <h1>Abstract Operations</h1>
+
   <emu-clause id="sec-decode-op" type="abstract operation">
     <h1>
       Decode (
-        _scopes_: a |Scopes| Parse Node.
+        _scopes_: a |Scopes| Parse Node.,
       ): a Scope Information Record.
     </h1>
     <dl class="header">
@@ -224,10 +229,11 @@ contributors: Holger Benl, Simon Zünd
       GeneratedRangeTree
       UnknownItem
   </emu-grammar>
+
   <emu-clause id="sec-decode-item" type="sdo">
     <h1>
       DecodeItem (
-        _info_: a Scope Information Record
+        _info_: a Scope Information Record,
       )
     </h1>
     <dl class="header"></dl>
@@ -253,6 +259,7 @@ contributors: Holger Benl, Simon Zünd
       1. Append _range_ to _info_.[[GeneratedRanges]].
     </emu-alg>
   </emu-clause>
+
   <emu-clause id="sec-format-scopes">
     <h1>Original Scope Format</h1>
     <emu-grammar type="definition">
@@ -281,10 +288,11 @@ contributors: Holger Benl, Simon Zünd
       OriginalScopeSourceRef :
         `E` SourceRef
     </emu-grammar>
+
     <emu-clause id="sec-decode-scope" type="sdo">
       <h1>
         DecodeScope (
-          _state_: a Decode State Record
+          _state_: a Decode State Record,
         ): a Original Scope Record
       </h1>
       <dl class="header"></dl>
@@ -300,11 +308,12 @@ contributors: Holger Benl, Simon Zünd
         1. Return _scope_.
       </emu-alg>
     </emu-clause>
+
     <emu-clause id="sec-decode-scope-item" type="sdo">
       <h1>
         DecodeScopeItem (
-          _state_: a Decode State Record
-          _scope_: a Original Scope Record
+          _state_: a Decode State Record,
+          _scope_: a Original Scope Record,
         )
       </h1>
       <dl class="header"></dl>
@@ -363,6 +372,7 @@ contributors: Holger Benl, Simon Zünd
       </emu-alg>
     </emu-clause>
   </emu-clause>
+
   <emu-clause id="sec-format-ranges">
     <h1>GeneratedRange Format</h1>
     <emu-grammar type="definition">
@@ -402,7 +412,8 @@ contributors: Holger Benl, Simon Zünd
       CallSite :
         `J` SourceRef Line Column
 
-      UnknownItem : VlqList
+      UnknownItem :
+        VlqList
     </emu-grammar>
   </emu-clause>
 </emu-clause>
@@ -430,26 +441,29 @@ contributors: Holger Benl, Simon Zünd
       `g` `h` `i` `j` `k` `l` `m` `n` `o` `p` `q` `r` `s` `t` `u` `v` `w` `x`
       `y` `z` `0` `1` `2` `3` `4` `5` `6` `7` `8` `9` `+` `/`
   </emu-grammar>
+
   <emu-annex id="sec-resolve-name-op" type="host-defined abstract operation">
     <h1>
-      ResolveName(
-        index: a Number
+      ResolveName (
+        _index_: a Number,
       ): a String or ~NULL~.
     </h1>
     <dl class="header"></dl>
   </emu-annex>
+
   <emu-annex id="sec-decode-unsigned-vlq-op" type="abstract operation">
     <h1>
-      DecodeUnsignedVlq(
-        _encoded_: a String or a ParseNode
+      DecodeUnsignedVlq (
+        _encoded_: a String or a ParseNode,
       ): a Number
     </h1>
     <dl class="header"></dl>
   </emu-annex>
+
   <emu-annex id="sec-decode-signed-vlq-op" type="abstract operation">
     <h1>
-      DecodeSignedVlq(
-        _encoded_: a String or a ParseNode
+      DecodeSignedVlq (
+        _encoded_: a String or a ParseNode,
       ): a Number
     </h1>
     <dl class="header"></dl>
@@ -481,11 +495,17 @@ contributors: Holger Benl, Simon Zünd
   <emu-prodref name="UnknownItem"></emu-prodref>
   <emu-grammar type="definition" collapsed>
     Line : Vlq
+
     Column : Vlq
+
     Flags : Vlq
+
     Name : Vlq
+
     Kind : Vlq
+
     Definition : Vlq
+
     SourceRef : Vlq
   </emu-grammar>
 </emu-annex>
