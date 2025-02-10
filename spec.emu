@@ -192,7 +192,7 @@ contributors: Holger Benl, Simon Zünd
         </tr>
         <tr>
           <td>[[CallSite]]</td>
-          <td>a CallSite Record or *null*</td>
+          <td>a Call Site Record or *null*</td>
           <td>The presence of [[CallSite]] signifies that this generated range represents an inlined original scope body. [[Definition]] must contain a valid reference and the Original Scope Record behind [[Definition]] must have the value *true* in it's [[IsStackFrame]] field.</td>
         </tr>
         <tr>
@@ -204,9 +204,9 @@ contributors: Holger Benl, Simon Zünd
     </emu-table>
 
     <emu-clause id="sec-call-site-record-type">
-      <h1>The CallSite Record Type</h1>
-      <p>The <dfn>CallSite Record</dfn> is a position in the original (authored) source with a function call. In the generated code, the function was then inlined, i.e. the call was replaced with the function body itself.</p>
-      <emu-table id="table-call-site-record-fields" caption="CallSite Record Fields">
+      <h1>The Call Site Record Type</h1>
+      <p>The <dfn>Call Site Record</dfn> is a position in the original (authored) source with a function call. In the generated code, the function was then inlined, i.e. the call was replaced with the function body itself.</p>
+      <emu-table id="table-call-site-record-fields" caption="Call Site Record Fields">
         <table>
           <thead>
             <tr>
@@ -637,7 +637,7 @@ contributors: Holger Benl, Simon Zünd
         1. Set _state_.[[CallSiteSourceIndex]] to _state_.[[CallSiteSourceIndex]] + _relativeSourceIndex_.
         1. If _relativeSourceIndex_ is 0, set _state_.[[CallSiteLine]] to 0.
         1. Set _state_.[[CallSiteLine]] to _state_.[[CallSiteLine]] + DecodeSignedVlq(|SourceRef|).
-        1. Let _callSite_ be a new CallSite Record.
+        1. Let _callSite_ be a new Call Site Record.
         1. Set _callSite_.[[SourceIndex]] to _state_.[[CallSiteSourceIndex]].
         1. Set _callSite_.[[Line]] to _state_.[[CallSiteLine]].
         1. Set _callSite_.[[Column]] to DecodeUnsignedVlq(|Column|).
