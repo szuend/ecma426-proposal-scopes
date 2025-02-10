@@ -393,18 +393,14 @@ contributors: Holger Benl, Simon Zünd
         1. Set _scope_.[[StartLine]] to _state_.[[Line]].
         1. Set _scope_.[[StartColumn]] to _state_.[[Column]].
         1. Let _flags_ be DecodeUnsignedVlq(|Flags|).
-        1. If _flags_ & 0x1 > 0, then
-          1. Assert: |Name| is present.
+        1. Assert: _flags_ & 0x1 > 0, if and only if |Name| is present.
+        1. Assert: _flags_ & 0x2 > 0, if and only if |Kind| is present.
+        1. If |Name| is present, then
           1. Set _state_.[[NameIndex]] to _state_.[[NameIndex]] + DecodeSignedVlq(|Name|).
           1. Set _scope_.[[Name]] to ResolveName(_state_.[[NameIndex]]).
-        1. Else,
-          1. Assert: |Name| is not present.
-        1. If _flags_ & 0x2 > 0, then
-          1. Assert: |Kind| is present.
+        1. If |Kind| is present, then
           1. Set _state_.[[KindIndex]] to _state_.[[KindIndex]] + DecodeSignedVlq(|Kind|).
           1. Set _scope_.[[Kind]] to ResolveName(_state_.[[NameIndex]]).
-        1. Else,
-          1. Assert: |Kind| is not present.
         1. If _flags_ & 0x4 > 0, set _scope_.[[IsStackFrame]] to *true*.
       </emu-alg>
       <emu-grammar>
@@ -530,17 +526,13 @@ contributors: Holger Benl, Simon Zünd
       </emu-grammar>
       <emu-alg>
         1. Let _flags_ be DecodeUnsignedVlq(|Flags|).
-        1. If _flags_ & 0x1 > 0, then
-          1. Assert: |Line| is present.
+        1. Assert: _flags_ & 0x1 > 0, if and only if |Line| is present.
+        1. Assert: _flags_ & 0x2 > 0, if and only if |Definition| is present.
+        1. If |Line| is present, then
           1. Set _state_.[[Line]] to _state_.[[Line]] + DecodeUnsignedVlq(|Line|).
           1. Set _state_.[[Column]] to 0.
-        1. Else,
-          1. Assert: |Line| is not present.
-        1. If _flags & 0x2 > 0, then
-          1. Assert: |Definition| is present.
+        1. If |Definition| is present, then
           1. Set _state_.[[Definition]] to _state_.[[Definition]] + DecodeSignedVlq(|Definition|).
-        1. Else,
-          1. Assert: |Definition| is not present.
         1. Set _state_.[[Column]] to _state_.[[Column]] + DecodeUnsignedVlq(|Column|).
         1. Set _range_.[[StartLine]] to _state_.[[Line]].
         1. Set _range_.[[StartColumn]] to _state_.[[Column]].
