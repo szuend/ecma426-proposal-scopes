@@ -191,6 +191,11 @@ contributors: Holger Benl, Simon Zünd
           <td>A list of JavaScript expressions that when evaluated in this generated range, evaluates to the value of the corresponding variable.</td>
         </tr>
         <tr>
+          <td>[[SubRangeBindings]]</td>
+          <td>a List of Sub-Range Binding Records</td>
+          <td>TODO</td>
+        </tr>
+        <tr>
           <td>[[CallSite]]</td>
           <td>a Call Site Record or *null*</td>
           <td>The presence of [[CallSite]] signifies that this generated range represents an inlined original scope body. [[Definition]] must contain a valid reference and the Original Scope Record behind [[Definition]] must have the value *true* in it's [[IsStackFrame]] field.</td>
@@ -229,6 +234,63 @@ contributors: Holger Benl, Simon Zünd
             <td>[[Column]]</td>
             <td>a Number</td>
             <td>Teh column number inside [[Line]].</td>
+          </tr>
+        </table>
+      </emu-table>
+    </emu-clause>
+
+    <emu-clause id="sec-sub-range-binding-record-type">
+      <h1>The Sub-Range Binding Record</h1>
+      <p>The <dfn variant="Sub-Range Binding Records">Sub-Range Binding Record</dfn> describe a variable that requires different JavaScript expressions in different parts of a generated range to retrieve the variables value.</p>
+      <emu-table id="table-sub-range-binding-record-fields" caption="Sub-Range Binding Record Fields">
+        <table>
+          <thead>
+            <tr>
+              <th>Field Name</th>
+              <th>Value</th>
+              <th>Meaning</th>
+            </tr>
+          </thead>
+          <tr>
+            <td>[[VariableIndex]]</td>
+            <td>a Number</td>
+            <td>An index into the [[Variables]] List of the corresponding Original Scope Record for which these expressions can be used.</td>
+          </tr>
+          <tr>
+            <td>[[Bindings]]</td>
+            <td>a List of Binding Records</td>
+            <td>TODO</td>
+          </tr>
+        </table>
+      </emu-table>
+    </emu-clause>
+
+    <emu-clause id="sec-binding-record-type">
+      <h1>The Binding Record</h1>
+      <p>The <dfn variant="Binding Records">Binding Record</dfn> describes a JavaScript expression that must be used for the given position to retrieve a specific variables value.</p>
+      <emu-table id="table-binding-record-fields" caption="Binding Record Fields">
+        <table>
+          <thead>
+            <tr>
+              <th>Field Name</th>
+              <th>Value</th>
+              <th>Meaning</th>
+            </tr>
+          </thead>
+          <tr>
+            <td>[[FromLine]]</td>
+            <td>a Number</td>
+            <td>TODO</td>
+          </tr>
+          <tr>
+            <td>[[FromColumn]]</td>
+            <td>a Number</td>
+            <td>TODO</td>
+          </tr>
+          <tr>
+            <td>[[Binding]]</td>
+            <td>a Number</td>
+            <td>TODO</td>
           </tr>
         </table>
       </emu-table>
@@ -289,7 +351,22 @@ contributors: Holger Benl, Simon Zünd
         <tr>
           <td>[[BindingIndex]]</td>
           <td>a Number</td>
-          <td>The bindings in |GeneratedRangeBindings| are relative. This field tracks the absolute binding expression index.</td>
+          <td>The bindings in |GeneratedRangeBindings| and |SubRangeBinding|s are relative. This field tracks the absolute binding expression index.</td>
+        </tr>
+        <tr>
+          <td>[[BindingVariableIndex]]</td>
+          <td>a Number</td>
+          <td>The |VariableIndex| in |SubRangeBinding| is relative. This field tracks the absolute value.</td>
+        </tr>
+        <tr>
+          <td>[[BindingFromLine]]</td>
+          <td>a Number</td>
+          <td>The |Line| in |SubRangeBinding| is relative. This field tracks the absolute value.</td>
+        </tr>
+        <tr>
+          <td>[[BindingFromColumn]]</td>
+          <td>a Number</td>
+          <td>The |Column| in |SubRangeBinding| is relative. This field tracks the absolute value.</td>
         </tr>
         <tr>
           <td>[[CallSiteSourceIndex]]</td>
@@ -501,7 +578,7 @@ contributors: Holger Benl, Simon Zünd
   </emu-clause>
 
   <emu-clause id="sec-format-ranges">
-    <h1>GeneratedRange Format</h1>
+    <h1>Generated Range Format</h1>
     <emu-grammar type="definition">
       GeneratedRangeTree :
         GeneratedRangeStart GeneratedRangeItemList? `,` GeneratedRangeEnd
@@ -527,7 +604,7 @@ contributors: Holger Benl, Simon Zünd
         `H` VlqList
 
       SubRangeBinding :
-        `I` BindingFromList
+        `I` VariableIndex BindingFromList
 
       BindingFromList :
         BindingFrom
@@ -585,6 +662,7 @@ contributors: Holger Benl, Simon Zünd
           1. If _relativeLine_ > 0, set _state_.[[Column]] to 0.
         1. If |Definition| is present, then
           1. Set _state_.[[Definition]] to _state_.[[Definition]] + DecodeSignedVlq(|Definition|).
+          1. Set _state_.[[BindingVariableIndex]] to 0.
         1. Set _state_.[[Column]] to _state_.[[Column]] + DecodeUnsignedVlq(|Column|).
         1. Set _range_.[[StartLine]] to _state_.[[Line]].
         1. Set _range_.[[StartColumn]] to _state_.[[Column]].
@@ -623,16 +701,31 @@ contributors: Holger Benl, Simon Zünd
           `H` VlqList
       </emu-grammar>
       <emu-alg>
+        1. Assert: _range_.[[Definition]] is not *null*.
         1. Let _bindingIndices_ be DecodeSignedVlqList(|VlqList|).
         1. For each element _index_ of _bindingIndices_, do
           1. Set _state_.[[BindingIndex]] to _state_.[[BindingIndex]] + _index_.
           1. Append ResolveExpression(_state_.[[BindingIndex]]) to _range_.[[Bindings]].
       </emu-alg>
       <emu-grammar>
+        SubRangeBinding :
+          `I` VariableIndex BindingFromList
+      </emu-grammar>
+      <emu-alg>
+        1. Assert: _range_.[[Definition]] is not *null*.
+        1. Set _state_.[[BindingVariableIndex]] to _state_.[[BindingVariableIndex]] + DecodeUnsignedVlq(|VariableIndex|).
+        1. Let _binding_ be a new Sub-Range Binding Record.
+        1. Set _binding_.[[VariableIndex]] to _state_.[[BindingVariableIndex]].
+        1. Set _binding_.[[Bindings]] to a new empty List.
+        1. Perform DecodeSubRangeBinding of |BindingFromList| with arguments _state_ and _binding_.
+        1. Append _binding_ to _range_.[[SubRangeBindings]].
+      </emu-alg>
+      <emu-grammar>
         CallSite :
           `J` SourceRef Line Column
       </emu-grammar>
       <emu-alg>
+        1. Assert: _range_.[[Definition]] is not *null*.
         1. Let _relativeSourceIndex_ be DecodeSignedVlq(|SourceRef|).
         1. Set _state_.[[CallSiteSourceIndex]] to _state_.[[CallSiteSourceIndex]] + _relativeSourceIndex_.
         1. If _relativeSourceIndex_ is 0, set _state_.[[CallSiteLine]] to 0.
@@ -642,6 +735,40 @@ contributors: Holger Benl, Simon Zünd
         1. Set _callSite_.[[Line]] to _state_.[[CallSiteLine]].
         1. Set _callSite_.[[Column]] to DecodeUnsignedVlq(|Column|).
         1. Set _range_.[[CallSite]] to _callSite_.
+      </emu-alg>
+    </emu-clause>
+
+    <emu-clause id="sec-decode-sub-range-binding" type="sdo">
+      <h1>
+        DecodeSubRangeBinding (
+          _state_: a Decode State Record,
+          _subRangeBinding_: a Sub-Range Binding Record,
+        )
+      </h1>
+      <dl class="header"></dl>
+      <emu-grammar>
+        BindingFromList :
+          BindingFromList BindingFrom
+      </emu-grammar>
+      <emu-alg>
+        1. Perform DecodeSubRangeBinding of |BindingFromList| with arguments _state_ and _subRangeBinding_.
+        1. Perform DecodeSubRangeBinding of |BindingFrom| with arguments _state_ and _subRangeBinding_.
+      </emu-alg>
+      <emu-grammar>
+        BindingFrom :
+          Line Column Vlq
+      </emu-grammar>
+      <emu-alg>
+        1. Let _relativeLine_ be DecodeUnsignedVlq(|Line|).
+        1. Set _state_.[[BindingFromLine]] to _state_.[[BindingFromLine]] + _relativeLine_.
+        1. If _relativeLine_ > 0, set _state_.[[BindingFromColumn]] to 0.
+        1. Set _state_.[[BindingFromColumn]] to _state_.[[BindingFromColumn]] + DecodeUnsignedVlq(|Column|).
+        1. Set _state_.[[BindingIndex]] to _state_.[[BindingIndex]] + DecodeSignedVlq(|Vlq|).
+        1. Let _binding_ be a new Binding Record.
+        1. Set _binding_.[[FromLine]] to _state_.[[BindingFromLine]].
+        1. Set _binding_.[[FromColumn]] to _state_.[[BindingFromColumn]].
+        1. Set _binding_.[[Binding]] to _state_.[[BindingIndex]].
+        1. Append _binding_ to _subRangeBinding_.[[Bindings]].
       </emu-alg>
     </emu-clause>
   </emu-clause>
@@ -754,5 +881,7 @@ contributors: Holger Benl, Simon Zünd
     Definition : Vlq
 
     SourceRef : Vlq
+
+    VariableIndex : Vlq
   </emu-grammar>
 </emu-annex>
