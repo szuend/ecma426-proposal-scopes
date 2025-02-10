@@ -38,7 +38,7 @@ contributors: Holger Benl, Simon Zünd
 
   <emu-clause id="sec-scope-information-record-type">
     <h1>The Scope Information Record Type</h1>
-    <p>Decoding the `"scopes"` field results in a <dfn>Scope Information Record.</dfn></p>
+    <p>Decoding the `"scopes"` field results in a <dfn>Scope Information Record</dfn>.</p>
     <emu-table id="table-scope-information-record-fields" caption="Scope Information Record Fields">
       <table>
         <thead>
@@ -343,12 +343,7 @@ contributors: Holger Benl, Simon Zünd
         <tr>
           <td>[[Line]]</td>
           <td>a Number</td>
-          <td>|Line| in |OriginalScopeStart|, |OriginalScopeEnd|, |GeneratedRangeStart| and |GeneratedRangeEnd| are relative. This field tracks the actual line number.</td>
-        </tr>
-        <tr>
-          <td>[[Column]]</td>
-          <td>a Number</td>
-          <td>|Column| in |GeneratedRangeStart| and |GeneratedRangeEnd| are relative. This field track the actual column number.</td>
+          <td>|Line| in |OriginalScopeStart| and |OriginalScopeEnd| are relative. This field tracks the actual line number.</td>
         </tr>
         <tr>
           <td>[[NameIndex]]</td>
@@ -384,7 +379,7 @@ contributors: Holger Benl, Simon Zünd
         <tr>
           <td>[[Line]]</td>
           <td>a Number</td>
-          <td>|Line| in |OriginalScopeStart|, |OriginalScopeEnd|, |GeneratedRangeStart| and |GeneratedRangeEnd| are relative. This field tracks the actual line number.</td>
+          <td>|Line| in |GeneratedRangeStart| and |GeneratedRangeEnd| are relative. This field tracks the actual line number.</td>
         </tr>
         <tr>
           <td>[[Column]]</td>
