@@ -181,9 +181,19 @@ contributors: Holger Benl, Simon Zünd
           <td>The column number where this range ends (exclusive).</td>
         </tr>
         <tr>
+          <td>[[Definition]]</td>
+          <td>a Original Scope Record or *null*</td>
+          <td>The corresponding original scope</td>
+        </tr>
+        <tr>
           <td>[[Bindings]]</td>
           <td>a List of Strings</td>
           <td>A list of JavaScript expressions that when evaluated in this generated range, evaluates to the value of the corresponding variable.</td>
+        </tr>
+        <tr>
+          <td>[[CallSite]]</td>
+          <td>a CallSite Record or *null*</td>
+          <td>The presence of [[CallSite]] signifies that this generated range represents an inlined original scope body. [[Definition]] must contain a valid reference and the Original Scope Record behind [[Definition]] must have the value *true* in it's [[IsStackFrame]] field.</td>
         </tr>
         <tr>
           <td>[[Children]]</td>
@@ -192,6 +202,37 @@ contributors: Holger Benl, Simon Zünd
         </tr>
       </table>
     </emu-table>
+
+    <emu-clause id="sec-call-site-record-type">
+      <h1>The CallSite Record Type</h1>
+      <p>The <dfn>CallSite Record</dfn> is a position in the original (authored) source with a function call. In the generated code, the function was then inlined, i.e. the call was replaced with the function body itself.</p>
+      <emu-table id="table-call-site-record-fields" caption="CallSite Record Fields">
+        <table>
+          <thead>
+            <tr>
+              <th>Field Name</th>
+              <th>Value</th>
+              <th>Meaning</th>
+            </tr>
+          </thead>
+          <tr>
+            <td>[[SourceIndex]]</td>
+            <td>a Number</td>
+            <td>An index into the `"sources"` list of a source map.</td>
+          </tr>
+          <tr>
+            <td>[[Line]]</td>
+            <td>a Number</td>
+            <td>The line number inside the file represented by [[SourceIndex]].</td>
+          </tr>
+          <tr>
+            <td>[[Column]]</td>
+            <td>a Number</td>
+            <td>Teh column number inside [[Line]].</td>
+          </tr>
+        </table>
+      </emu-table>
+    </emu-clause>
   </emu-clause>
 </emu-clause>
 
@@ -249,6 +290,16 @@ contributors: Holger Benl, Simon Zünd
           <td>[[BindingIndex]]</td>
           <td>a Number</td>
           <td>The bindings in |GeneratedRangeBindings| are relative. This field tracks the absolute binding expression index.</td>
+        </tr>
+        <tr>
+          <td>[[CallSiteSourceIndex]]</td>
+          <td>a Number</td>
+          <td>The source reference in |CallSite| is relative. This field tracks the absolute value.</td>
+        </tr>
+        <tr>
+          <td>[[CallSiteLine]]</td>
+          <td>a Number</td>
+          <td>The line in |CallSite| is relative. This field tracks the absolute value.</td>
         </tr>
       </table>
     </emu-table>
@@ -574,6 +625,21 @@ contributors: Holger Benl, Simon Zünd
         1. For each element _index_ of _bindingIndices_, do
           1. Set _state_.[[BindingIndex]] to _state_.[[BindingIndex]] + _index_.
           1. Append ResolveExpression(_state_.[[BindingIndex]]) to _range_.[[Bindings]].
+      </emu-alg>
+      <emu-grammar>
+        CallSite :
+          `J` SourceRef Line Column
+      </emu-grammar>
+      <emu-alg>
+        1. Let _relativeSourceIndex_ be DecodeSignedVlq(|SourceRef|).
+        1. Set _state_.[[CallSiteSourceIndex]] to _state_.[[CallSiteSourceIndex]] + _relativeSourceIndex_.
+        1. If _relativeSourceIndex_ is 0, set _state_.[[CallSiteLine]] to 0.
+        1. Set _state_.[[CallSiteLine]] to _state_.[[CallSiteLine]] + DecodeSignedVlq(|SourceRef|).
+        1. Let _callSite_ be a new CallSite Record.
+        1. Set _callSite_.[[SourceIndex]] to _state_.[[CallSiteSourceIndex]].
+        1. Set _callSite_.[[Line]] to _state_.[[CallSiteLine]].
+        1. Set _callSite_.[[Column]] to DecodeUnsignedVlq(|Column|).
+        1. Set _range_.[[CallSite]] to _callSite_.
       </emu-alg>
     </emu-clause>
   </emu-clause>
