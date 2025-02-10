@@ -615,9 +615,6 @@ contributors: Holger Benl, Simon Zünd
 
       CallSite :
         `J` SourceRef Line Column
-
-      UnknownItem :
-        VlqList
     </emu-grammar>
 
     <emu-clause id="sec-decode-range" type="sdo">
@@ -772,6 +769,20 @@ contributors: Holger Benl, Simon Zünd
       </emu-alg>
     </emu-clause>
   </emu-clause>
+
+  <emu-clause id="sec-format-unknown">
+    <h1>Unknown Item Format</h1>
+    <p>Unknown items are supported by default.</p>
+    <emu-grammar type="definition">
+      UnknownItem :
+        Tag
+        Tag VlqList
+
+      Tag :
+        Vlq but not one of `A` `B` `C` `D` `E` `F` `G` `H` `I` `J`
+    </emu-grammar>
+    <emu-note>This allows both vendor extensions to the scopes format as well as enable future extensions without breaking existing consumers.</emu-note>
+  </emu-clause>
 </emu-clause>
 
 <emu-annex id="sec-missing">
@@ -883,5 +894,7 @@ contributors: Holger Benl, Simon Zünd
     SourceRef : Vlq
 
     VariableIndex : Vlq
+
+    Tag : Vlq
   </emu-grammar>
 </emu-annex>
