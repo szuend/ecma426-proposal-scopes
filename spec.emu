@@ -300,11 +300,33 @@ contributors: Holger Benl, Simon Zünd
 
 <emu-clause id="sec-specification-types">
   <h1>Specification Types</h1>
+  <p>The encoding format heavily uses relative numbers to save bytes. The Decode State Record, Decode Original Scope State Record and Decode Generated Range State Record keep track of the absolute values.</p>
 
   <emu-clause id="sec-decode-state-record-type">
     <h1>The Decode State Record Specification Type</h1>
-    <p>The <dfn>Decode State Record</dfn> is used to keep track of relative numbers while decoding a Scope Information Record</p>
+    <p>The <dfn>Decode State Record</dfn> tracks global decoding state.</p>
     <emu-table id="table-decode-state-record-fields" caption="Decode State Record Fields">
+      <table>
+        <thead>
+          <tr>
+            <th>Field Name</th>
+            <th>Value</th>
+            <th>Meaning</th>
+          </tr>
+        </thead>
+        <tr>
+          <td>[[OriginalScopes]]</td>
+          <td>a List of Original Scope Records</td>
+          <td>|Definition| in |GeneratedRangeStart| is encoded as an index into this list. Note that this field is different from [[OriginalScopes]] in the Scope Information Record: This field is a flat list of all Original Scope Records in prefix order.</td>
+        </tr>
+      </table>
+    </emu-table>
+  </emu-clause>
+
+  <emu-clause id="sec-decode-original-scope-state-record-type">
+    <h1>The Decode Original Scope State Record Specification Type</h1>
+    <p>The <dfn>Decode Original Scope State Record</dfn> keeps track of relative numbers while decoding a Original Scope Tree Record.</p>
+    <emu-table id="table-decode-original-scope-state-record-fields" caption="Decode Original Scope State Record Fields">
       <table>
         <thead>
           <tr>
@@ -342,6 +364,32 @@ contributors: Holger Benl, Simon Zünd
           <td>[[VariableIndex]]</td>
           <td>a Number</td>
           <td>The variables in |OriginalScopeVariables| are relative. This field tracks the absolute variable name index.</td>
+        </tr>
+      </table>
+    </emu-table>
+  </emu-clause>
+
+  <emu-clause id="sec-decode-generated-range-state-record-type">
+    <h1>The Decode Generated Range State Record Specification Type</h1>
+    <p>The <dfn>Decode Generated Range State Record</dfn> keeps track of relative numbers while decoding a top-level Generated Range Record.</p>
+    <emu-table id="table-decode-generated-range-state-record-fields" caption="Decode Generated Range State Record Fields">
+      <table>
+        <thead>
+          <tr>
+            <th>Field Name</th>
+            <th>Value</th>
+            <th>Meaning</th>
+          </tr>
+        </thead>
+        <tr>
+          <td>[[Line]]</td>
+          <td>a Number</td>
+          <td>|Line| in |OriginalScopeStart|, |OriginalScopeEnd|, |GeneratedRangeStart| and |GeneratedRangeEnd| are relative. This field tracks the actual line number.</td>
+        </tr>
+        <tr>
+          <td>[[Column]]</td>
+          <td>a Number</td>
+          <td>|Column| in |GeneratedRangeStart| and |GeneratedRangeEnd| are relative. This field track the actual column number.</td>
         </tr>
         <tr>
           <td>[[Definition]]</td>
@@ -397,10 +445,11 @@ contributors: Holger Benl, Simon Zünd
       <dd>TODO</dd>
     </dl>
     <emu-alg>
+      1. Let _globalState_ be a new Decode State Record.
       1. Let _info_ be a new Scope Information Record.
       1. Set _info_.[[OriginalScopes]] to a new empty List.
       1. Set _info_.[[GeneratedRanges]] to a new empty List.
-      1. Perform DecodeItem on _scopes_ with argument _info_.
+      1. Perform DecodeItem on _scopes_ with arguments _globalState_ and _info_.
       1. Return _info_.
     </emu-alg>
   </emu-clause>
@@ -426,19 +475,20 @@ contributors: Holger Benl, Simon Zünd
   <emu-clause id="sec-decode-item" type="sdo">
     <h1>
       DecodeItem (
+        _globalState_: a Decode State Record,
         _info_: a Scope Information Record,
       )
     </h1>
     <dl class="header"></dl>
     <emu-grammar>ItemList : ItemList `,` TopLevelItem</emu-grammar>
     <emu-alg>
-      1. Perform DecodeItem of |ItemList| with argument _info_.
-      1. Perform DecodeItem of |TopLevelItem| with argument _info_.
+      1. Perform DecodeItem of |ItemList| with arguments _globalState_ and _info_.
+      1. Perform DecodeItem of |TopLevelItem| with arguments _globalState_ and _info_.
     </emu-alg>
     <emu-grammar>TopLevelItem : OriginalScopeTree</emu-grammar>
     <emu-alg>
-      1. Let _state_ be a new Decode State Record with all fields of type Number set to `0` and [[SourceIndex]] set to *null*.
-      1. Let _root_ be DecodeScope of |OriginalScopeTree| with arguments _state_.
+      1. Let _state_ be a new Decode Original Scope State Record.
+      1. Let _root_ be DecodeScope of |OriginalScopeTree| with arguments _globalState_ and _state_.
       1. Let _idx_ be _state_.[[SourceIndex]].
       1. If _idx_ is *null*, set _idx_ to the length of _info_.[[OriginalScopes]].
       1. Let _scope_ be a new Original Scope Tree Record.
@@ -448,8 +498,8 @@ contributors: Holger Benl, Simon Zünd
     </emu-alg>
     <emu-grammar>TopLevelItem : GeneratedRangeTree</emu-grammar>
     <emu-alg>
-      1. Let _state_ be a new Decode State Record with all fields of type Number set to `0` and [[SourceIndex]] set to *null*.
-      1. Let _range_ be DecodeRange on |GeneratedRangeTree| with arguments _state_.
+      1. Let _state_ be a new Decode Generated Range State Record.
+      1. Let _range_ be DecodeRange on |GeneratedRangeTree| with arguments _globalState_ and _state_.
       1. Append _range_ to _info_.[[GeneratedRanges]].
     </emu-alg>
   </emu-clause>
@@ -486,7 +536,8 @@ contributors: Holger Benl, Simon Zünd
     <emu-clause id="sec-decode-scope" type="sdo">
       <h1>
         DecodeScope (
-          _state_: a Decode State Record,
+          _globalState_: a Decode State Record,
+          _state_: a Decode Original Scope State Record,
         ): a Original Scope Record
       </h1>
       <dl class="header"></dl>
@@ -496,9 +547,10 @@ contributors: Holger Benl, Simon Zünd
       </emu-grammar>
       <emu-alg>
         1. Let _scope_ be a new Original Scope Record.
-        1. Perform DecodeScopeItem of |OriginalScopeStart| with arguments _state_ and _scope_.
-        1. If |OriginalScopeItemList| is present, perform DecodeScopeItem with arguments _state_ and _scope_.
-        1. Perform DecodeScopeItem of |OriginalScopeEnd| with arguments _state_ and _scope_.
+        1. Append _scope_ to _globalState_.[[OriginalScopes]].
+        1. Perform DecodeScopeItem of |OriginalScopeStart| with arguments _globalState_, _state_ and _scope_.
+        1. If |OriginalScopeItemList| is present, perform DecodeScopeItem with arguments _globalState_, _state_ and _scope_.
+        1. Perform DecodeScopeItem of |OriginalScopeEnd| with arguments _globalState_, _state_ and _scope_.
         1. Return _scope_.
       </emu-alg>
     </emu-clause>
@@ -506,7 +558,8 @@ contributors: Holger Benl, Simon Zünd
     <emu-clause id="sec-decode-scope-item" type="sdo">
       <h1>
         DecodeScopeItem (
-          _state_: a Decode State Record,
+          _globalState_: a Decode State Record,
+          _state_: a Decode Original Scope State Record,
           _scope_: a Original Scope Record,
         )
       </h1>
@@ -546,15 +599,15 @@ contributors: Holger Benl, Simon Zünd
           OriginalScopeItemList `,` OriginalScopeItem
       </emu-grammar>
       <emu-alg>
-        1. Perform DecodeScopeItem of |OriginalScopeItemList| with arguments _state_ and _scope_.
-        1. Perform DecodeScopeItem of |OriginalScopeItem| with arguments _state_ and _scope_.
+        1. Perform DecodeScopeItem of |OriginalScopeItemList| with arguments _globalState_, _state_ and _scope_.
+        1. Perform DecodeScopeItem of |OriginalScopeItem| with arguments _globalState_, _state_ and _scope_.
       </emu-alg>
       <emu-grammar>
         OriginalScopeItem :
           OriginalScopeTree
       </emu-grammar>
       <emu-alg>
-        1. Let _child_ be DecodeScope of |OriginalScopeTree| with argument _state_.
+        1. Let _child_ be DecodeScope of |OriginalScopeTree| with arguments _globalState_ and _state_.
         1. Append _child_ to _scope_.[[Children]].
       </emu-alg>
       <emu-grammar>
@@ -620,7 +673,8 @@ contributors: Holger Benl, Simon Zünd
     <emu-clause id="sec-decode-range" type="sdo">
       <h1>
         DecodeRange (
-          _state_: a Decode State Record,
+          _globalState_: a Decode State Record,
+          _state_: a Decode Generated Range State Record,
         ): a Generated Range Record
       </h1>
       <dl class="header"></dl>
@@ -630,9 +684,9 @@ contributors: Holger Benl, Simon Zünd
       </emu-grammar>
       <emu-alg>
         1. Let _range_ be a new Generated Range Record.
-        1. Perform DecodeRangeItem of |GeneratedRangeStart| with arguments _state_ and _range.
-        1. If |GeneratedRangeItemList| is present, perform DecodeRangeItem with arguments _state_ and _range_.
-        1. Perform DecodeRangeItem of |GeneratedRangeEnd| with arguments _state_ and _range_.
+        1. Perform DecodeRangeItem of |GeneratedRangeStart| with arguments _globalState_, _state_ and _range.
+        1. If |GeneratedRangeItemList| is present, perform DecodeRangeItem with arguments _globalState_, _state_ and _range_.
+        1. Perform DecodeRangeItem of |GeneratedRangeEnd| with arguments _globalState_, _state_ and _range_.
         1. Return _range_.
       </emu-alg>
     </emu-clause>
@@ -640,7 +694,8 @@ contributors: Holger Benl, Simon Zünd
     <emu-clause id="sec-decode-range-item" type="sdo">
       <h1>
         DecodeRangeItem (
-          _state_: a Decode State Record,
+          _globalState_: a Decode State Record,
+          _state_: a Decode Generated Range State Record,
           _range_: a Generated Range Record,
         )
       </h1>
@@ -662,6 +717,7 @@ contributors: Holger Benl, Simon Zünd
         1. Set _range_.[[StartColumn]] to _state_.[[Column]].
         1. If |Definition| is present, then
           1. Set _state_.[[Definition]] to _state_.[[Definition]] + DecodeSignedVlq(|Definition|).
+          1. Set _range_.[[Definition]] to _globalState_.[[OriginalScopes]][_state_.[[Definition]]].
           1. Set _state_.[[BindingVariableIndex]] to 0.
           1. Set _state_.[[BindingFromLine]] to _range_.[[StartLine]].
           1. Set _state_.[[BindingFromColumn]] to _range_.[[StartColumn]].
@@ -684,15 +740,15 @@ contributors: Holger Benl, Simon Zünd
           GeneratedRangeItemList `,` GeneratedRangeItem
       </emu-grammar>
       <emu-alg>
-        1. Perform DecodeRangeItem of |GeneratedRangeItemList| with arguments _state_ and _range_.
-        1. Perform DecodeRangeItem of |GeneratedRangeItem| with arguments _state_ and _range_.
+        1. Perform DecodeRangeItem of |GeneratedRangeItemList| with arguments _globalState_, _state_ and _range_.
+        1. Perform DecodeRangeItem of |GeneratedRangeItem| with arguments _globalState_, _state_ and _range_.
       </emu-alg>
       <emu-grammar>
         GeneratedRangeItem :
           GeneratedRangeTree
       </emu-grammar>
       <emu-alg>
-        1. Let _child_ be DecodeRange of |GeneratedRangeTree| with argument _state_.
+        1. Let _child_ be DecodeRange of |GeneratedRangeTree| with arguments _globalState_ and _state_.
         1. Append _child_ to _range_.[[Children]].
       </emu-alg>
       <emu-grammar>
@@ -740,7 +796,7 @@ contributors: Holger Benl, Simon Zünd
     <emu-clause id="sec-decode-sub-range-binding" type="sdo">
       <h1>
         DecodeSubRangeBinding (
-          _state_: a Decode State Record,
+          _state_: a Decode Generated Range State Record,
           _subRangeBinding_: a Sub-Range Binding Record,
         )
       </h1>
