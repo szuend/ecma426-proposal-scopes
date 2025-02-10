@@ -657,12 +657,14 @@ contributors: Holger Benl, Simon Zünd
           1. Let _relativeLine_ be DecodeUnsignedVlq(|Line|).
           1. Set _state_.[[Line]] to _state_.[[Line]] + _relativeLine_.
           1. If _relativeLine_ > 0, set _state_.[[Column]] to 0.
-        1. If |Definition| is present, then
-          1. Set _state_.[[Definition]] to _state_.[[Definition]] + DecodeSignedVlq(|Definition|).
-          1. Set _state_.[[BindingVariableIndex]] to 0.
         1. Set _state_.[[Column]] to _state_.[[Column]] + DecodeUnsignedVlq(|Column|).
         1. Set _range_.[[StartLine]] to _state_.[[Line]].
         1. Set _range_.[[StartColumn]] to _state_.[[Column]].
+        1. If |Definition| is present, then
+          1. Set _state_.[[Definition]] to _state_.[[Definition]] + DecodeSignedVlq(|Definition|).
+          1. Set _state_.[[BindingVariableIndex]] to 0.
+          1. Set _state_.[[BindingFromLine]] to _range_.[[StartLine]].
+          1. Set _state_.[[BindingFromColumn]] to _range_.[[StartColumn]].
       </emu-alg>
       <emu-grammar>
         GeneratedRangeEnd :
