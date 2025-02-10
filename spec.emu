@@ -289,7 +289,7 @@ contributors: Holger Benl, Simon Zünd
           </tr>
           <tr>
             <td>[[Binding]]</td>
-            <td>a Number</td>
+            <td>a String</td>
             <td>TODO</td>
           </tr>
         </table>
@@ -766,7 +766,7 @@ contributors: Holger Benl, Simon Zünd
         1. Let _binding_ be a new Binding Record.
         1. Set _binding_.[[FromLine]] to _state_.[[BindingFromLine]].
         1. Set _binding_.[[FromColumn]] to _state_.[[BindingFromColumn]].
-        1. Set _binding_.[[Binding]] to _state_.[[BindingIndex]].
+        1. Set _binding_.[[Binding]] to ResolveExpression(_state_.[[BindingIndex]]).
         1. Append _binding_ to _subRangeBinding_.[[Bindings]].
       </emu-alg>
     </emu-clause>
