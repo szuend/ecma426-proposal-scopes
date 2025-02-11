@@ -316,6 +316,22 @@ contributors: Holger Benl, Simon Zünd
   </emu-clause>
 </emu-clause>
 
+<emu-clause id="sec-mappings">
+  <h1>Relationship with mappings</h1>
+  <p>
+    The <a href="https://tc39.es/ecma426/#mappings-structure">decoded mapping</a> structs of a source map must be consistent w.r.t. to the Scope Information Record. Informally, mappings and scopes information must not disagree on how they map from generated code to original code. Formally, for any decoded mapping struct _mapping_, the following steps must return *true*:
+    <emu-alg>
+      1. Let _mapping_ be an arbitrary decoded mapping struct.
+      1. Let _range_ be the inner-most generated range containing _mapping_.[[generatedLine]] and _mapping_.[[generatedColumn]].
+      1. If _mapping_.[[originalSource]] or _mapping_.[[originalLine]] or _mapping_.[[originalColumn]] is *null*, then
+        1. If _range_.[[Definition]] is not *null*, return *false*.
+      1. Let _scope_ be the inner-most original scope containing _mapping_.[[originalSource]], _mapping_.[[originalLine]] and _mapping_.[[originalColumn]].
+      1. If _range_.[[Definition]] is not equal to _scope_, return *false*.
+      1. Return *true*.
+    </emu-alg>
+  </p>
+</emu-clause>
+
 <emu-clause id="sec-specification-types">
   <h1>Specification Types</h1>
   <p>The encoding format heavily uses relative numbers to save bytes. The Decode State Record, Decode Original Scope State Record and Decode Generated Range State Record keep track of the absolute values.</p>
