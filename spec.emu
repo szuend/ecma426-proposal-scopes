@@ -90,7 +90,7 @@ contributors: Holger Benl, Simon Zünd
 
   <emu-clause id="sec-original-scope-record-type">
     <h1>The Original Scope Record Type</h1>
-    <p>The <dfn variants="Original Scope Records">Original Scope Record</dfn> describes a scope in an original (authored) file.</p>
+    <p>The <dfn variants="Original Scope Records">Original Scope Record</dfn> describes a lexical scope in an original (authored) file.</p>
     <emu-table id="table-original-scope-record-fields" caption="Original Scope Record Fields">
       <table>
         <thead>
@@ -147,6 +147,13 @@ contributors: Holger Benl, Simon Zünd
         </tr>
       </table>
     </emu-table>
+    <p>Original Scope Records are properly nested (by construction, TODO: define comparison):</p>
+    <ul>
+      <li>The start position is equal or smaller then the first child's start position (TODO: Define comparison).</li>
+      <li>Each child's end position is equal or smaller then the next child's start position.</li>
+      <li>The end position is equal or smaller to the last child's end position.</li>
+    </ul>
+    <p></p>
   </emu-clause>
 
   <emu-clause id="sec-generated-range-record-type">
@@ -217,6 +224,13 @@ contributors: Holger Benl, Simon Zünd
         </tr>
       </table>
     </emu-table>
+    <p>Generated Range Records are properly nested (by construction, TODO: define comparison):</p>
+    <ul>
+      <li>The start position is equal or smaller then the first child's start position.</li>
+      <li>Each child's end position is equal or smaller then the next child's start position.</li>
+      <li>The end position is equal or smaller to the last child's end position.</li>
+    </ul>
+    <p></p>
     <p>Each Generated Range Record may be associated with a Original Scope Record as indicated by the presence of the [[Definition]] field.</p>
     <p>[[Bindings]] are intended for debuggers to retrieve the values of original variables. The length of [[Bindings]] must be equal to [[Variables]] of the corresponding Original Scope Record. Given an index i, the JavaScript expression [[Binding]][i], when evaluated inside the generated range, retrieves the value for the original variable [[Variables]][i].</p>
     <p>If a variable requires different expressions across a generated range, then [[SubRangeBindings]] can be used. [[SubRangeBinding]] splits the generated range into multiple sub-ranges, but just for a specific variable. Note that the same can be achieved with splitting the whole generated range, but at the cost of duplicating all of the information.</p>
