@@ -38,7 +38,7 @@ contributors: Holger Benl, Simon Zünd
 
   <emu-clause id="sec-scope-information-record-type">
     <h1>The Scope Information Record Type</h1>
-    <p>Decoding the `"scopes"` field results in a <dfn>Scope Information Record</dfn>.</p>
+    <p>Decoding the `"scopes"` field results in a <dfn>Scope Information Record</dfn>. The resulting Scope Information record will be added to the existing <a href="https://tc39.es/ecma426/#decoded-source-map">decoded source map struct</a>.</p>
     <emu-table id="table-scope-information-record-fields" caption="Scope Information Record Fields">
       <table>
         <thead>
@@ -184,6 +184,16 @@ contributors: Holger Benl, Simon Zünd
           <td>[[Definition]]</td>
           <td>a Original Scope Record or *null*</td>
           <td>The corresponding original scope</td>
+        </tr>
+        <tr>
+          <td>[[IsStackFrame]]</td>
+          <td>a Boolean</td>
+          <td>Whether this generated range is a JavaScript/Wasm function.</td>
+        </tr>
+        <tr>
+          <td>[[IsHidden]]</td>
+          <td>a Boolean</td>
+          <td>Whether this generated range is a compiler/transpiler inserted JavaScript/Wasm function even though [[Definition]] is not *null*. E.g. a original block scope was transpiled to a JS function. If [[IsHidden]] is *true*, then [[IsStackFrame]] must also be true.</td>
         </tr>
         <tr>
           <td>[[Bindings]]</td>
@@ -716,6 +726,9 @@ contributors: Holger Benl, Simon Zünd
           1. Set _state_.[[BindingVariableIndex]] to 0.
           1. Set _state_.[[BindingFromLine]] to _range_.[[StartLine]].
           1. Set _state_.[[BindingFromColumn]] to _range_.[[StartColumn]].
+        1. If _flags_ & 0x4 > 0, set _state_.[[IsStackFrame]] to *true*.
+        1. If _flags_ & 0x8 > 0, set _state_.[[IsHidden]] to *true*.
+        1. Assert: If _state_.[[IsHidden]] is *true*, _state_.[[IsStackFrame]] must be *true*.
       </emu-alg>
       <emu-grammar>
         GeneratedRangeEnd :
