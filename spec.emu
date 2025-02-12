@@ -873,7 +873,7 @@ contributors: Holger Benl, Simon Zünd
   </emu-clause>
 </emu-clause>
 
-<emu-clause id="sec-mappings"></emu-clause>
+<emu-clause id="sec-mappings">
   <h1>Relationship with mappings</h1>
   <p>
     The <a href="https://tc39.es/ecma426/#mappings-structure">decoded mapping</a> structs of a source map must be consistent w.r.t. to the Scope Information Record. Informally, mappings and scopes information must not disagree on how they map from generated code to original code. Formally, for any decoded mapping struct _mapping_, the following steps must return *true*:
@@ -887,6 +887,72 @@ contributors: Holger Benl, Simon Zünd
       1. Return *true*.
     </emu-alg>
   </p>
+</emu-clause>
+
+<emu-clause id="sec-generated-range-record-js">
+  <h1>Generated Range Records for JavaScript</h1>
+  <p>For generated JavaScript code, producers must emit generated ranges that don't overlap multiple lexical scopes. That is, each generated range must start and end in the same lexical scope. E.g. it is illegal for a generated range to start in a lexical JavaScript function scope and end in a nested `if` block scope. This ensures that consumers can associate each generated range with exactly one lexical JavaScript scope.</p>
+  <p>Formally, the following algorithmic steps must succeed for any Generated Range Record:</p>
+  <emu-alg>
+    1. Let _range_ be any Generated Range Record in a Scope Information Record.
+    1. Let _scopes_ be a new empty List.
+    1. Perform CollectScopes on the |Script| or |Module| Parse Node of the underlying script.
+    1. Let _startScope_ be the inner-most scope of _scopes_ that contains _range_.[[StartLine]] and _range_.[[StartColumn]].
+    1. Let _endScope_ be the inner-most scope of _scopes_ that contains _range_.[[EndLine]] and _range_.[[EndColumn]].
+    1. Assert: _startScope_ and _endScope_ are the same.
+  </emu-alg>
+
+  <emu-clause id="op-js-scopes" type="sdo">
+    <h1>
+      CollectScopes (
+        _scopes_: A List of Range Records,
+      )
+    </h1>
+    <dl class="header">
+      <dt>description</dt>
+      <dd>It collects all scopes of a ECMAScript script/module as a tree of ranges. It is invoked with an empty List on the script/module goal symbol.</dd>
+    </dl>
+    <p>Every grammar production alternative in the ECMA262 specification which is not listed below implicitly has the following default definition of CollectScopes:</p>
+    <emu-alg>
+      1. For each child node _child_ of this Parse Node, do
+        1. If _child_ is an instance of a nonterminal, perform CollectScopes of _child_ with argument _scopes_.
+    </emu-alg>
+    <emu-grammar>
+      FunctionDeclaration :
+        `function` BindingIdentifier `(` FormalParameters `)` `{` FunctionBody `}`
+        `function` `(` FormalParameters `)` `{` FunctionBody `}`
+    </emu-grammar>
+    <emu-alg>
+      1. Let _scope_ be a new Range Record { [[Start]]: StartPosition(`(`), [[End]]: EndPosition(`}`), [[Children]]: « » }.
+      1. Append _scope_ to _scopes_.
+      1. Perform CollectScopes of |FunctionBody| with arguments _scope_.[[Children]].
+    </emu-alg>
+    <emu-note>TODO: Add the rest of ECMA262 productions that add scopes.</emu-note>
+  </emu-clause>
+
+  <emu-clause id="op-start-position" type="host-defined abstract operation">
+    <h1>
+      StartPosition (
+        _node_: a Parse Node,
+      ): a Position Record
+    </h1>
+    <dl class="header">
+      <dt>description</dt>
+      <dd>It returns the line and column (inclusive) of the first character of the source text matched by _node_.</dd>
+    </dl>
+  </emu-clause>
+
+  <emu-clause id="op-end-position" type="host-defined abstract operation">
+    <h1>
+      EndPosition (
+        _node_: a Parse Node,
+      ): a Position Record
+    </h1>
+    <dl class="header">
+      <dt>description</dt>
+      <dd>It returns the line and column (exclusive) of the last character of the source text matched by _node_.</dd>
+    </dl>
+  </emu-clause>
 </emu-clause>
 
 <emu-annex id="sec-missing">
