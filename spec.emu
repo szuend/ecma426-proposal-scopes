@@ -19,13 +19,7 @@ contributors: Holger Benl, Simon Zünd
       <tr>
         <td>`"scopes"`</td>
         <td>
-          an optional string. The string itself is a comma (`,`) separated list of encoded items. Each items as a list of VLQ encoded unsigned or signed numbers. Clause <emu-xref href="#sec-format"></emu-xref> describes the grammar of the string.
-        </td>
-      </tr>
-      <tr>
-        <td>`"expressions"`</td>
-        <td>
-          an optional list of strings. The list may also contain the value `null`. This is a string table similar to `"names"` but holds JavaScript expressions.
+          an optional string. The string itself is a comma (`,`) separated list of encoded items. Each item as a list of VLQ encoded unsigned or signed numbers. Clause <emu-xref href="#sec-format"></emu-xref> describes the grammar of the string.
         </td>
       </tr>
     </table>
@@ -50,39 +44,13 @@ contributors: Holger Benl, Simon Zünd
         </thead>
         <tr>
           <td>[[OriginalScopes]]</td>
-          <td>a List of Original Scope Tree Records</td>
-          <td>todo</td>
+          <td>a List of Original Scope Records. The list may also contain *null* entries.</td>
+          <td>The length of [[OriginalScopes]] must match the length of the *sources* JSON field. A *null* entry indicates that no scope information is available for the corresponding source file.</td>
         </tr>
         <tr>
           <td>[[GeneratedRanges]]</td>
           <td>a List of Generated Range Records</td>
           <td>todo</td>
-        </tr>
-      </table>
-    </emu-table>
-  </emu-clause>
-
-  <emu-clause id="sec-original-scope-tree-record-type">
-    <h1>The Original Scope Tree Record Type</h1>
-    <p>The <dfn variants="Original Scope Tree Records">Original Scope Tree Record</dfn> describes the scope tree for an original (authored) file. It corresponds directly to one entry in the `"sources"` list.</p>
-    <emu-table id="table-original-scope-tree-record-fields" caption="Original Scope Tree Record Fields">
-      <table>
-        <thead>
-          <tr>
-            <th>Field Name</th>
-            <th>Value</th>
-            <th>Meaning</th>
-          </tr>
-        </thead>
-        <tr>
-          <td>[[SourceIndex]]</td>
-          <td>a Number</td>
-          <td>An index into the `"sources"` list of a source map.</td>
-        </tr>
-        <tr>
-          <td>[[Root]]</td>
-          <td>a Original Scope Record</td>
-          <td>The top-level/root scope.</td>
         </tr>
       </table>
     </emu-table>
@@ -357,7 +325,7 @@ contributors: Holger Benl, Simon Zünd
 
   <emu-clause id="sec-decode-original-scope-state-record-type">
     <h1>The Decode Original Scope State Record Specification Type</h1>
-    <p>The <dfn>Decode Original Scope State Record</dfn> keeps track of relative numbers while decoding a Original Scope Tree Record.</p>
+    <p>The <dfn>Decode Original Scope State Record</dfn> keeps track of relative numbers while decoding a top-level Original Scope Record.</p>
     <emu-table id="table-decode-original-scope-state-record-fields" caption="Decode Original Scope State Record Fields">
       <table>
         <thead>
@@ -367,11 +335,6 @@ contributors: Holger Benl, Simon Zünd
             <th>Meaning</th>
           </tr>
         </thead>
-        <tr>
-          <td>[[SourceIndex]]</td>
-          <td>a Number or *null*.</td>
-          <td>Records the last occurrence of |OriginalScopeSourceRef|, if any.</td>
-        </tr>
         <tr>
           <td>[[Line]]</td>
           <td>a Number</td>
@@ -516,12 +479,7 @@ contributors: Holger Benl, Simon Zünd
     <emu-alg>
       1. Let _state_ be a new Decode Original Scope State Record.
       1. Let _root_ be DecodeScope of |OriginalScopeTree| with arguments _globalState_ and _state_.
-      1. Let _idx_ be _state_.[[SourceIndex]].
-      1. If _idx_ is *null*, set _idx_ to the length of _info_.[[OriginalScopes]].
-      1. Let _scope_ be a new Original Scope Tree Record.
-      1. Set _scope_.[[Root]] to _root_.
-      1. Set _scope_.[[SourceIndex]] to _idx_.
-      1. Append _scope_ to _info_.[[OriginalScopes]].
+      1. Append _root_ to _info_.[[OriginalScopes]].
     </emu-alg>
     <emu-grammar>TopLevelItem : GeneratedRangeTree</emu-grammar>
     <emu-alg>
@@ -543,7 +501,6 @@ contributors: Holger Benl, Simon Zünd
 
       OriginalScopeItem :
         OriginalScopeVariables
-        OriginalScopeSourceRef
         OriginalScopeTree
         UnknownItem
 
@@ -555,9 +512,6 @@ contributors: Holger Benl, Simon Zünd
 
       OriginalScopeVariables :
         `D` VlqList
-
-      OriginalScopeSourceRef :
-        `E` SourceRef
     </emu-grammar>
 
     <emu-clause id="sec-decode-scope" type="sdo">
@@ -646,13 +600,6 @@ contributors: Holger Benl, Simon Zünd
         1. For each element _index_ of _variableIndices_, do
           1. Set _state_.[[VariableIndex]] to _state_.[[VariableIndex]] + _index_.
           1. Append ResolveName(_state_.[[VariableIndex]]) to _scope_.[[Variables]].
-      </emu-alg>
-      <emu-grammar>
-        OriginalScopeSourceRef :
-          `E` SourceRef
-      </emu-grammar>
-      <emu-alg>
-        1. Set _state_.[[SourceIndex]] to DecodeUnsignedVlq(|SourceRef|).
       </emu-alg>
     </emu-clause>
   </emu-clause>
@@ -1036,7 +983,6 @@ contributors: Holger Benl, Simon Zünd
   <emu-prodref name="OriginalScopeItemList"></emu-prodref>
   <emu-prodref name="OriginalScopeItem"></emu-prodref>
   <emu-prodref name="OriginalScopeVariables"></emu-prodref>
-  <emu-prodref name="OriginalScopeSourceRef"></emu-prodref>
   <emu-prodref name="GeneratedRangeTree"></emu-prodref>
   <emu-prodref name="GeneratedRangeStart"></emu-prodref>
   <emu-prodref name="GeneratedRangeEnd"></emu-prodref>
