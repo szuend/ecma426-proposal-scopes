@@ -44,7 +44,7 @@ contributors: Holger Benl, Simon Zünd
         </thead>
         <tr>
           <td>[[OriginalScopes]]</td>
-          <td>a List of Original Scope Records. The list may also contain *null* entries.</td>
+          <td>a List of either Original Scope Records or *null*</td>
           <td>The length of [[OriginalScopes]] must match the length of the *sources* JSON field. A *null* entry indicates that no scope information is available for the corresponding source file.</td>
         </tr>
         <tr>
@@ -436,9 +436,7 @@ contributors: Holger Benl, Simon Zünd
     </dl>
     <emu-alg>
       1. Let _globalState_ be a new Decode State Record.
-      1. Let _info_ be a new Scope Information Record.
-      1. Set _info_.[[OriginalScopes]] to a new empty List.
-      1. Set _info_.[[GeneratedRanges]] to a new empty List.
+      1. Let _info_ be a new Scope Information Record { [[OriginalScopes]]: « », [[GeneratedRanges]]: « » }.
       1. Perform DecodeItem on _scopes_ with arguments _globalState_ and _info_.
       1. Return _info_.
     </emu-alg>
@@ -450,14 +448,23 @@ contributors: Holger Benl, Simon Zünd
   <p>The `"scopes"` string must result in a successful parse starting at the |Scopes| goal symbol.</p>
   <emu-grammar type="definition">
     Scopes :
-      ItemList
+      OriginalScopeTreeList
+      TopLevelItemList
+      OriginalScopeTreeList `,` TopLevelItemList
 
-    ItemList :
+    OriginalScopeTreeList :
+      OriginalScopeTreeItem
+      OriginalScopeTreeList `,` OriginalScopeTreeItem
+
+    OriginalScopeTreeItem :
+      OriginalScopeTree
+      [empty]
+
+    TopLevelItemList :
       TopLevelItem
-      ItemList `,` TopLevelItem
+      TopLevelItemList `,` TopLevelItem
 
     TopLevelItem :
-      OriginalScopeTree
       GeneratedRangeTree
       UnknownItem
   </emu-grammar>
@@ -470,16 +477,39 @@ contributors: Holger Benl, Simon Zünd
       )
     </h1>
     <dl class="header"></dl>
-    <emu-grammar>ItemList : ItemList `,` TopLevelItem</emu-grammar>
+    <emu-grammar>
+      Scopes :
+        OriginalScopeTreeList `,` TopLevelItemList
+    </emu-grammar>
     <emu-alg>
-      1. Perform DecodeItem of |ItemList| with arguments _globalState_ and _info_.
-      1. Perform DecodeItem of |TopLevelItem| with arguments _globalState_ and _info_.
+      1. Perform DecodeItem of |OriginalScopeTreeList| with arguments _globalState_ and _info_.
+      1. Perform DecodeItem of |TopLevelItemList| with arguments _globalState_ and _info_.
     </emu-alg>
-    <emu-grammar>TopLevelItem : OriginalScopeTree</emu-grammar>
+    <emu-grammar>
+      OriginalScopeTreeList :
+        OriginalScopeTreeList `,` OriginalScopeTreeItem
+    </emu-grammar>
+    <emu-alg>
+      1. Perform DecodeItem of |OriginalScopeTreeList| with arguments _globalState_ and _info_.
+      1. Perform DecodeItem of |OriginalScopeTreeItem| with arguments _globalState_ and _info_.
+    </emu-alg>
+    <emu-grammar>OriginalScopeTreeItem : OriginalScopeTree</emu-grammar>
     <emu-alg>
       1. Let _state_ be a new Decode Original Scope State Record.
-      1. Let _root_ be DecodeScope of |OriginalScopeTree| with arguments _globalState_ and _state_.
-      1. Append _root_ to _info_.[[OriginalScopes]].
+      1. Let _scope_ be DecodeScope of |OriginalScopeTree| with arguments _globalState_ and _state_.
+      1. Append _scope_ to _info_.[[OriginalScopes]].
+    </emu-alg>
+    <emu-grammar>OriginalScopeTreeItem : [empty]</emu-grammar>
+    <emu-alg>
+      1. Append *null* to _info_.[[OriginalScopes]].
+    </emu-alg>
+    <emu-grammar>
+      TopLevelItemList :
+        TopLevelItemList `,` TopLevelItem
+    </emu-grammar>
+    <emu-alg>
+      1. Perform DecodeItem of |TopLevelItemList| with arguments _globalState_ and _info_.
+      1. Perform DecodeItem of |TopLevelItem| with arguments _globalState_ and _info_.
     </emu-alg>
     <emu-grammar>TopLevelItem : GeneratedRangeTree</emu-grammar>
     <emu-alg>
@@ -519,7 +549,7 @@ contributors: Holger Benl, Simon Zünd
         DecodeScope (
           _globalState_: a Decode State Record,
           _state_: a Decode Original Scope State Record,
-        ): a Original Scope Record
+        ): a Original Scope Record or *null*
       </h1>
       <dl class="header"></dl>
       <emu-grammar>
@@ -975,7 +1005,8 @@ contributors: Holger Benl, Simon Zünd
 <emu-annex id="sec-grammar-summary">
   <h1>Grammar Summary</h1>
   <emu-prodref name="Scopes"></emu-prodref>
-  <emu-prodref name="ItemList"></emu-prodref>
+  <emu-prodref name="OriginalScopeTreeList"></emu-prodref>
+  <emu-prodref name="TopLevelItemList"></emu-prodref>
   <emu-prodref name="TopLevelItem"></emu-prodref>
   <emu-prodref name="OriginalScopeTree"></emu-prodref>
   <emu-prodref name="OriginalScopeStart"></emu-prodref>
