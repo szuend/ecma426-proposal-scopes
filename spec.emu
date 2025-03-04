@@ -535,7 +535,7 @@ contributors: Holger Benl, Simon Zünd
         UnknownItem
 
       OriginalScopeStart :
-        `B` Line Column Flags Name? Kind?
+        `B` Flags Line Column Name? Kind?
 
       OriginalScopeEnd :
         `C` Line Column
@@ -577,7 +577,7 @@ contributors: Holger Benl, Simon Zünd
       <dl class="header"></dl>
       <emu-grammar>
         OriginalScopeStart :
-          `B` Line Column Flags Name? Kind?
+          `B` Flags Line Column Name? Kind?
       </emu-grammar>
       <emu-alg>
         1. Set _state_.[[Line]] to _state_.[[Line]] + DecodeUnsignedVlq(|Line|).
@@ -652,16 +652,16 @@ contributors: Holger Benl, Simon Zünd
         UnknownItem
 
       GeneratedRangeStart :
-        `F` Flags Column Line? Definition?
+        `E` Flags Line? Column Definition?
 
       GeneratedRangeEnd :
-        `G` Column Line?
+        `F` Line? Column
 
       GeneratedRangeBindings :
-        `H` VlqList
+        `G` VlqList
 
       SubRangeBinding :
-        `I` VariableIndex BindingFromList
+        `H` VariableIndex BindingFromList
 
       BindingFromList :
         BindingFrom
@@ -671,7 +671,7 @@ contributors: Holger Benl, Simon Zünd
         Line Column Vlq
 
       CallSite :
-        `J` SourceRef Line Column
+        `I` SourceRef Line Column
     </emu-grammar>
 
     <emu-clause id="sec-decode-range" type="sdo">
@@ -706,7 +706,7 @@ contributors: Holger Benl, Simon Zünd
       <dl class="header"></dl>
       <emu-grammar>
         GeneratedRangeStart :
-          `F` Flags Column Line? Definition?
+          `E` Flags Line? Column Definition?
       </emu-grammar>
       <emu-alg>
         1. Let _flags_ be DecodeUnsignedVlq(|Flags|).
@@ -731,7 +731,7 @@ contributors: Holger Benl, Simon Zünd
       </emu-alg>
       <emu-grammar>
         GeneratedRangeEnd :
-          `G` Column Line?
+          `F` Line? Column
       </emu-grammar>
       <emu-alg>
         1. If |Line| is present, then
@@ -760,7 +760,7 @@ contributors: Holger Benl, Simon Zünd
       </emu-alg>
       <emu-grammar>
         GeneratedRangeBindings :
-          `H` VlqList
+          `G` VlqList
       </emu-grammar>
       <emu-alg>
         1. Assert: _range_.[[Definition]] is not *null*.
@@ -771,7 +771,7 @@ contributors: Holger Benl, Simon Zünd
       </emu-alg>
       <emu-grammar>
         SubRangeBinding :
-          `I` VariableIndex BindingFromList
+          `H` VariableIndex BindingFromList
       </emu-grammar>
       <emu-alg>
         1. Assert: _range_.[[Definition]] is not *null*.
@@ -784,7 +784,7 @@ contributors: Holger Benl, Simon Zünd
       </emu-alg>
       <emu-grammar>
         CallSite :
-          `J` SourceRef Line Column
+          `I` SourceRef Line Column
       </emu-grammar>
       <emu-alg>
         1. Assert: _range_.[[Definition]] is not *null*.
